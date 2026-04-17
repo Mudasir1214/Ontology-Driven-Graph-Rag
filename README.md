@@ -66,7 +66,7 @@ pip install streamlit streamlit_agraph openai neo4j pandas openpyxl tqdm
 - managed the path in `System Environment Variable`
 
 #### ▶️ Start Neo4j Server
-```powershell
+```bash
 Open the command prompt and start the neo4j server
 neo4j console
 ```
@@ -74,15 +74,17 @@ neo4j console
 
 #### 🔐 Set Database Credentials
 
-Open in browser:  
-[http://localhost:7474](http://localhost:7474)
+- Open in browser:  
+  [http://localhost:7474](http://localhost:7474)
 
-#### 👤 Default Login
-- Username: `neo4j`
-- Password: `neo4j`
+- 👤 Default Login
+  - Username: `neo4j`
+  - Password: `neo4j`
 
-#### 🔄 Change Password To:
-```12345678```
+- 🔄 Change Password To:
+    ```bash
+    12345678
+    ```
 #### ⚠️ Important Note
 
 This password is managed in **.env**.  
@@ -92,12 +94,11 @@ If you change it to anything, you must update it in  `.env` where Neo4j authenti
 
 ## 🔑 Phase 3: API Key Setup
 
-#### Get API Key
-- Create an API key from **DeepSeek** or **OpenAI**
+- **Get API Key**
+  - Create an API key from **DeepSeek** or **OpenAI**
 
-#### Add API Key
-
-Open and edit `.env`:
+- **Add API Key**
+  - Open and edit `.env`:
 
 ```python
 DEEPSEEK_API_KEY = "sk-YOUR_API_KEY"
@@ -146,6 +147,9 @@ python import_json.py
   -  Highly Recommended: Mode 3 (Graph RAG):
      - Click the Live Topology tab to interact with a visual, zoomable spiderweb of your knowledge graph!
      - Click the Intelligent Chat tab to ask engineering questions (e.g., "Is 50mm clearance for Pump Base?").
+
+---
+
 
 ## 📈 Phase 6: Running Automated Benchmark & Auto-Grader
 
