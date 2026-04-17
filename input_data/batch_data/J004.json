@@ -1,0 +1,92 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-ElecWiring-2015",
+      "title": "Code of Practice for the Electricity (Wiring) Regulations",
+      "publisher": null,
+      "version": "2015 Edition",
+      "year": 2015
+    },
+    "chapter": {
+      "id": "CH-7B-3-b-ii",
+      "title": "Code 7B(3)(b)(ii) – Lighting load per lampholder"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-7B-3bii-002",
+      "text": "Connected load 100W per lampholder.",
+      "page_number": null,
+      "document_id": "DOC-ElecWiring-2015",
+      "chapter_id": "CH-7B-3-b-ii",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcLampHolder-002",
+      "name": "Lampholder",
+      "ifc_class": "IfcLamp"
+    },
+    "material": null,
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-7B-3bii-002",
+        "Rule_id": "R-EL-7B-3bii-002",
+        "Logic": "SINGLE",
+        "description": "Connected load per lampholder shall be 100 W (design connected load).",
+        "constraints": [
+          "C-EL-7B-3bii-002-100W"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-7B-3bii-002-100W",
+        "Type": "power_load",
+        "Operator": "=",
+        "Value": 100,
+        "Unit": "W",
+        "Tolerance": null,
+        "note": "Design connected load assigned per lampholder (100 W)."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-ElecWiring-2015",
+      "to": "CH-7B-3-b-ii",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-7B-3-b-ii",
+      "to": "R-EL-7B-3bii-002",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-7B-3bii-002",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-7B-3bii-002",
+      "to": "C-IfcLampHolder-002",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-7B-3bii-002",
+      "to": "CG-EL-7B-3bii-002",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-7B-3bii-002",
+      "to": "C-EL-7B-3bii-002-100W",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

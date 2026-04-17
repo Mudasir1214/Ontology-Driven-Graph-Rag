@@ -1,0 +1,122 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-FireDI-2012",
+      "title": "General Specification for Fire Service Installation in Government Buildings",
+      "publisher": null,
+      "version": "2012 Edition",
+      "year": 2012
+    },
+    "chapter": {
+      "id": "CH-Fire-DI-Coating",
+      "title": "Ductile Iron Pipe Coating Requirements"
+    },
+    "module": {
+      "id": "MOD-FireProtection",
+      "name": "Fire Protection Services"
+    },
+    "rule": {
+      "id": "R-FP-DI-COAT-2012-EXTZINC",
+      "text": "External zinc coating: 130 g/m² minimum mass; zinc purity ≥ 99.9%.",
+      "page_number": null,
+      "document_id": "DOC-FireDI-2012",
+      "chapter_id": "CH-Fire-DI-Coating",
+      "module_id": "MOD-FireProtection"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-DI-Fire-2012",
+      "name": "Ductile Iron Pipe (Fire Service)",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "material": {
+      "id": "M-DI-Pipe-Fire-2012",
+      "name": "Ductile Iron Pipe",
+      "standard": null,
+      "attributes": {
+        "coating_external": "zinc",
+        "zinc_nominal_mass_g_per_m2": 130,
+        "zinc_purity_percent_min": 99.9,
+        "notes": "External zinc coating specified as 130 g/m² minimum and zinc purity at least 99.9%."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-FP-DI-COAT-2012-EXT",
+        "Rule_id": "R-FP-DI-COAT-2012-EXTZINC",
+        "Logic": "AND",
+        "description": "External zinc coating mass and purity requirements must both be satisfied.",
+        "constraints": [
+          "C-FP-DI-EXT-ZINC-MASS",
+          "C-FP-DI-EXT-ZINC-PURITY"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-FP-DI-EXT-ZINC-MASS",
+        "Type": "coating_mass",
+        "Operator": ">=",
+        "Value": 130,
+        "Unit": "g/m²",
+        "Tolerance": null,
+        "note": "Minimum external zinc coating mass: 130 g/m²."
+      },
+      {
+        "Id": "C-FP-DI-EXT-ZINC-PURITY",
+        "Type": "material_purity",
+        "Operator": ">=",
+        "Value": 99.9,
+        "Unit": "percent",
+        "Tolerance": null,
+        "note": "Zinc purity must be at least 99.9%."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-FireDI-2012",
+      "to": "CH-Fire-DI-Coating",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-Fire-DI-Coating",
+      "to": "R-FP-DI-COAT-2012-EXTZINC",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-FP-DI-COAT-2012-EXTZINC",
+      "to": "MOD-FireProtection",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-FP-DI-COAT-2012-EXTZINC",
+      "to": "C-IfcPipeSegment-DI-Fire-2012",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-FP-DI-COAT-2012-EXTZINC",
+      "to": "M-DI-Pipe-Fire-2012",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-FP-DI-COAT-2012-EXTZINC",
+      "to": "CG-FP-DI-COAT-2012-EXT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-FP-DI-COAT-2012-EXT",
+      "to": "C-FP-DI-EXT-ZINC-MASS",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-FP-DI-COAT-2012-EXT",
+      "to": "C-FP-DI-EXT-ZINC-PURITY",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

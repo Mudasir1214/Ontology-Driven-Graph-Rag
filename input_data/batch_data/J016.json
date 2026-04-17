@@ -1,0 +1,102 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-Mechanical",
+      "title": "Section 6 – Mechanical Installation"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "text": "Stainless steel shall be used for water with temperature >28°C.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-Mechanical",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcPump-SalineWater",
+      "name": "Saline Water Pump",
+      "ifc_class": "IfcPump"
+    },
+    "material": {
+      "id": "MAT-StainlessSteel",
+      "name": "Stainless Steel",
+      "standard": null,
+      "attributes": {}
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-SALINEPUMP-TEMP-2022",
+        "Rule_id": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+        "Logic": "AND",
+        "description": "Temperature-based material requirement for saline water pumps.",
+        "constraints": [
+          "C-MECH-SALINEPUMP-TEMP-MIN"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-SALINEPUMP-TEMP-MIN",
+        "Type": "water_temperature",
+        "Operator": ">",
+        "Value": 28,
+        "Unit": "°C",
+        "Tolerance": null,
+        "note": "Stainless steel is required when saline water temperature exceeds 28°C."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-Mechanical",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-Mechanical",
+      "to": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "to": "C-IfcPump-SalineWater",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "to": "MAT-StainlessSteel",
+      "type": "REQUIRES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+      "to": "CG-MECH-SALINEPUMP-TEMP-2022",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-SALINEPUMP-TEMP-2022",
+      "to": "C-MECH-SALINEPUMP-TEMP-MIN",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

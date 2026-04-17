@@ -1,0 +1,232 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-FireGS-2012",
+      "title": "General Specification for Fire Service Installation in Government Buildings",
+      "publisher": null,
+      "version": "2012 Edition",
+      "year": 2012
+    },
+    "chapter": {
+      "id": "CH-Fire-GS-Pipe",
+      "title": "Galvanised Steel Pipe Requirements"
+    },
+    "module": {
+      "id": "MOD-FireProtection",
+      "name": "Fire Protection Services"
+    },
+    "rule": {
+      "id": "R-FP-GS-PIPE-DIAM-001",
+      "text": "Diameter controls for galvanised steel pipe: ≤50 mm: screwed joints; 50–150 mm: mechanical couplings; >150 mm: flanged. Underground: ≥80 mm must use ductile iron; steel permitted only when diameter <80 mm.",
+      "page_number": null,
+      "document_id": "DOC-FireGS-2012",
+      "chapter_id": "CH-Fire-GS-Pipe",
+      "module_id": "MOD-FireProtection"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-GS-Fire",
+      "name": "Galvanised Steel Pipe (Fire Service)",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "material": {
+      "id": "M-GS-FirePipe-2012",
+      "name": "Fire Service Galvanised Steel Pipe",
+      "standard": null,
+      "attributes": {
+        "notes": "Underground ≥80 mm requires ductile iron (DI). GS pipe only allowed below 80 mm in underground zones."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-FP-GS-PIPE-DIAM-JOINT",
+        "Rule_id": "R-FP-GS-PIPE-DIAM-001",
+        "Logic": "CONDITIONAL",
+        "description": "Pipe jointing method depends on pipe diameter.",
+        "condition": "pipe_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "<= 50",
+            "applies_constraints": [
+              "C-FP-GS-JOINT-SCREWED"
+            ]
+          },
+          {
+            "condition_expression": "> 50 AND <= 150",
+            "applies_constraints": [
+              "C-FP-GS-JOINT-COUPLING"
+            ]
+          },
+          {
+            "condition_expression": "> 150",
+            "applies_constraints": [
+              "C-FP-GS-JOINT-FLANGED"
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+        "Rule_id": "R-FP-GS-PIPE-DIAM-001",
+        "Logic": "CONDITIONAL",
+        "description": "Underground pipe diameter determines required material.",
+        "condition": "pipe_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "< 80",
+            "applies_constraints": [
+              "C-FP-UG-MATERIAL-STEEL-OK"
+            ]
+          },
+          {
+            "condition_expression": ">= 80",
+            "applies_constraints": [
+              "C-FP-UG-MATERIAL-DI-REQUIRED"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-FP-GS-JOINT-SCREWED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "screwed",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For pipe diameter ≤50 mm."
+      },
+      {
+        "Id": "C-FP-GS-JOINT-COUPLING",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "mechanical_coupling",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For pipe diameter 50–150 mm."
+      },
+      {
+        "Id": "C-FP-GS-JOINT-FLANGED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "flanged",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For pipe diameter >150 mm."
+      },
+      {
+        "Id": "C-FP-UG-MATERIAL-STEEL-OK",
+        "Type": "material_requirement",
+        "Operator": "=",
+        "Value": "steel_permitted",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Underground pipe <80 mm: steel allowed."
+      },
+      {
+        "Id": "C-FP-UG-MATERIAL-DI-REQUIRED",
+        "Type": "material_requirement",
+        "Operator": "=",
+        "Value": "ductile_iron_required",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Underground pipe diameter ≥80 mm: must use ductile iron."
+      },
+      {
+        "Id": "C-FP-GS-THRESH-50",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 50,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Jointing threshold 1."
+      },
+      {
+        "Id": "C-FP-GS-THRESH-150",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 150,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Jointing threshold 2."
+      },
+      {
+        "Id": "C-FP-GS-THRESH-80",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 80,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Material change threshold for underground pipes."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-FireGS-2012",
+      "to": "CH-Fire-GS-Pipe",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-Fire-GS-Pipe",
+      "to": "R-FP-GS-PIPE-DIAM-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-FP-GS-PIPE-DIAM-001",
+      "to": "MOD-FireProtection",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-FP-GS-PIPE-DIAM-001",
+      "to": "C-IfcPipeSegment-GS-Fire",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-FP-GS-PIPE-DIAM-001",
+      "to": "M-GS-FirePipe-2012",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-FP-GS-PIPE-DIAM-001",
+      "to": "CG-FP-GS-PIPE-DIAM-JOINT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-FP-GS-PIPE-DIAM-001",
+      "to": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+      "to": "C-FP-GS-JOINT-SCREWED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+      "to": "C-FP-GS-JOINT-COUPLING",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+      "to": "C-FP-GS-JOINT-FLANGED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+      "to": "C-FP-UG-MATERIAL-STEEL-OK",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+      "to": "C-FP-UG-MATERIAL-DI-REQUIRED",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

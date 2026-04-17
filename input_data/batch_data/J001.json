@@ -1,0 +1,262 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-FireCodes-2022",
+      "title": "Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment",
+      "publisher": null,
+      "version": "2022 edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "APP-08",
+      "title": "Appendix 8"
+    },
+    "module": {
+      "id": "MOD-FireProtection",
+      "name": "Fire Protection Services"
+    },
+    "rule": {
+      "id": "R-FP-APP8-002",
+      "text": "Appendix 8, Item 2: \"Automatic actuating device - Cable shall comply with\" several options including \"BS 6387 Cat. CWZ\", \"BS EN 60702\", and \"BS 8491 (a duration of survival time of 120 minutes)\", plus BS 7629-1 and BS 7846 references split by overall diameter not exceeding / exceeding 20 mm.",
+      "page_number": null,
+      "document_id": "DOC-FireCodes-2022",
+      "chapter_id": "APP-08",
+      "module_id": "MOD-FireProtection"
+    },
+    "component": {
+      "id": "C-IfcCableSegment-001",
+      "name": "Actuating-device cable",
+      "ifc_class": "IfcCableSegment"
+    },
+    "material": {
+      "id": "M-CABLE-ACTUATOR-2022",
+      "name": "Automatic actuating device cable",
+      "standard": null,
+      "attributes": {
+        "application": "Cable for automatic actuating devices",
+        "raw_text": "BS 8491 (a duration of survival time of 120 minutes); BS 7629-1 / BS 7846 split by overall diameter <=/> 20 mm."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-R-FP-APP8-002-STD",
+        "Rule_id": "R-FP-APP8-002",
+        "Logic": "OR",
+        "description": "Cable shall comply with at least one of the listed standards/options.",
+        "constraints": [
+          "C-R-FP-APP8-002-STD-6387",
+          "C-R-FP-APP8-002-STD-60702",
+          "C-R-FP-APP8-002-STD-8491"
+        ]
+      },
+      {
+        "Id": "CG-R-FP-APP8-002-DIAM",
+        "Rule_id": "R-FP-APP8-002",
+        "Logic": "CONDITIONAL",
+        "description": "Applicability of BS 7629-1 and BS 7846 is split by overall cable diameter (<= 20 mm / > 20 mm).",
+        "condition": "overall_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "<= 20",
+            "applies_constraints": [
+              "C-R-FP-APP8-002-STD-7629-LE20",
+              "C-R-FP-APP8-002-STD-7846-LE20"
+            ]
+          },
+          {
+            "condition_expression": "> 20",
+            "applies_constraints": [
+              "C-R-FP-APP8-002-STD-7629-GT20",
+              "C-R-FP-APP8-002-STD-7846-GT20"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-R-FP-APP8-002-STD-6387",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 6387 Cat. CWZ"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option: BS 6387 Category CWZ (fire/water/corrosion classification)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-60702",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS EN 60702"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option: BS EN 60702 series (tests for insulated cables under fire conditions)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-8491",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 8491"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option: BS 8491 (survival-time requirement specified separately)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-8491-TIME",
+        "Type": "performance_requirement",
+        "Operator": ">=",
+        "Value": 120,
+        "Unit": "minutes",
+        "Tolerance": null,
+        "note": "Survival time associated with BS 8491: 120 minutes as stated in text."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-7629-LE20",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 7629-1"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "BS 7629-1 applicability for cables with overall diameter <= 20 mm (per appendix split)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-7846-LE20",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 7846"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "BS 7846 applicability for cables with overall diameter <= 20 mm (per appendix split)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-7629-GT20",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 7629-1"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "BS 7629-1 applicability for cables with overall diameter > 20 mm (per appendix split)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-STD-7846-GT20",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 7846"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "BS 7846 applicability for cables with overall diameter > 20 mm (per appendix split)."
+      },
+      {
+        "Id": "C-R-FP-APP8-002-DIAM-THRESH",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 20,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Diameter threshold used to branch applicability (<=20 mm vs >20 mm)."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-FireCodes-2022",
+      "to": "APP-08",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "APP-08",
+      "to": "R-FP-APP8-002",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "MOD-FireProtection",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "C-IfcCableSegment-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "M-CABLE-ACTUATOR-2022",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "CG-R-FP-APP8-002-STD",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "CG-R-FP-APP8-002-DIAM",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-STD",
+      "to": "C-R-FP-APP8-002-STD-6387",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-STD",
+      "to": "C-R-FP-APP8-002-STD-60702",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-STD",
+      "to": "C-R-FP-APP8-002-STD-8491",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "C-R-FP-APP8-002-STD-8491",
+      "to": "C-R-FP-APP8-002-8491-TIME",
+      "type": "ASSOCIATED_PERFORMANCE"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-DIAM",
+      "to": "C-R-FP-APP8-002-STD-7629-LE20",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-DIAM",
+      "to": "C-R-FP-APP8-002-STD-7846-LE20",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-DIAM",
+      "to": "C-R-FP-APP8-002-STD-7629-GT20",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-002-DIAM",
+      "to": "C-R-FP-APP8-002-STD-7846-GT20",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-FP-APP8-002",
+      "to": "C-R-FP-APP8-002-DIAM-THRESH",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

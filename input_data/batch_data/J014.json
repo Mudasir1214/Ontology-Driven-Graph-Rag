@@ -1,0 +1,107 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-Mechanical",
+      "title": "Section 6 – Mechanical Installation"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+      "text": "Spring hanger submittals shall include a scale drawing showing its 30°–35° swing capability.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-Mechanical",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcVibrationIsolator-SpringHanger",
+      "name": "Spring Hanger (Type E)",
+      "ifc_class": "IfcDiscreteAccessory"
+    },
+    "material": {},
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-SH-SWINGANGLE-2022",
+        "Rule_id": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+        "Logic": "AND",
+        "description": "Spring hanger swing angle requirement for approval submittals.",
+        "constraints": [
+          "C-MECH-SH-SWINGANGLE-MIN",
+          "C-MECH-SH-SWINGANGLE-MAX"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-SH-SWINGANGLE-MIN",
+        "Type": "swing_angle",
+        "Operator": ">=",
+        "Value": 30,
+        "Unit": "degree",
+        "Tolerance": null,
+        "note": "Minimum swing angle capability required is 30°."
+      },
+      {
+        "Id": "C-MECH-SH-SWINGANGLE-MAX",
+        "Type": "swing_angle",
+        "Operator": "<=",
+        "Value": 35,
+        "Unit": "degree",
+        "Tolerance": null,
+        "note": "Maximum swing angle capability specified as 35°."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-Mechanical",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-Mechanical",
+      "to": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+      "to": "C-IfcVibrationIsolator-SpringHanger",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+      "to": "CG-MECH-SH-SWINGANGLE-2022",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-SH-SWINGANGLE-2022",
+      "to": "C-MECH-SH-SWINGANGLE-MIN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-SH-SWINGANGLE-2022",
+      "to": "C-MECH-SH-SWINGANGLE-MAX",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

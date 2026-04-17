@@ -1,0 +1,122 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-1-5",
+      "title": "6.1.5 – Central Control and Monitoring System (CCMS)"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+      "text": "The percentage \"off\" time within each time resolution shall be selectable, as a minimum, on 5% increments between 5% and 95%.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2023",
+      "chapter_id": "CH-06-1-5",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcControlSystem-CCMS",
+      "name": "Central Control and Monitoring System (CCMS)",
+      "ifc_class": "IfcControl"
+    },
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-CCMS-OFFPCT-2023",
+        "Rule_id": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+        "Logic": "AND",
+        "description": "Off-time percentage selection must meet step, minimum and maximum requirements.",
+        "constraints": [
+          "C-MECH-CCMS-OFFPCT-STEP",
+          "C-MECH-CCMS-OFFPCT-MIN",
+          "C-MECH-CCMS-OFFPCT-MAX"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-CCMS-OFFPCT-STEP",
+        "Type": "time_duty_step",
+        "Operator": "=",
+        "Value": 5,
+        "Unit": "percent",
+        "Tolerance": null,
+        "note": "Selectable off-time percentage increments must be 5% (i.e., multiples of 5%)."
+      },
+      {
+        "Id": "C-MECH-CCMS-OFFPCT-MIN",
+        "Type": "time_duty_min",
+        "Operator": ">=",
+        "Value": 5,
+        "Unit": "percent",
+        "Tolerance": null,
+        "note": "Minimum selectable off-time percentage is 5%."
+      },
+      {
+        "Id": "C-MECH-CCMS-OFFPCT-MAX",
+        "Type": "time_duty_max",
+        "Operator": "<=",
+        "Value": 95,
+        "Unit": "percent",
+        "Tolerance": null,
+        "note": "Maximum selectable off-time percentage is 95%."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2023",
+      "to": "CH-06-1-5",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-1-5",
+      "to": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+      "to": "C-IfcControlSystem-CCMS",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+      "to": "CG-MECH-CCMS-OFFPCT-2023",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-CCMS-OFFPCT-2023",
+      "to": "C-MECH-CCMS-OFFPCT-STEP",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CCMS-OFFPCT-2023",
+      "to": "C-MECH-CCMS-OFFPCT-MIN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CCMS-OFFPCT-2023",
+      "to": "C-MECH-CCMS-OFFPCT-MAX",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

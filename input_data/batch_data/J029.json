@@ -1,0 +1,147 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+
+    "chapter": {
+      "id": "CH-07-SCREW-SADDLE",
+      "title": "Fixings, Saddles and Support Hardware"
+    },
+
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+
+    "rule": {
+      "id": "R-EL-SCREW-SADDLE-2029",
+      "text": "The shanks of the screws shall not protrude beyond the nuts by more than three threads. Where saddles exceed 150 mm in length, intermediate fixings shall be provided such that the maximum spacing between screws shall not exceed 150 mm.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2029",
+      "chapter_id": "CH-07-SCREW-SADDLE",
+      "module_id": "MOD-Electrical"
+    },
+
+    "component": {
+      "id": "C-IfcFastener-Screw",
+      "name": "Screw / Fastener",
+      "ifc_class": "IfcFastener"
+    },
+
+    "component_related": [
+      {
+        "id": "C-IfcSaddleSupport",
+        "name": "Saddle Support",
+        "ifc_class": "IfcBuildingElement"
+      }
+    ],
+
+    "material": [
+      {
+        "id": "M-STEEL-SCREW",
+        "name": "Steel screw",
+        "standard": null,
+        "attributes": {
+          "type": "steel",
+          "usage": "electrical fixings"
+        }
+      }
+    ],
+
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-SCREW-PROTRUSION",
+        "Rule_id": "R-EL-SCREW-SADDLE-2029",
+        "Logic": "AND",
+        "description": "Control screw protrusion beyond nut.",
+        "constraints": [
+          "C-EL-SCREW-PROTRUSION"
+        ]
+      },
+      {
+        "Id": "CG-EL-SADDLE-LENGTH",
+        "Rule_id": "R-EL-SCREW-SADDLE-2029",
+        "Logic": "CONDITIONAL",
+        "description": "Fixing requirements depending on saddle length.",
+        "condition": "saddle_length",
+        "branches": [
+          {
+            "condition_expression": "saddle_length > 150",
+            "applies_constraints": [
+              "C-EL-SADDLE-FIXING-SPACING"
+            ]
+          }
+        ]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-EL-SCREW-PROTRUSION",
+        "Type": "max_screw_protrusion",
+        "Operator": "<=",
+        "Value": 3,
+        "Unit": "threads",
+        "Tolerance": null,
+        "note": "Screw shank shall not protrude more than three threads beyond the nut."
+      },
+      {
+        "Id": "C-EL-SADDLE-FIXING-SPACING",
+        "Type": "max_screw_spacing",
+        "Operator": "<=",
+        "Value": 150,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "For saddles longer than 150 mm, intermediate fixing spacing shall not exceed 150 mm."
+      }
+    ],
+
+    "workstep": [
+      {
+        "id": "WS-EL-SCREW-SADDLE-INSTALL",
+        "name": "Install screws and saddle supports",
+        "Method": "Ensure screw protrusion is within 3 threads; for saddles longer than 150 mm, add intermediate fixings with spacing not exceeding 150 mm.",
+        "Safety note": "Check fasteners are tightened without overtension to avoid thread deformation."
+      }
+    ],
+
+    "interface": [
+      {
+        "id": "INT-SCREW-TO-SADDLE",
+        "name": "Screw–Saddle Fastening Interface"
+      }
+    ],
+
+    "product": [],
+    "supplier": [],
+    "space": []
+  },
+
+  "relations": [
+    { "from": "DOC-BSI-2029", "to": "CH-07-SCREW-SADDLE", "type": "HAS_CHAPTER" },
+    { "from": "CH-07-SCREW-SADDLE", "to": "R-EL-SCREW-SADDLE-2029", "type": "HAS_RULE" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "MOD-Electrical", "type": "BELONGS_TO_MODULE" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "C-IfcFastener-Screw", "type": "APPLIES_TO_COMPONENT" },
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "C-IfcSaddleSupport", "type": "APPLIES_TO_COMPONENT" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "M-STEEL-SCREW", "type": "USES_MATERIAL" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "CG-EL-SCREW-PROTRUSION", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "CG-EL-SADDLE-LENGTH", "type": "HAS_CONSTRAINT_GROUP" },
+
+    { "from": "CG-EL-SCREW-PROTRUSION", "to": "C-EL-SCREW-PROTRUSION", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-EL-SADDLE-LENGTH", "to": "C-EL-SADDLE-FIXING-SPACING", "type": "HAS_CONSTRAINT" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "WS-EL-SCREW-SADDLE-INSTALL", "type": "INVOLVES_WORKSTEP" },
+
+    { "from": "R-EL-SCREW-SADDLE-2029", "to": "INT-SCREW-TO-SADDLE", "type": "HAS_INTERFACE" }
+  ]
+}

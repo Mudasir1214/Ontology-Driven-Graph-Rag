@@ -1,0 +1,93 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-Drainage-2017",
+      "title": "General Specification for Drainage Installation in Government Buildings",
+      "publisher": null,
+      "version": "2017 Edition",
+      "year": 2017
+    },
+    "chapter": {
+      "id": "CH-B3",
+      "title": "Part B3 – Pump Foundation & Vibration Control Numerical Requirements"
+    },
+    "module": {
+      "id": "MOD-Drainage",
+      "name": "Drainage Services"
+    },
+    "rule": {
+      "id": "R-DR-B3-001",
+      "text": "No sump-pump-specific numerical requirements in B3; mainly general installation provisions.",
+      "page_number": null,
+      "document_id": "DOC-Drainage-2017",
+      "chapter_id": "CH-B3",
+      "module_id": "MOD-Drainage"
+    },
+    "component": {
+      "id": "C-PUMP-FOUND-001",
+      "name": "Sump pump foundation",
+      "ifc_class": "IfcPump"
+    },
+    "material": null,
+    "constraintGroups": [
+      {
+        "Id": "CG-DR-B3-001",
+        "Rule_id": "R-DR-B3-001",
+        "Logic": "SINGLE",
+        "description": "No specific numerical constraints defined for sump pump foundation or vibration control in Section B3.",
+        "constraints": [
+          "C-DR-B3-001-NO_NUM"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-DR-B3-001-NO_NUM",
+        "Type": "performance_absence",
+        "Operator": "na",
+        "Value": null,
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Section B3 provides general installation provisions for pump foundation and vibration control; it does not state any sump-pump-specific numerical requirements."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-Drainage-2017",
+      "to": "CH-B3",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-B3",
+      "to": "R-DR-B3-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-DR-B3-001",
+      "to": "MOD-Drainage",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-DR-B3-001",
+      "to": "C-PUMP-FOUND-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-DR-B3-001",
+      "to": "CG-DR-B3-001",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-DR-B3-001",
+      "to": "C-DR-B3-001-NO_NUM",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

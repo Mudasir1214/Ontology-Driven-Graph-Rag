@@ -1,0 +1,92 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-ElecWiring-2015",
+      "title": "Code of Practice for the Electricity (Wiring) Regulations",
+      "publisher": null,
+      "version": "2015 Edition",
+      "year": 2015
+    },
+    "chapter": {
+      "id": "CH-17A-4",
+      "title": "Code 17A(4) – HV warning notice size"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-17A-4-002",
+      "text": "HV label: letters not less than 30 mm high.",
+      "page_number": null,
+      "document_id": "DOC-ElecWiring-2015",
+      "chapter_id": "CH-17A-4",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcSign-002",
+      "name": "HV warning label / signage",
+      "ifc_class": "IfcAnnotation"
+    },
+    "material": null,
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-17A-4-002",
+        "Rule_id": "R-EL-17A-4-002",
+        "Logic": "SINGLE",
+        "description": "HV warning label must meet minimum letter height requirement.",
+        "constraints": [
+          "C-EL-17A-4-002-HGT"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-17A-4-002-HGT",
+        "Type": "dimension",
+        "Operator": ">=",
+        "Value": 30,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum letter height for HV warning labels: not less than 30 mm."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-ElecWiring-2015",
+      "to": "CH-17A-4",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-17A-4",
+      "to": "R-EL-17A-4-002",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-17A-4-002",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-17A-4-002",
+      "to": "C-IfcSign-002",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-17A-4-002",
+      "to": "CG-EL-17A-4-002",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-17A-4-002",
+      "to": "C-EL-17A-4-002-HGT",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

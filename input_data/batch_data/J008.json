@@ -1,0 +1,153 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-Plumbing-2017",
+      "title": "General Specification for Plumbing Installation in Government Buildings",
+      "publisher": null,
+      "version": "2017 Edition",
+      "year": 2017
+    },
+    "chapter": {
+      "id": "CH-B2-5",
+      "title": "Part B2.5 – Pump Foundation & Vibration Control Requirements"
+    },
+    "module": {
+      "id": "MOD-Plumbing",
+      "name": "Plumbing and Drainage Services"
+    },
+    "rule": {
+      "id": "R-PL-B2-5-001",
+      "text": "Part B2.5 requires for sump pump foundations: inertia block ≥ 2.5× pump set mass; thickness ≥ 100 mm; projection ≥ 150 mm; spring deflection reserve ≥ ½ rated deflection; base clearance 50 mm.",
+      "page_number": null,
+      "document_id": "DOC-Plumbing-2017",
+      "chapter_id": "CH-B2-5",
+      "module_id": "MOD-Plumbing"
+    },
+    "component": {
+      "id": "C-PUMP-FOUND-002",
+      "name": "Sump pump foundation",
+      "ifc_class": "IfcPump"
+    },
+    "material": null,
+    "constraintGroups": [
+      {
+        "Id": "CG-PL-B2-5-001",
+        "Rule_id": "R-PL-B2-5-001",
+        "Logic": "AND",
+        "description": "All numerical requirements for pump foundation and vibration control must be satisfied.",
+        "constraints": [
+          "C-PL-B2-5-001-INERTIA",
+          "C-PL-B2-5-001-THK",
+          "C-PL-B2-5-001-PROJ",
+          "C-PL-B2-5-001-SPRDEF",
+          "C-PL-B2-5-001-CLR"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-PL-B2-5-001-INERTIA",
+        "Type": "mass_ratio",
+        "Operator": ">=",
+        "Value": 2.5,
+        "Unit": "× pump_set_mass",
+        "Tolerance": null,
+        "note": "Inertia block mass must be at least 2.5 times that of the pump set."
+      },
+      {
+        "Id": "C-PL-B2-5-001-THK",
+        "Type": "dimension",
+        "Operator": ">=",
+        "Value": 100,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum inertia block thickness is 100 mm."
+      },
+      {
+        "Id": "C-PL-B2-5-001-PROJ",
+        "Type": "projection",
+        "Operator": ">=",
+        "Value": 150,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Inertia block shall project at least 150 mm beyond the pump base."
+      },
+      {
+        "Id": "C-PL-B2-5-001-SPRDEF",
+        "Type": "spring_deflection_reserve",
+        "Operator": ">=",
+        "Value": 0.5,
+        "Unit": "× rated_deflection",
+        "Tolerance": null,
+        "note": "Spring deflection reserve must be at least half of the rated deflection."
+      },
+      {
+        "Id": "C-PL-B2-5-001-CLR",
+        "Type": "clearance",
+        "Operator": "=",
+        "Value": 50,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Required base clearance is 50 mm."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-Plumbing-2017",
+      "to": "CH-B2-5",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-B2-5",
+      "to": "R-PL-B2-5-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-PL-B2-5-001",
+      "to": "MOD-Plumbing",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-PL-B2-5-001",
+      "to": "C-PUMP-FOUND-002",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-PL-B2-5-001",
+      "to": "CG-PL-B2-5-001",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-PL-B2-5-001",
+      "to": "C-PL-B2-5-001-INERTIA",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-B2-5-001",
+      "to": "C-PL-B2-5-001-THK",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-B2-5-001",
+      "to": "C-PL-B2-5-001-PROJ",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-B2-5-001",
+      "to": "C-PL-B2-5-001-SPRDEF",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-B2-5-001",
+      "to": "C-PL-B2-5-001-CLR",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

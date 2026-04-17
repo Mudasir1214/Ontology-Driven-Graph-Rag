@@ -1,0 +1,156 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+
+    "chapter": {
+      "id": "CH-6-1-8-3",
+      "title": "6.1.8.3 Vibration Isolators – Type 'B' Restrained Spring Mounts"
+    },
+
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical Services"
+    },
+
+    "rule": {
+      "id": "R-MECH-SPRINGMOUNT-B-2022",
+      "text": "A minimum of 10 mm clearance shall be maintained around restraining bolts and between the housing and the spring so as not to interfere with the spring action. Limit stops shall be out of contact during normal operations.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-6-1-8-3",
+      "module_id": "MOD-Mechanical"
+    },
+
+    "component": {
+      "id": "C-IfcSpringMount-B",
+      "name": "Restrained Spring Mount (Type B)",
+      "ifc_class": "IfcMechanicalFastener"
+    },
+
+    "component_related": [
+      {
+        "id": "C-IfcBolt",
+        "name": "Restraining Bolt",
+        "ifc_class": "IfcFastener"
+      },
+      {
+        "id": "C-IfcSpring",
+        "name": "Vibration Isolation Spring",
+        "ifc_class": "IfcDiscreteAccessory"
+      }
+    ],
+
+    "material": [
+      {
+        "id": "M-STEEL-SPRING",
+        "name": "Steel Spring",
+        "standard": null,
+        "attributes": {
+          "application": "Mechanical vibration isolation system"
+        }
+      }
+    ],
+
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-SPRINGMOUNT-CLEARANCE",
+        "Rule_id": "R-MECH-SPRINGMOUNT-B-2022",
+        "Logic": "AND",
+        "description": "Minimum clearance requirements for restraining bolts and spring housing.",
+        "constraints": [
+          "C-MECH-CLEAR-BOLT",
+          "C-MECH-CLEAR-HOUSING"
+        ]
+      },
+      {
+        "Id": "CG-MECH-SPRINGMOUNT-LIMITSTOP",
+        "Rule_id": "R-MECH-SPRINGMOUNT-B-2022",
+        "Logic": "AND",
+        "description": "Limit stops must not contact during normal operation.",
+        "constraints": [
+          "C-MECH-LIMITSTOP-NOCONTACT"
+        ]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-MECH-CLEAR-BOLT",
+        "Type": "minimum_clearance",
+        "Operator": ">=",
+        "Value": 10,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum clearance around restraining bolts."
+      },
+      {
+        "Id": "C-MECH-CLEAR-HOUSING",
+        "Type": "minimum_clearance",
+        "Operator": ">=",
+        "Value": 10,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum clearance between spring housing and spring."
+      },
+      {
+        "Id": "C-MECH-LIMITSTOP-NOCONTACT",
+        "Type": "limit_stop_clearance",
+        "Operator": "=",
+        "Value": "no_contact",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Limit stops shall not touch during normal operations."
+      }
+    ],
+
+    "workstep": [
+      {
+        "id": "WS-MECH-SPRINGMOUNT-INSTALL",
+        "name": "Install restrained spring mount (Type B)",
+        "Method": "Ensure minimum 10 mm clearance around restraining bolts and spring housing. Confirm limit stops do not contact during normal operations.",
+        "Safety note": "Verify mount alignment to prevent unintended bolt contact or spring binding."
+      }
+    ],
+
+    "interface": [
+      {
+        "id": "INT-SPRINGMOUNT-MECH",
+        "name": "Spring Mount–Housing–Bolt Interface"
+      }
+    ],
+
+    "product": [],
+    "supplier": [],
+    "space": []
+  },
+
+  "relations": [
+    { "from": "DOC-BSI-2022", "to": "CH-6-1-8-3", "type": "HAS_CHAPTER" },
+    { "from": "CH-6-1-8-3", "to": "R-MECH-SPRINGMOUNT-B-2022", "type": "HAS_RULE" },
+
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "MOD-Mechanical", "type": "BELONGS_TO_MODULE" },
+
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "C-IfcSpringMount-B", "type": "APPLIES_TO_COMPONENT" },
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "C-IfcBolt", "type": "APPLIES_TO_COMPONENT" },
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "C-IfcSpring", "type": "APPLIES_TO_COMPONENT" },
+
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "M-STEEL-SPRING", "type": "USES_MATERIAL" },
+
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "CG-MECH-SPRINGMOUNT-CLEARANCE", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "CG-MECH-SPRINGMOUNT-LIMITSTOP", "type": "HAS_CONSTRAINT_GROUP" },
+
+    { "from": "CG-MECH-SPRINGMOUNT-CLEARANCE", "to": "C-MECH-CLEAR-BOLT", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-MECH-SPRINGMOUNT-CLEARANCE", "to": "C-MECH-CLEAR-HOUSING", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-MECH-SPRINGMOUNT-LIMITSTOP", "to": "C-MECH-LIMITSTOP-NOCONTACT", "type": "HAS_CONSTRAINT" },
+
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "WS-MECH-SPRINGMOUNT-INSTALL", "type": "INVOLVES_WORKSTEP" },
+    { "from": "R-MECH-SPRINGMOUNT-B-2022", "to": "INT-SPRINGMOUNT-MECH", "type": "HAS_INTERFACE" }
+  ]
+}

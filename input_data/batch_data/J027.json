@@ -1,0 +1,156 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-07-CABLE-ENTRY",
+      "title": "Cable Entry and Movement Protection"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-CABLE-LOOP-2027",
+      "text": "A loop shall be introduced in a cable immediately before its entry into an equipment which is subject to vibration or occasional movement. A clear space of at least 10 mm shall be maintained at the point in the loop where the cable passes over itself.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2027",
+      "chapter_id": "CH-07-CABLE-ENTRY",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcCableSegment",
+      "name": "Cable",
+      "ifc_class": "IfcCableSegment"
+    },
+    "component_related": [
+      {
+        "id": "C-IfcEquipment-Vibrating",
+        "name": "Equipment subject to vibration",
+        "ifc_class": "IfcFlowTerminal"
+      }
+    ],
+    "material": [
+      {
+        "id": "M-CABLE-COPPER",
+        "name": "Copper Cable",
+        "standard": null,
+        "attributes": {
+          "conductor": "copper",
+          "applicable_to": "loop before vibrating equipment"
+        }
+      }
+    ],
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-CABLE-LOOP",
+        "Rule_id": "R-EL-CABLE-LOOP-2027",
+        "Logic": "AND",
+        "description": "Requirements for cable loop before entering vibrating or moving equipment.",
+        "constraints": [
+          "C-EL-LOOP-PROVIDE",
+          "C-EL-LOOP-CLEARANCE"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-LOOP-PROVIDE",
+        "Type": "installation_method",
+        "Operator": "=",
+        "Value": "provide_loop_before_entry",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "A loop must be provided immediately before cable enters vibrating equipment."
+      },
+      {
+        "Id": "C-EL-LOOP-CLEARANCE",
+        "Type": "minimum_clearance_at_loop_overlap",
+        "Operator": ">=",
+        "Value": 10,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Clear space where cable passes over itself shall be at least 10 mm."
+      }
+    ],
+    "workstep": [
+      {
+        "id": "WS-EL-CABLE-LOOP-INSTALL",
+        "name": "Install cable loop for vibrating equipment",
+        "Method": "Introduce a loop before cable entry to equipment; verify minimum 10 mm clearance at overlap point.",
+        "Safety note": "Ensure equipment vibration zone is safely accessed before modifying cable entry."
+      }
+    ],
+    "interface": [
+      {
+        "id": "INT-CABLE-TO-VIB-EQUIP",
+        "name": "Cable–Vibration Equipment Entry Interface"
+      }
+    ],
+    "product": [],
+    "supplier": [],
+    "space": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2027",
+      "to": "CH-07-CABLE-ENTRY",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-07-CABLE-ENTRY",
+      "to": "R-EL-CABLE-LOOP-2027",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "C-IfcCableSegment",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "C-IfcEquipment-Vibrating",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "M-CABLE-COPPER",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "CG-EL-CABLE-LOOP",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-CABLE-LOOP",
+      "to": "C-EL-LOOP-PROVIDE",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-CABLE-LOOP",
+      "to": "C-EL-LOOP-CLEARANCE",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "WS-EL-CABLE-LOOP-INSTALL",
+      "type": "INVOLVES_WORKSTEP"
+    },
+    {
+      "from": "R-EL-CABLE-LOOP-2027",
+      "to": "INT-CABLE-TO-VIB-EQUIP",
+      "type": "HAS_INTERFACE"
+    }
+  ]
+}

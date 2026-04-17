@@ -1,0 +1,141 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-PlumbingDI-2017",
+      "title": "General Specification for Plumbing Installation in Government Buildings",
+      "publisher": null,
+      "version": "2017 Edition",
+      "year": 2017
+    },
+    "chapter": {
+      "id": "CH-Plumbing-DI-Pipe",
+      "title": "Ductile Iron Pipe Requirements"
+    },
+    "module": {
+      "id": "MOD-Plumbing",
+      "name": "Plumbing Services"
+    },
+    "rule": {
+      "id": "R-PL-DI-COAT-001",
+      "text": "Ductile iron pipe coating requirements: internal cement lining; external bitumen.",
+      "page_number": null,
+      "document_id": "DOC-PlumbingDI-2017",
+      "chapter_id": "CH-Plumbing-DI-Pipe",
+      "module_id": "MOD-Plumbing"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-DI-Plumbing",
+      "name": "Ductile Iron Pipe (Plumbing)",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "material": {
+      "id": "M-DI-Pipe-PL-2017",
+      "name": "Ductile Iron Pipe",
+      "standard": null,
+      "attributes": {
+        "type": "ductile iron",
+        "use": "plumbing system pipes",
+        "coating": {
+          "internal": "cement lining",
+          "external": "bitumen"
+        }
+      }
+    },
+
+    "constraintGroups": [
+      {
+        "Id": "CG-PL-DI-COAT-INT",
+        "Rule_id": "R-PL-DI-COAT-001",
+        "Logic": "SINGLE",
+        "description": "Internal coating requirement.",
+        "constraints": [
+          "C-PL-DI-INT-CEMENT"
+        ]
+      },
+      {
+        "Id": "CG-PL-DI-COAT-EXT",
+        "Rule_id": "R-PL-DI-COAT-001",
+        "Logic": "SINGLE",
+        "description": "External coating requirement.",
+        "constraints": [
+          "C-PL-DI-EXT-BITUMEN"
+        ]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-PL-DI-INT-CEMENT",
+        "Type": "coating_internal",
+        "Operator": "=",
+        "Value": "cement_lining",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Internal surface must be coated with cement lining."
+      },
+      {
+        "Id": "C-PL-DI-EXT-BITUMEN",
+        "Type": "coating_external",
+        "Operator": "=",
+        "Value": "bitumen",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "External surface must be coated with bitumen."
+      }
+    ],
+
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-PlumbingDI-2017",
+      "to": "CH-Plumbing-DI-Pipe",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-Plumbing-DI-Pipe",
+      "to": "R-PL-DI-COAT-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-PL-DI-COAT-001",
+      "to": "MOD-Plumbing",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-PL-DI-COAT-001",
+      "to": "C-IfcPipeSegment-DI-Plumbing",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-PL-DI-COAT-001",
+      "to": "M-DI-Pipe-PL-2017",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-PL-DI-COAT-001",
+      "to": "CG-PL-DI-COAT-INT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-PL-DI-COAT-001",
+      "to": "CG-PL-DI-COAT-EXT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-PL-DI-COAT-INT",
+      "to": "C-PL-DI-INT-CEMENT",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-DI-COAT-EXT",
+      "to": "C-PL-DI-EXT-BITUMEN",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

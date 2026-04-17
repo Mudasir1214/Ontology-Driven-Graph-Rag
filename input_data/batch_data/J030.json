@@ -1,0 +1,144 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+
+    "chapter": {
+      "id": "CH-07-WIREMESH-TRAY",
+      "title": "Wire Mesh Cable Tray Installation Requirements"
+    },
+
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+
+    "rule": {
+      "id": "R-EL-WIREMESH-TRAY-2022",
+      "text": "The wire mesh cable tray except those of short run less than 300 mm long where at least 1 set of hanger or bracket is required, shall be supported by at least 2 sets of hangers or brackets. Supports shall be properly spaced at distance not exceeding 1,500 mm for straight run to satisfactorily support the weight of the tray and cables.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-07-WIREMESH-TRAY",
+      "module_id": "MOD-Electrical"
+    },
+
+    "component": {
+      "id": "C-IfcWireMeshCableTray",
+      "name": "Wire Mesh Cable Tray",
+      "ifc_class": "IfcCableCarrierSegment"
+    },
+
+    "component_related": [
+      {
+        "id": "C-IfcBracket",
+        "name": "Hanger / Bracket",
+        "ifc_class": "IfcBuildingElement"
+      }
+    ],
+
+    "material": [],
+
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT",
+        "Rule_id": "R-EL-WIREMESH-TRAY-2022",
+        "Logic": "CONDITIONAL",
+        "description": "Required number of supports depending on tray run length.",
+        "condition": "tray_length",
+        "branches": [
+          {
+            "condition_expression": "tray_length < 300",
+            "applies_constraints": ["C-EL-WIREMESH-SUPPORT-1"]
+          },
+          {
+            "condition_expression": "tray_length >= 300",
+            "applies_constraints": ["C-EL-WIREMESH-SUPPORT-2"]
+          }
+        ]
+      },
+      {
+        "Id": "CG-EL-WIREMESH-TRAY-FIXING-DIST",
+        "Rule_id": "R-EL-WIREMESH-TRAY-2022",
+        "Logic": "AND",
+        "description": "Fixing distance for straight runs.",
+        "constraints": ["C-EL-WIREMESH-STRAIGHT-INTERVAL"]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-EL-WIREMESH-SUPPORT-1",
+        "Type": "minimum_supports",
+        "Operator": "=",
+        "Value": 1,
+        "Unit": "set",
+        "Tolerance": null,
+        "note": "For wire mesh cable tray runs <300 mm, at least 1 hanger/bracket is required."
+      },
+      {
+        "Id": "C-EL-WIREMESH-SUPPORT-2",
+        "Type": "minimum_supports",
+        "Operator": ">=",
+        "Value": 2,
+        "Unit": "sets",
+        "Tolerance": null,
+        "note": "For wire mesh cable tray runs ≥300 mm, at least 2 hangers/brackets are required."
+      },
+      {
+        "Id": "C-EL-WIREMESH-STRAIGHT-INTERVAL",
+        "Type": "fixing_interval_straight",
+        "Operator": "<=",
+        "Value": 1.5,
+        "Unit": "m",
+        "Tolerance": null,
+        "note": "Supports must be spaced at intervals not exceeding 1.5 m along straight runs."
+      }
+    ],
+
+    "workstep": [
+      {
+        "id": "WS-EL-WIREMESH-TRAY-INSTALL",
+        "name": "Install wire mesh cable tray supports",
+        "Method": "Install supports according to tray length; ensure spacing for straight runs is ≤1.5 m.",
+        "Safety note": "Verify structural capacity before anchoring hangers or brackets."
+      }
+    ],
+
+    "interface": [
+      {
+        "id": "INT-WIREMESH-TRAY-TO-STRUCTURE",
+        "name": "Wire Mesh Tray–Structure Support Interface"
+      }
+    ],
+
+    "product": [],
+    "supplier": [],
+    "space": []
+  },
+
+  "relations": [
+    { "from": "DOC-BSI-2022", "to": "CH-07-WIREMESH-TRAY", "type": "HAS_CHAPTER" },
+    { "from": "CH-07-WIREMESH-TRAY", "to": "R-EL-WIREMESH-TRAY-2022", "type": "HAS_RULE" },
+
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "MOD-Electrical", "type": "BELONGS_TO_MODULE" },
+
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "C-IfcWireMeshCableTray", "type": "APPLIES_TO_COMPONENT" },
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "C-IfcBracket", "type": "APPLIES_TO_COMPONENT" },
+
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "CG-EL-WIREMESH-TRAY-FIXING-DIST", "type": "HAS_CONSTRAINT_GROUP" },
+
+    { "from": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT", "to": "C-EL-WIREMESH-SUPPORT-1", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT", "to": "C-EL-WIREMESH-SUPPORT-2", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-EL-WIREMESH-TRAY-FIXING-DIST", "to": "C-EL-WIREMESH-STRAIGHT-INTERVAL", "type": "HAS_CONSTRAINT" },
+
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "WS-EL-WIREMESH-TRAY-INSTALL", "type": "INVOLVES_WORKSTEP" },
+    { "from": "R-EL-WIREMESH-TRAY-2022", "to": "INT-WIREMESH-TRAY-TO-STRUCTURE", "type": "HAS_INTERFACE" }
+  ]
+}

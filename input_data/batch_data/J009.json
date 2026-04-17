@@ -1,0 +1,203 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-PlumbingGS-2017",
+      "title": "General Specification for Plumbing Installation in Government Buildings",
+      "publisher": null,
+      "version": "2017 Edition",
+      "year": 2017
+    },
+    "chapter": {
+      "id": "CH-GS-Pipes",
+      "title": "Galvanised Steel Pipe Requirements"
+    },
+    "module": {
+      "id": "MOD-Plumbing",
+      "name": "Plumbing Services"
+    },
+    "rule": {
+      "id": "R-PL-GS-PIPE-DIAM-001",
+      "text": "Diameter controls for galvanised steel pipe: ≤100 mm: screwed; ≥150 mm: flanged; Sleeves ≤150 mm / >150 mm.",
+      "page_number": null,
+      "document_id": "DOC-PlumbingGS-2017",
+      "chapter_id": "CH-GS-Pipes",
+      "module_id": "MOD-Plumbing"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-GS",
+      "name": "Galvanised Steel Pipe",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "material": {
+      "id": "M-GS-Pipe-2017",
+      "name": "Galvanised Steel Pipe",
+      "standard": null,
+      "attributes": {
+        "type": "GS pipe",
+        "notes": "Diameter-based jointing and sleeve requirements apply."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-PL-GS-PIPE-DIAM-JOINT",
+        "Rule_id": "R-PL-GS-PIPE-DIAM-001",
+        "Logic": "CONDITIONAL",
+        "description": "Jointing method determined by pipe diameter threshold (≤100 mm / ≥150 mm).",
+        "condition": "pipe_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "<= 100",
+            "applies_constraints": [
+              "C-PL-GS-PIPE-SCREWED"
+            ]
+          },
+          {
+            "condition_expression": ">= 150",
+            "applies_constraints": [
+              "C-PL-GS-PIPE-FLANGED"
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+        "Rule_id": "R-PL-GS-PIPE-DIAM-001",
+        "Logic": "CONDITIONAL",
+        "description": "Sleeve requirements determined by sleeve diameter threshold (≤150 mm / >150 mm).",
+        "condition": "sleeve_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "<= 150",
+            "applies_constraints": [
+              "C-PL-GS-SLEEVE-LE150"
+            ]
+          },
+          {
+            "condition_expression": "> 150",
+            "applies_constraints": [
+              "C-PL-GS-SLEEVE-GT150"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-PL-GS-PIPE-SCREWED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "screwed",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For pipe diameters ≤100 mm."
+      },
+      {
+        "Id": "C-PL-GS-PIPE-FLANGED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "flanged",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For pipe diameters ≥150 mm."
+      },
+      {
+        "Id": "C-PL-GS-SLEEVE-LE150",
+        "Type": "sleeve_requirement",
+        "Operator": "=",
+        "Value": "standard_sleeve",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For sleeve diameter ≤150 mm."
+      },
+      {
+        "Id": "C-PL-GS-SLEEVE-GT150",
+        "Type": "sleeve_requirement",
+        "Operator": "=",
+        "Value": "oversized_sleeve",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "For sleeve diameter >150 mm."
+      },
+      {
+        "Id": "C-PL-GS-PIPE-DIAM-THRESH-100",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 100,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Pipe jointing threshold."
+      },
+      {
+        "Id": "C-PL-GS-PIPE-DIAM-THRESH-150",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 150,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Sleeve requirement threshold."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-PlumbingGS-2017",
+      "to": "CH-GS-Pipes",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-GS-Pipes",
+      "to": "R-PL-GS-PIPE-DIAM-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-PL-GS-PIPE-DIAM-001",
+      "to": "MOD-Plumbing",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-PL-GS-PIPE-DIAM-001",
+      "to": "C-IfcPipeSegment-GS",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-PL-GS-PIPE-DIAM-001",
+      "to": "M-GS-Pipe-2017",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-PL-GS-PIPE-DIAM-001",
+      "to": "CG-PL-GS-PIPE-DIAM-JOINT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-PL-GS-PIPE-DIAM-001",
+      "to": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-PL-GS-PIPE-DIAM-JOINT",
+      "to": "C-PL-GS-PIPE-SCREWED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-GS-PIPE-DIAM-JOINT",
+      "to": "C-PL-GS-PIPE-FLANGED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+      "to": "C-PL-GS-SLEEVE-LE150",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+      "to": "C-PL-GS-SLEEVE-GT150",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-COPPER-JOINTS",
+      "title": "Copper Pipe Jointing Requirements"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-COPPER-JOINTS-2024",
+      "text": "Joints in copper pipe shall be flanged, flared (up to 20 mm OD only), or brazed with or without capillary fittings.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2024",
+      "chapter_id": "CH-COPPER-JOINTS",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-Copper",
+      "name": "Copper Pipe",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "component_related": [
+      {
+        "id": "C-IfcPipeFitting-Flange",
+        "name": "Flanged joint / flange",
+        "ifc_class": "IfcPipeFitting"
+      },
+      {
+        "id": "C-IfcPipeFitting-Flare",
+        "name": "Flared joint / flare fitting",
+        "ifc_class": "IfcPipeFitting"
+      },
+      {
+        "id": "C-IfcPipeFitting-Brazed",
+        "name": "Brazed joint / brazing with or without capillary fittings",
+        "ifc_class": "IfcPipeFitting"
+      }
+    ],
+    "material": [
+      {
+        "id": "M-COPPER-PIPE",
+        "name": "Copper pipe",
+        "standard": null,
+        "attributes": {
+          "notes": "Applies to copper pipe jointing requirements."
+        }
+      },
+      {
+        "id": "M-CAPILLARY-FITTING",
+        "name": "Capillary fitting",
+        "standard": null,
+        "attributes": {}
+      }
+    ],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-COPPER-JOINTS-MAIN",
+        "Rule_id": "R-MECH-COPPER-JOINTS-2024",
+        "Logic": "OR",
+        "description": "Permitted jointing methods for copper pipe: flanged OR flared (conditional) OR brazed (with/without capillary fittings).",
+        "constraints": [
+          "C-MECH-COPPER-JOINT-FLANGED",
+          "C-MECH-COPPER-JOINT-FLARED-COND",
+          "C-MECH-COPPER-JOINT-BRAZED"
+        ]
+      },
+      {
+        "Id": "CG-MECH-COPPER-FLARE-APPL",
+        "Rule_id": "R-MECH-COPPER-JOINTS-2024",
+        "Logic": "CONDITIONAL",
+        "description": "Flare applicability branch: allowed only when pipe outside diameter ≤ 20 mm.",
+        "condition": "pipe_outside_diameter_mm",
+        "branches": [
+          {
+            "condition_expression": "<= 20",
+            "applies_constraints": [
+              "C-MECH-COPPER-JOINT-FLARED"
+            ]
+          },
+          {
+            "condition_expression": "> 20",
+            "applies_constraints": [
+              "C-MECH-COPPER-JOINT-FLARED-DISALLOWED"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-COPPER-JOINT-FLANGED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "flanged",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Flanged joints are an acceptable jointing method for copper pipe (no diameter restriction stated)."
+      },
+      {
+        "Id": "C-MECH-COPPER-JOINT-FLARED-COND",
+        "Type": "conditional_application",
+        "Operator": "conditional",
+        "Value": "flared_allowed_if_diameter_<=_20",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Flared joints are permitted only for pipe outside diameter up to 20 mm."
+      },
+      {
+        "Id": "C-MECH-COPPER-JOINT-FLARED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "flared",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Flared joint (valid when OD ≤ 20 mm)."
+      },
+      {
+        "Id": "C-MECH-COPPER-JOINT-FLARED-DISALLOWED",
+        "Type": "joint_type_restriction",
+        "Operator": "=",
+        "Value": "flared_disallowed",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Flared joints are not allowed when pipe OD > 20 mm."
+      },
+      {
+        "Id": "C-MECH-COPPER-JOINT-BRAZED",
+        "Type": "joint_type",
+        "Operator": "=",
+        "Value": "brazed",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Brazing is permitted; may be performed with or without capillary fittings."
+      },
+      {
+        "Id": "C-MECH-COPPER-BRAZE-CAPILLARY-OPTION",
+        "Type": "assembly_option",
+        "Operator": "in",
+        "Value": [
+          "with_capillary_fittings",
+          "without_capillary_fittings"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Brazed joints may use capillary fittings or be brazed without capillary fittings."
+      },
+      {
+        "Id": "C-MECH-COPPER-FLARE-THRESH",
+        "Type": "dimension_threshold",
+        "Operator": "=",
+        "Value": 20,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Outside diameter threshold for allowing flared joints."
+      }
+    ],
+    "space": [],
+    "workstep": [
+      {
+        "id": "WS-MECH-BRAZING",
+        "name": "Brazing operation",
+        "Method": "Brazing of copper pipe joints; with option of using capillary fittings",
+        "Safety note": null
+      }
+    ],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2024",
+      "to": "CH-COPPER-JOINTS",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-COPPER-JOINTS",
+      "to": "R-MECH-COPPER-JOINTS-2024",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "C-IfcPipeSegment-Copper",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "CG-MECH-COPPER-JOINTS-MAIN",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-COPPER-JOINTS-MAIN",
+      "to": "C-MECH-COPPER-JOINT-FLANGED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-COPPER-JOINTS-MAIN",
+      "to": "CG-MECH-COPPER-FLARE-APPL",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-COPPER-JOINTS-MAIN",
+      "to": "C-MECH-COPPER-JOINT-BRAZED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-COPPER-FLARE-APPL",
+      "to": "C-MECH-COPPER-JOINT-FLARED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-COPPER-FLARE-APPL",
+      "to": "C-MECH-COPPER-JOINT-FLARED-DISALLOWED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-COPPER-FLARE-APPL",
+      "to": "C-MECH-COPPER-FLARE-THRESH",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "M-COPPER-PIPE",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "M-CAPILLARY-FITTING",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-COPPER-JOINTS-2024",
+      "to": "WS-MECH-BRAZING",
+      "type": "INVOLVES_WORKSTEP"
+    },
+    {
+      "from": "C-MECH-COPPER-JOINT-BRAZED",
+      "to": "C-MECH-COPPER-BRAZE-CAPILLARY-OPTION",
+      "type": "ASSOCIATED_OPTION"
+    }
+  ]
+}

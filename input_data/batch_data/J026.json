@@ -1,0 +1,204 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-07-WIRING-TRUNKING",
+      "title": "Wiring Systems — Trunking Installation"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-TRUNKING-2026",
+      "text": "Wiring system in trunking installation shall consist of non-sheathed copper cables or sheathed copper cables. Cables for 3-phase circuit shall be 450/750 V grade or above.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2026",
+      "chapter_id": "CH-07-WIRING-TRUNKING",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcTrunking",
+      "name": "Cable trunking (raceway)",
+      "ifc_class": "IfcProtectiveDevice" 
+    },
+    "component_related": [
+      {
+        "id": "C-IfcCableSegment-NonSheathed",
+        "name": "Non-sheathed copper cable",
+        "ifc_class": "IfcCableSegment"
+      },
+      {
+        "id": "C-IfcCableSegment-Sheathed",
+        "name": "Sheathed copper cable",
+        "ifc_class": "IfcCableSegment"
+      }
+    ],
+    "material": [
+      {
+        "id": "M-COPPER-NON-SHEATHED",
+        "name": "Copper conductor (non-sheathed)",
+        "standard": null,
+        "attributes": {
+          "type": "non-sheathed copper cable",
+          "application": "wiring in trunking"
+        }
+      },
+      {
+        "id": "M-COPPER-SHEATHED",
+        "name": "Copper conductor (sheathed)",
+        "standard": null,
+        "attributes": {
+          "type": "sheathed copper cable",
+          "application": "wiring in trunking"
+        }
+      }
+    ],
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-TRUNKING-CABLETYPE",
+        "Rule_id": "R-EL-TRUNKING-2026",
+        "Logic": "OR",
+        "description": "Allowed cable composition inside trunking: non-sheathed copper cable OR sheathed copper cable.",
+        "constraints": [
+          "C-EL-TRUNKING-NON-SHEATHED",
+          "C-EL-TRUNKING-SHEATHED"
+        ]
+      },
+      {
+        "Id": "CG-EL-TRUNKING-3PH-VOLTAGE",
+        "Rule_id": "R-EL-TRUNKING-2026",
+        "Logic": "CONDITIONAL",
+        "description": "Voltage rating requirement for cables serving 3-phase circuits.",
+        "condition": "circuit_type",
+        "branches": [
+          {
+            "condition_expression": "circuit_type == '3-phase'",
+            "applies_constraints": [
+              "C-EL-TRUNKING-3PH-VRATING"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-TRUNKING-NON-SHEATHED",
+        "Type": "cable_type",
+        "Operator": "=",
+        "Value": "non-sheathed_copper",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Non-sheathed copper cables are an acceptable wiring option inside trunking."
+      },
+      {
+        "Id": "C-EL-TRUNKING-SHEATHED",
+        "Type": "cable_type",
+        "Operator": "=",
+        "Value": "sheathed_copper",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Sheathed copper cables are an acceptable wiring option inside trunking."
+      },
+      {
+        "Id": "C-EL-TRUNKING-3PH-VRATING",
+        "Type": "rated_voltage",
+        "Operator": ">=",
+        "Value": 450,
+        "Unit": "V (450/750 V grade or above)",
+        "Tolerance": null,
+        "note": "Cables serving 3-phase circuits shall be 450/750 V grade or above (minimum grade indicated as 450/750 V)."
+      }
+    ],
+    "space": [],
+    "workstep": [
+      {
+        "id": "WS-EL-TRUNKING-INSTALL",
+        "name": "Trunking wiring installation",
+        "Method": "Install permitted copper cables inside trunking per manufacturer's and code requirements; verify cable voltage rating for 3-phase circuits.",
+        "Safety note": null
+      }
+    ],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2026",
+      "to": "CH-07-WIRING-TRUNKING",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-07-WIRING-TRUNKING",
+      "to": "R-EL-TRUNKING-2026",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "C-IfcTrunking",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "C-IfcCableSegment-NonSheathed",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "C-IfcCableSegment-Sheathed",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "M-COPPER-NON-SHEATHED",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "M-COPPER-SHEATHED",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "CG-EL-TRUNKING-CABLETYPE",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "CG-EL-TRUNKING-3PH-VOLTAGE",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-TRUNKING-CABLETYPE",
+      "to": "C-EL-TRUNKING-NON-SHEATHED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-TRUNKING-CABLETYPE",
+      "to": "C-EL-TRUNKING-SHEATHED",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-TRUNKING-3PH-VOLTAGE",
+      "to": "C-EL-TRUNKING-3PH-VRATING",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-EL-TRUNKING-2026",
+      "to": "WS-EL-TRUNKING-INSTALL",
+      "type": "INVOLVES_WORKSTEP"
+    }
+  ]
+}

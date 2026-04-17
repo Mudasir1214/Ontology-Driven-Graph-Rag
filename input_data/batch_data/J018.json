@@ -1,0 +1,260 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-07-2-13",
+      "title": "7.2.13 – High Voltage Switchgear and Equipment"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-7.2.13-AUTO-TR-2022",
+      "text": "Auto-transformers for auto-transformer motor starters shall be indoor, floor-mounted type for no-breaking starting of squirrel-cage 3-phase induction motors; comply with IEC 62271-106; system voltage 3.3 kV, 6.6 kV or 11 kV as specified; frequency 50 Hz; connections: auto-star for auto-transformer starting; insulation level: 45 kV peak impulse voltage (1/50 µs); cooling: natural air cooled; tappings: off-load tap changers with 60%, 75% and 85% of line voltage to limit starting current to 2.5× full load current.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-07-2-13",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcTransformer-Auto",
+      "name": "Auto-transformer (motor starter)",
+      "ifc_class": "IfcTransformer"
+    },
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-AUTOTR-GENERAL",
+        "Rule_id": "R-EL-7.2.13-AUTO-TR-2022",
+        "Logic": "AND",
+        "description": "General requirements that must all be satisfied for auto-transformers.",
+        "constraints": [
+          "C-EL-AUTOTR-TYPE",
+          "C-EL-AUTOTR-STANDARD",
+          "C-EL-AUTOTR-FREQ",
+          "C-EL-AUTOTR-CONN",
+          "C-EL-AUTOTR-INSLVL",
+          "C-EL-AUTOTR-COOLING",
+          "C-EL-AUTOTR-TAPPINGS"
+        ]
+      },
+      {
+        "Id": "CG-EL-AUTOTR-VOLTAGE",
+        "Rule_id": "R-EL-7.2.13-AUTO-TR-2022",
+        "Logic": "IN",
+        "description": "Permitted system voltages (one of the specified values).",
+        "constraints": [
+          "C-EL-AUTOTR-VOLT-3.3",
+          "C-EL-AUTOTR-VOLT-6.6",
+          "C-EL-AUTOTR-VOLT-11"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-AUTOTR-TYPE",
+        "Type": "equipment_type",
+        "Operator": "=",
+        "Value": "indoor_floor_mounted_no_breaking_start",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Type: indoor and floor-mounted type for no-breaking starting of squirrel-cage 3-phase induction motors."
+      },
+      {
+        "Id": "C-EL-AUTOTR-STANDARD",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "IEC 62271-106"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Standard: IEC 62271-106."
+      },
+      {
+        "Id": "C-EL-AUTOTR-VOLT-3.3",
+        "Type": "system_voltage",
+        "Operator": "=",
+        "Value": 3.3,
+        "Unit": "kV",
+        "Tolerance": null,
+        "note": "System voltage option: 3.3 kV."
+      },
+      {
+        "Id": "C-EL-AUTOTR-VOLT-6.6",
+        "Type": "system_voltage",
+        "Operator": "=",
+        "Value": 6.6,
+        "Unit": "kV",
+        "Tolerance": null,
+        "note": "System voltage option: 6.6 kV."
+      },
+      {
+        "Id": "C-EL-AUTOTR-VOLT-11",
+        "Type": "system_voltage",
+        "Operator": "=",
+        "Value": 11,
+        "Unit": "kV",
+        "Tolerance": null,
+        "note": "System voltage option: 11 kV."
+      },
+      {
+        "Id": "C-EL-AUTOTR-FREQ",
+        "Type": "frequency",
+        "Operator": "=",
+        "Value": 50,
+        "Unit": "Hz",
+        "Tolerance": null,
+        "note": "Frequency: 50 Hz."
+      },
+      {
+        "Id": "C-EL-AUTOTR-CONN",
+        "Type": "connection",
+        "Operator": "=",
+        "Value": "auto-star",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Connections: auto-star for auto-transformer starting."
+      },
+      {
+        "Id": "C-EL-AUTOTR-INSLVL",
+        "Type": "insulation_level",
+        "Operator": "=",
+        "Value": 45,
+        "Unit": "kV_peak_impulse_1/50µs",
+        "Tolerance": null,
+        "note": "Insulation level: 45 kV peak impulse voltage for 1/50 microsecond."
+      },
+      {
+        "Id": "C-EL-AUTOTR-COOLING",
+        "Type": "cooling_method",
+        "Operator": "=",
+        "Value": "natural_air_cooled",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Cooling: natural air cooled."
+      },
+      {
+        "Id": "C-EL-AUTOTR-TAPPINGS",
+        "Type": "tapping_spec",
+        "Operator": "contains",
+        "Value": [
+          60,
+          75,
+          85
+        ],
+        "Unit": "percent_of_line_voltage",
+        "Tolerance": null,
+        "note": "Tappings: off-load tap changers with 60%, 75% and 85% of the line voltage."
+      },
+      {
+        "Id": "C-EL-AUTOTR-STARTCURR-LIMIT",
+        "Type": "starting_current_limit",
+        "Operator": "<=",
+        "Value": 2.5,
+        "Unit": "× full_load_current",
+        "Tolerance": null,
+        "note": "Starting current limited to 2.5 times full load current when using specified tappings."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-07-2-13",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-07-2-13",
+      "to": "R-EL-7.2.13-AUTO-TR-2022",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-7.2.13-AUTO-TR-2022",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-7.2.13-AUTO-TR-2022",
+      "to": "C-IfcTransformer-Auto",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-7.2.13-AUTO-TR-2022",
+      "to": "CG-EL-AUTOTR-GENERAL",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-EL-7.2.13-AUTO-TR-2022",
+      "to": "CG-EL-AUTOTR-VOLTAGE",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-TYPE",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-STANDARD",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-FREQ",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-CONN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-INSLVL",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-COOLING",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-GENERAL",
+      "to": "C-EL-AUTOTR-TAPPINGS",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-VOLTAGE",
+      "to": "C-EL-AUTOTR-VOLT-3.3",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-VOLTAGE",
+      "to": "C-EL-AUTOTR-VOLT-6.6",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-AUTOTR-VOLTAGE",
+      "to": "C-EL-AUTOTR-VOLT-11",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "C-EL-AUTOTR-TAPPINGS",
+      "to": "C-EL-AUTOTR-STARTCURR-LIMIT",
+      "type": "ASSOCIATED_PERFORMANCE"
+    }
+  ]
+}

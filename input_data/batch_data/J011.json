@@ -1,0 +1,141 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-DrainageDI-2017",
+      "title": "General Specification for Drainage Installation in Government Buildings",
+      "publisher": null,
+      "version": "2017 Edition",
+      "year": 2017
+    },
+    "chapter": {
+      "id": "CH-Drainage-DI-Pipe",
+      "title": "Ductile Iron Pipe Requirements"
+    },
+    "module": {
+      "id": "MOD-Drainage",
+      "name": "Drainage Services"
+    },
+    "rule": {
+      "id": "R-DR-DI-COAT-001",
+      "text": "Ductile iron pipe coating requirements: internal HAC mortar; external zinc + resin.",
+      "page_number": null,
+      "document_id": "DOC-DrainageDI-2017",
+      "chapter_id": "CH-Drainage-DI-Pipe",
+      "module_id": "MOD-Drainage"
+    },
+    "component": {
+      "id": "C-IfcPipeSegment-DI-Drainage",
+      "name": "Ductile Iron Pipe (Drainage)",
+      "ifc_class": "IfcPipeSegment"
+    },
+    "material": {
+      "id": "M-DI-Pipe-2017",
+      "name": "Ductile Iron Pipe",
+      "standard": null,
+      "attributes": {
+        "type": "ductile iron",
+        "use": "drainage system pipes",
+        "coating": {
+          "internal": "HAC mortar",
+          "external": "zinc + resin"
+        }
+      }
+    },
+
+    "constraintGroups": [
+      {
+        "Id": "CG-DR-DI-COAT-INT",
+        "Rule_id": "R-DR-DI-COAT-001",
+        "Logic": "SINGLE",
+        "description": "Internal coating requirement.",
+        "constraints": [
+          "C-DR-DI-INT-HAC"
+        ]
+      },
+      {
+        "Id": "CG-DR-DI-COAT-EXT",
+        "Rule_id": "R-DR-DI-COAT-001",
+        "Logic": "SINGLE",
+        "description": "External coating requirement.",
+        "constraints": [
+          "C-DR-DI-EXT-ZINCRESIN"
+        ]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-DR-DI-INT-HAC",
+        "Type": "coating_internal",
+        "Operator": "=",
+        "Value": "HAC_mortar",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Internal surface must be coated with HAC mortar."
+      },
+      {
+        "Id": "C-DR-DI-EXT-ZINCRESIN",
+        "Type": "coating_external",
+        "Operator": "=",
+        "Value": "zinc_plus_resin",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "External surface must be coated with zinc + resin."
+      }
+    ],
+
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-DrainageDI-2017",
+      "to": "CH-Drainage-DI-Pipe",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-Drainage-DI-Pipe",
+      "to": "R-DR-DI-COAT-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-DR-DI-COAT-001",
+      "to": "MOD-Drainage",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-DR-DI-COAT-001",
+      "to": "C-IfcPipeSegment-DI-Drainage",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-DR-DI-COAT-001",
+      "to": "M-DI-Pipe-2017",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-DR-DI-COAT-001",
+      "to": "CG-DR-DI-COAT-INT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-DR-DI-COAT-001",
+      "to": "CG-DR-DI-COAT-EXT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-DR-DI-COAT-INT",
+      "to": "C-DR-DI-INT-HAC",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-DR-DI-COAT-EXT",
+      "to": "C-DR-DI-EXT-ZINCRESIN",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

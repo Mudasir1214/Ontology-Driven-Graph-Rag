@@ -1,0 +1,107 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-ElecWiring-2020",
+      "title": "Code of Practice for the Electricity (Wiring) Regulations",
+      "publisher": null,
+      "version": "2020 Edition",
+      "year": 2020
+    },
+    "chapter": {
+      "id": "CH-7B-3-b-ii-2020",
+      "title": "Code 7B(3)(b)(ii) – Lighting load per lampholder"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-7B-3bii-2020",
+      "text": "60W per lampholder for incandescent lamps or actual wattage, whichever is greater.",
+      "page_number": null,
+      "document_id": "DOC-ElecWiring-2020",
+      "chapter_id": "CH-7B-3-b-ii-2020",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcLampHolder-2020",
+      "name": "Lampholder",
+      "ifc_class": "IfcLamp"
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-7B-3bii-2020",
+        "Rule_id": "R-EL-7B-3bii-2020",
+        "Logic": "OR",
+        "description": "Lighting load is the greater of: (1) 60W for incandescent lamps; or (2) Actual connected wattage.",
+        "constraints": [
+          "C-EL-7B-3bii-2020-60W",
+          "C-EL-7B-3bii-2020-Actual"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-7B-3bii-2020-60W",
+        "Type": "power_load",
+        "Operator": ">=",
+        "Value": 60,
+        "Unit": "W",
+        "Tolerance": null,
+        "note": "Minimum design load per lampholder for incandescent lamp."
+      },
+      {
+        "Id": "C-EL-7B-3bii-2020-Actual",
+        "Type": "power_load",
+        "Operator": "=",
+        "Value": "actual_wattage",
+        "Unit": "W",
+        "Tolerance": null,
+        "note": "Use actual wattage if higher than 60W."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": [],
+    "material": null
+  },
+  "relations": [
+    {
+      "from": "DOC-ElecWiring-2020",
+      "to": "CH-7B-3-b-ii-2020",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-7B-3-b-ii-2020",
+      "to": "R-EL-7B-3bii-2020",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-7B-3bii-2020",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-7B-3bii-2020",
+      "to": "C-IfcLampHolder-2020",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-7B-3bii-2020",
+      "to": "CG-EL-7B-3bii-2020",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-7B-3bii-2020",
+      "to": "C-EL-7B-3bii-2020-60W",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-7B-3bii-2020",
+      "to": "C-EL-7B-3bii-2020-Actual",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

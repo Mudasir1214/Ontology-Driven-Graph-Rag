@@ -1,0 +1,260 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-2-8",
+      "title": "6.2.8 – Noise And Vibration Control: Acoustic Ductlag"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "text": "Acoustic duct lag: 50 mm thick glass fibre/lead sheet OR barium-loaded vinyl sheet/glass fibre, with a factory-applied aluminium vapour-barrier jacket used also for thermal insulation. Fibreglass density 24 kg/m³ and thermal conductivity ≤ 0.032 W/m·°C. Lead sheet surface weight 5 kg/m².",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-2-8",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcDuctLag-Acoustic",
+      "name": "Acoustic duct lag / insulation",
+      "ifc_class": "IfcMaterialLayer"
+    },
+    "material": [
+      {
+        "id": "M-GLASSFIBRE-24-032",
+        "name": "Glass fibre (acoustic)",
+        "standard": null,
+        "attributes": {
+          "density_kg_m3": 24,
+          "thermal_conductivity_w_m_k_max": 0.032,
+          "thickness_mm": 50,
+          "application": "acoustic duct lag"
+        }
+      },
+      {
+        "id": "M-LEADSHEET-5",
+        "name": "Lead sheet (surface-weighted)",
+        "standard": null,
+        "attributes": {
+          "surface_weight_kg_m2": 5,
+          "application": "acoustic duct lag (paired with glass fibre)"
+        }
+      },
+      {
+        "id": "M-BARIUMVINYL-GLASSFIBRE",
+        "name": "Barium-loaded vinyl sheet + glass fibre",
+        "standard": null,
+        "attributes": {
+          "thickness_mm": 50,
+          "application": "acoustic duct lag (barium-loaded vinyl sheet combined with glass fibre)"
+        }
+      },
+      {
+        "id": "M-AL-VAPOUR-JACKET",
+        "name": "Factory-applied aluminium vapour-barrier jacket",
+        "standard": null,
+        "attributes": {
+          "function": [
+            "vapour barrier",
+            "thermal insulation jacket"
+          ],
+          "application": "used over duct lag"
+        }
+      }
+    ],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-6.2.8-MAIN",
+        "Rule_id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+        "Logic": "AND",
+        "description": "Overall requirements: composition option (one of the listed), thickness and aluminium vapour-barrier jacket requirement.",
+        "constraints": [
+          "C-MECH-6.2.8-COMP-OR",
+          "C-MECH-6.2.8-THICK",
+          "C-MECH-6.2.8-JACKET"
+        ]
+      },
+      {
+        "Id": "CG-MECH-6.2.8-COMP-OR",
+        "Rule_id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+        "Logic": "OR",
+        "description": "Composition options for acoustic duct lag (choose one).",
+        "constraints": [
+          "C-MECH-6.2.8-OPT-GLF_LEAD",
+          "C-MECH-6.2.8-OPT-BAVINYL_GLF"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-6.2.8-THICK",
+        "Type": "dimension",
+        "Operator": "=",
+        "Value": 50,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Required nominal thickness of acoustic duct lag: 50 mm."
+      },
+      {
+        "Id": "C-MECH-6.2.8-JACKET",
+        "Type": "material_requirement",
+        "Operator": "=",
+        "Value": "factory_applied_aluminium_vapour_barrier_jacket",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "A factory-applied aluminium vapour-barrier jacket shall be provided and also used for thermal insulation of ductwork."
+      },
+      {
+        "Id": "C-MECH-6.2.8-OPT-GLF_LEAD",
+        "Type": "composition_option",
+        "Operator": "contains",
+        "Value": [
+          "M-GLASSFIBRE-24-032",
+          "M-LEADSHEET-5"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option A: glass fibre (24 kg/m³, ≤0.032 W/m·°C) combined with lead sheet (5 kg/m² surface weight)."
+      },
+      {
+        "Id": "C-MECH-6.2.8-OPT-BAVINYL_GLF",
+        "Type": "composition_option",
+        "Operator": "contains",
+        "Value": [
+          "M-BARIUMVINYL-GLASSFIBRE"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option B: barium-loaded vinyl sheet combined with glass fibre (50 mm total thickness)."
+      },
+      {
+        "Id": "C-MECH-6.2.8-GLF-DENS",
+        "Type": "material_property",
+        "Operator": "=",
+        "Value": 24,
+        "Unit": "kg/m³",
+        "Tolerance": null,
+        "note": "Fibreglass density requirement: 24 kg/m³."
+      },
+      {
+        "Id": "C-MECH-6.2.8-GLF-THERM",
+        "Type": "thermal_conductivity",
+        "Operator": "<=",
+        "Value": 0.032,
+        "Unit": "W/m·°C",
+        "Tolerance": null,
+        "note": "Fibreglass thermal conductivity must be 0.032 W/m·°C or lower."
+      },
+      {
+        "Id": "C-MECH-6.2.8-LEAD-SW",
+        "Type": "surface_weight",
+        "Operator": "=",
+        "Value": 5,
+        "Unit": "kg/m²",
+        "Tolerance": null,
+        "note": "Lead sheet surface weight: 5 kg/m²."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-2-8",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-2-8",
+      "to": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "C-IfcDuctLag-Acoustic",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "CG-MECH-6.2.8-MAIN",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-6.2.8-MAIN",
+      "to": "C-MECH-6.2.8-THICK",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-6.2.8-MAIN",
+      "to": "C-MECH-6.2.8-JACKET",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-6.2.8-MAIN",
+      "to": "CG-MECH-6.2.8-COMP-OR",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-6.2.8-COMP-OR",
+      "to": "C-MECH-6.2.8-OPT-GLF_LEAD",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-6.2.8-COMP-OR",
+      "to": "C-MECH-6.2.8-OPT-BAVINYL_GLF",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+      "to": "C-MECH-6.2.8-GLF-DENS",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+      "to": "C-MECH-6.2.8-GLF-THERM",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+      "to": "C-MECH-6.2.8-LEAD-SW",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "M-AL-VAPOUR-JACKET",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "M-GLASSFIBRE-24-032",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "M-LEADSHEET-5",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+      "to": "M-BARIUMVINYL-GLASSFIBRE",
+      "type": "USES_MATERIAL"
+    }
+  ]
+}

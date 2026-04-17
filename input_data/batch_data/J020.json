@@ -1,0 +1,129 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-1-3",
+      "title": "6.1.3 – Air Handling Equipment"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "text": "The location of the local control box shall be within 600 mm from the terminal box of the fan coil unit and the duct heater.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-1-3",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcControlBox-Local-001",
+      "name": "Local control box",
+      "ifc_class": "IfcElectricalCircuit"
+    },
+    "component_related": [
+      {
+        "id": "C-IfcFanCoilUnit-001",
+        "name": "Fan coil unit (terminal box)",
+        "ifc_class": "IfcAirTerminal"
+      },
+      {
+        "id": "C-IfcDuctHeater-001",
+        "name": "Duct heater (terminal box)",
+        "ifc_class": "IfcHeatingElement"
+      }
+    ],
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-6.1.3-CBOX-DIST",
+        "Rule_id": "R-MECH-6.1.3-CBOX-LOC-2022",
+        "Logic": "AND",
+        "description": "Local control box must be located within 600 mm of both the fan coil unit terminal box and the duct heater terminal box.",
+        "constraints": [
+          "C-MECH-6.1.3-CBOX-FCU-DIST",
+          "C-MECH-6.1.3-CBOX-DH-DIST"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-6.1.3-CBOX-FCU-DIST",
+        "Type": "spatial_distance",
+        "Operator": "<=",
+        "Value": 600,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Distance from local control box to terminal box of fan coil unit must be ≤ 600 mm."
+      },
+      {
+        "Id": "C-MECH-6.1.3-CBOX-DH-DIST",
+        "Type": "spatial_distance",
+        "Operator": "<=",
+        "Value": 600,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Distance from local control box to terminal box of duct heater must be ≤ 600 mm."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-1-3",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-1-3",
+      "to": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "to": "C-IfcControlBox-Local-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "to": "C-IfcFanCoilUnit-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "to": "C-IfcDuctHeater-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+      "to": "CG-MECH-6.1.3-CBOX-DIST",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-6.1.3-CBOX-DIST",
+      "to": "C-MECH-6.1.3-CBOX-FCU-DIST",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-6.1.3-CBOX-DIST",
+      "to": "C-MECH-6.1.3-CBOX-DH-DIST",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

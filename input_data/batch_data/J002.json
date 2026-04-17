@@ -1,0 +1,156 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-FireCodes-2012",
+      "title": "Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment",
+      "publisher": null,
+      "version": "2012 edition",
+      "year": 2012
+    },
+    "chapter": {
+      "id": "APP-08",
+      "title": "Appendix 8"
+    },
+    "module": {
+      "id": "MOD-FireProtection",
+      "name": "Fire Protection Services"
+    },
+    "rule": {
+      "id": "R-FP-APP8-010",
+      "text": "Appendix 8, Item 10: \"Emergency generators - Power supply cables (from emergency generator to main switchboard)\" shall conform with (a) BS 6387 Cat. CWZ; or (b) BS 6207 or BS EN 60702; or (c) other international standards acceptable. No PH rating or survival-time requirement is stated in this item.",
+      "page_number": null,
+      "document_id": "DOC-FireCodes-2012",
+      "chapter_id": "APP-08",
+      "module_id": "MOD-FireProtection"
+    },
+    "component": {
+      "id": "C-IfcCableSegment-002",
+      "name": "Power supply cable (generator to main switchboard)",
+      "ifc_class": "IfcCableSegment"
+    },
+    "material": {
+      "id": "M-CABLE-GEN-2012",
+      "name": "Emergency generator power supply cable",
+      "standard": null,
+      "attributes": {
+        "application": "Power supply cable from emergency generator to main switchboard",
+        "notes": "Item 10 (2012): standards listed; no PH rating or explicit survival-time requirement stated."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-R-FP-APP8-010-01",
+        "Rule_id": "R-FP-APP8-010",
+        "Logic": "OR",
+        "description": "Cable must conform to one of the listed standards/options (a), (b) or (c).",
+        "constraints": [
+          "C-R-FP-APP8-010-STD-01",
+          "C-R-FP-APP8-010-STD-02",
+          "C-R-FP-APP8-010-STD-03"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-R-FP-APP8-010-STD-01",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 6387 Cat. CWZ"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option (a): BS 6387 Category CWZ (classification for flame, water and corrosion exposure)."
+      },
+      {
+        "Id": "C-R-FP-APP8-010-STD-02",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "BS 6207",
+          "BS EN 60702"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option (b): BS 6207 or BS EN 60702 series as alternatives."
+      },
+      {
+        "Id": "C-R-FP-APP8-010-STD-03",
+        "Type": "standard_compliance",
+        "Operator": "in",
+        "Value": [
+          "other_international_standards_acceptable"
+        ],
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Option (c): other internationally accepted standards (authority discretion)."
+      },
+      {
+        "Id": "C-R-FP-APP8-010-NOPERF",
+        "Type": "performance_absence",
+        "Operator": "na",
+        "Value": null,
+        "Unit": null,
+        "Tolerance": null,
+        "note": "No PH rating or survival-time (minutes) requirement is specified in this item (2012)."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-FireCodes-2012",
+      "to": "APP-08",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "APP-08",
+      "to": "R-FP-APP8-010",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-FP-APP8-010",
+      "to": "MOD-FireProtection",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-FP-APP8-010",
+      "to": "C-IfcCableSegment-002",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-FP-APP8-010",
+      "to": "M-CABLE-GEN-2012",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-FP-APP8-010",
+      "to": "CG-R-FP-APP8-010-01",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-R-FP-APP8-010-01",
+      "to": "C-R-FP-APP8-010-STD-01",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-010-01",
+      "to": "C-R-FP-APP8-010-STD-02",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-R-FP-APP8-010-01",
+      "to": "C-R-FP-APP8-010-STD-03",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-FP-APP8-010",
+      "to": "C-R-FP-APP8-010-NOPERF",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-07-CABLE-TRAY",
+      "title": "Cable Tray Installation Requirements"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-CABLE-TRAY-2028",
+      "text": "Cable trays, except those with short runs shorter than 300 mm which require at least one hanger or bracket, shall be supported by at least two sets of hangers or brackets of adequate mechanical strength, securely fixed to the building structure. Unless otherwise specified, hangers or brackets shall be hot-dip galvanised, painted with anti-rust epoxy coating, or made of anti-rusting material. Fixings shall be disposed at intervals not exceeding 1.2 m for straight runs and within 225 mm on both sides of bends or intersections. A minimum clear space of 20 mm shall be maintained behind all cable trays.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2028",
+      "chapter_id": "CH-07-CABLE-TRAY",
+      "module_id": "MOD-Electrical"
+    },
+
+    "component": {
+      "id": "C-IfcCableTraySegment",
+      "name": "Cable Tray",
+      "ifc_class": "IfcCableCarrierSegment"
+    },
+    "component_related": [
+      {
+        "id": "C-IfcBracket",
+        "name": "Hanger / Bracket",
+        "ifc_class": "IfcBuildingElement"
+      }
+    ],
+
+    "material": [
+      {
+        "id": "M-HDG-STEEL",
+        "name": "Hot-dip galvanized steel",
+        "standard": null,
+        "attributes": {
+          "coating": "HDG",
+          "application": "cable tray hangers and brackets"
+        }
+      },
+      {
+        "id": "M-EPOXY-COATED-STEEL",
+        "name": "Anti-rust epoxy painted steel",
+        "standard": null,
+        "attributes": {
+          "coating": "anti-rust epoxy",
+          "application": "cable tray hangers and brackets"
+        }
+      },
+      {
+        "id": "M-ANTI-RUST-METAL",
+        "name": "Anti-rusting metal",
+        "standard": null,
+        "attributes": {
+          "application": "corrosion protection for hangers/brackets"
+        }
+      }
+    ],
+
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-TRAY-SUPPORT-COUNT",
+        "Rule_id": "R-EL-CABLE-TRAY-2028",
+        "Logic": "CONDITIONAL",
+        "description": "Minimum hanger/bracket count requirement depending on cable tray run length.",
+        "condition": "tray_length",
+        "branches": [
+          {
+            "condition_expression": "tray_length < 300",
+            "applies_constraints": ["C-EL-TRAY-1-SUPPORT"]
+          },
+          {
+            "condition_expression": "tray_length >= 300",
+            "applies_constraints": ["C-EL-TRAY-2-SUPPORT"]
+          }
+        ]
+      },
+      {
+        "Id": "CG-EL-TRAY-MATERIAL",
+        "Rule_id": "R-EL-CABLE-TRAY-2028",
+        "Logic": "OR",
+        "description": "Allowed corrosion protection material for hangers/brackets.",
+        "constraints": [
+          "C-EL-TRAY-MAT-HDG",
+          "C-EL-TRAY-MAT-EPOXY",
+          "C-EL-TRAY-MAT-ANTI"
+        ]
+      },
+      {
+        "Id": "CG-EL-TRAY-FIXING-DISTANCES",
+        "Rule_id": "R-EL-CABLE-TRAY-2028",
+        "Logic": "AND",
+        "description": "Fixing distances for straight runs and bends/intersections.",
+        "constraints": [
+          "C-EL-TRAY-STRAIGHT-INTERVAL",
+          "C-EL-TRAY-BEND-DIST"
+        ]
+      },
+      {
+        "Id": "CG-EL-TRAY-CLEARANCE",
+        "Rule_id": "R-EL-CABLE-TRAY-2028",
+        "Logic": "AND",
+        "description": "Clearance required behind cable trays.",
+        "constraints": ["C-EL-TRAY-CLEAR-SPACE"]
+      }
+    ],
+
+    "constraints": [
+      {
+        "Id": "C-EL-TRAY-1-SUPPORT",
+        "Type": "minimum_supports",
+        "Operator": "=",
+        "Value": 1,
+        "Unit": "set",
+        "Tolerance": null,
+        "note": "Short runs (<300 mm) require at least one hanger/bracket."
+      },
+      {
+        "Id": "C-EL-TRAY-2-SUPPORT",
+        "Type": "minimum_supports",
+        "Operator": ">=",
+        "Value": 2,
+        "Unit": "sets",
+        "Tolerance": null,
+        "note": "Longer runs (≥300 mm) require at least two hangers/brackets."
+      },
+      {
+        "Id": "C-EL-TRAY-MAT-HDG",
+        "Type": "hanger_material",
+        "Operator": "=",
+        "Value": "hot_dip_galvanised",
+        "Unit": null,
+        "Tolerance": null
+      },
+      {
+        "Id": "C-EL-TRAY-MAT-EPOXY",
+        "Type": "hanger_material",
+        "Operator": "=",
+        "Value": "anti_rust_epoxy_painted",
+        "Unit": null,
+        "Tolerance": null
+      },
+      {
+        "Id": "C-EL-TRAY-MAT-ANTI",
+        "Type": "hanger_material",
+        "Operator": "=",
+        "Value": "anti_rusting_metal",
+        "Unit": null,
+        "Tolerance": null
+      },
+      {
+        "Id": "C-EL-TRAY-STRAIGHT-INTERVAL",
+        "Type": "fixing_interval_straight",
+        "Operator": "<=",
+        "Value": 1.2,
+        "Unit": "m",
+        "Tolerance": null
+      },
+      {
+        "Id": "C-EL-TRAY-BEND-DIST",
+        "Type": "fixing_distance_bend",
+        "Operator": "<=",
+        "Value": 225,
+        "Unit": "mm",
+        "Tolerance": null
+      },
+      {
+        "Id": "C-EL-TRAY-CLEAR-SPACE",
+        "Type": "minimum_clear_space_behind",
+        "Operator": ">=",
+        "Value": 20,
+        "Unit": "mm",
+        "Tolerance": null
+      }
+    ],
+
+    "workstep": [
+      {
+        "id": "WS-EL-CABLE-TRAY-INSTALL",
+        "name": "Install cable tray and structural supports",
+        "Method": "Install cable tray supports according to tray length; verify corrosion protection of hangers; ensure spacing intervals for straight runs and bends; maintain minimum 20 mm clearance behind tray.",
+        "Safety note": "Confirm structure integrity before fixing hangers or brackets."
+      }
+    ],
+
+    "interface": [
+      {
+        "id": "INT-TRAY-TO-STRUCTURE",
+        "name": "Cable Tray–Building Structure Interface"
+      }
+    ],
+
+    "product": [],
+    "supplier": [],
+    "space": []
+  },
+
+  "relations": [
+    { "from": "DOC-BSI-2028", "to": "CH-07-CABLE-TRAY", "type": "HAS_CHAPTER" },
+    { "from": "CH-07-CABLE-TRAY", "to": "R-EL-CABLE-TRAY-2028", "type": "HAS_RULE" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "MOD-Electrical", "type": "BELONGS_TO_MODULE" },
+
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "C-IfcCableTraySegment", "type": "APPLIES_TO_COMPONENT" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "C-IfcBracket", "type": "APPLIES_TO_COMPONENT" },
+
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "M-HDG-STEEL", "type": "USES_MATERIAL" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "M-EPOXY-COATED-STEEL", "type": "USES_MATERIAL" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "M-ANTI-RUST-METAL", "type": "USES_MATERIAL" },
+
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "CG-EL-TRAY-SUPPORT-COUNT", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "CG-EL-TRAY-MATERIAL", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "CG-EL-TRAY-FIXING-DISTANCES", "type": "HAS_CONSTRAINT_GROUP" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "CG-EL-TRAY-CLEARANCE", "type": "HAS_CONSTRAINT_GROUP" },
+
+    { "from": "CG-EL-TRAY-SUPPORT-COUNT", "to": "C-EL-TRAY-1-SUPPORT", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-EL-TRAY-SUPPORT-COUNT", "to": "C-EL-TRAY-2-SUPPORT", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-EL-TRAY-MATERIAL", "to": "C-EL-TRAY-MAT-HDG", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-EL-TRAY-MATERIAL", "to": "C-EL-TRAY-MAT-EPOXY", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-EL-TRAY-MATERIAL", "to": "C-EL-TRAY-MAT-ANTI", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-EL-TRAY-FIXING-DISTANCES", "to": "C-EL-TRAY-STRAIGHT-INTERVAL", "type": "HAS_CONSTRAINT" },
+    { "from": "CG-EL-TRAY-FIXING-DISTANCES", "to": "C-EL-TRAY-BEND-DIST", "type": "HAS_CONSTRAINT" },
+
+    { "from": "CG-EL-TRAY-CLEARANCE", "to": "C-EL-TRAY-CLEAR-SPACE", "type": "HAS_CONSTRAINT" },
+
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "WS-EL-CABLE-TRAY-INSTALL", "type": "INVOLVES_WORKSTEP" },
+    { "from": "R-EL-CABLE-TRAY-2028", "to": "INT-TRAY-TO-STRUCTURE", "type": "HAS_INTERFACE" }
+  ]
+}

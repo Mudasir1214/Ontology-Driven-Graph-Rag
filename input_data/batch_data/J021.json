@@ -1,0 +1,148 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-CEILING-FAN",
+      "title": "Ceiling Fans – Mounting Height Requirements"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-CEILFAN-HEIGHT-2022",
+      "text": "Unless otherwise stated, ceiling fans shall be mounted no lower than 2400 mm and no higher than 2600 mm from finished floor levels. Down rod lengths shall be sized to meet these requirements.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-CEILING-FAN",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcCeilingFan-001",
+      "name": "Ceiling Fan",
+      "ifc_class": "IfcFan"
+    },
+    "component_related": [
+      {
+        "id": "C-IfcDownRod-001",
+        "name": "Ceiling Fan Down Rod",
+        "ifc_class": "IfcMechanicalFastener"
+      }
+    ],
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-CEILFAN-HEIGHT",
+        "Rule_id": "R-MECH-CEILFAN-HEIGHT-2022",
+        "Logic": "AND",
+        "description": "Mounting height constraints for ceiling fan installation.",
+        "constraints": [
+          "C-MECH-CEILFAN-HEIGHT-MIN",
+          "C-MECH-CEILFAN-HEIGHT-MAX"
+        ]
+      },
+      {
+        "Id": "CG-MECH-CEILFAN-DOWNROD",
+        "Rule_id": "R-MECH-CEILFAN-HEIGHT-2022",
+        "Logic": "DERIVED",
+        "description": "Down rod must be sized to achieve fan mounting height within 2400–2600 mm.",
+        "constraints": [
+          "C-MECH-CEILFAN-DOWNROD-SIZED"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-CEILFAN-HEIGHT-MIN",
+        "Type": "installation_height",
+        "Operator": ">=",
+        "Value": 2400,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Ceiling fan must be installed at least 2400 mm above finished floor level."
+      },
+      {
+        "Id": "C-MECH-CEILFAN-HEIGHT-MAX",
+        "Type": "installation_height",
+        "Operator": "<=",
+        "Value": 2600,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Ceiling fan must be installed no higher than 2600 mm above finished floor level."
+      },
+      {
+        "Id": "C-MECH-CEILFAN-DOWNROD-SIZED",
+        "Type": "component_sizing_requirement",
+        "Operator": "=",
+        "Value": "down_rod_length_selected_to_meet_height_range",
+        "Unit": null,
+        "Tolerance": null,
+        "note": "Down rod length must be selected to ensure the fan mounting height stays between 2400–2600 mm."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-CEILING-FAN",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-CEILING-FAN",
+      "to": "R-MECH-CEILFAN-HEIGHT-2022",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-CEILFAN-HEIGHT-2022",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-CEILFAN-HEIGHT-2022",
+      "to": "C-IfcCeilingFan-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-CEILFAN-HEIGHT-2022",
+      "to": "C-IfcDownRod-001",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-CEILFAN-HEIGHT-2022",
+      "to": "CG-MECH-CEILFAN-HEIGHT",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "R-MECH-CEILFAN-HEIGHT-2022",
+      "to": "CG-MECH-CEILFAN-DOWNROD",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-CEILFAN-HEIGHT",
+      "to": "C-MECH-CEILFAN-HEIGHT-MIN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CEILFAN-HEIGHT",
+      "to": "C-MECH-CEILFAN-HEIGHT-MAX",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CEILFAN-DOWNROD",
+      "to": "C-MECH-CEILFAN-DOWNROD-SIZED",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-07-1-2",
+      "title": "7.1.2 – Wiring Systems"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+      "text": "The minimum outside diameter of any conduit shall be 20 mm.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-07-1-2",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcConduit",
+      "name": "Electrical Conduit",
+      "ifc_class": "IfcConduitSegment"
+    },
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-7.1.2-MIN-DIA",
+        "Rule_id": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+        "Logic": "SINGLE",
+        "description": "Minimum conduit outside diameter requirement.",
+        "constraints": [
+          "C-EL-7.1.2-DIA-MIN20"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-7.1.2-DIA-MIN20",
+        "Type": "dimension",
+        "Operator": ">=",
+        "Value": 20,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum outside diameter of conduit shall be 20 mm."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-07-1-2",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-07-1-2",
+      "to": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+      "to": "C-IfcConduit",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+      "to": "CG-EL-7.1.2-MIN-DIA",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-7.1.2-MIN-DIA",
+      "to": "C-EL-7.1.2-DIA-MIN20",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

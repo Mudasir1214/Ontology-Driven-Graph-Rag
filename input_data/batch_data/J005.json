@@ -1,0 +1,107 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-ElecWiring-2020",
+      "title": "Code of Practice for the Electricity (Wiring) Regulations",
+      "publisher": null,
+      "version": "2022020 Edition",
+      "year": 2020
+    },
+    "chapter": {
+      "id": "CH-17A-4-2020",
+      "title": "Code 17A(4) – HV warning notice size"
+    },
+    "module": {
+      "id": "MOD-Electrical",
+      "name": "Electrical Services"
+    },
+    "rule": {
+      "id": "R-EL-17A-4-2020",
+      "text": "HV label at cable routes: letters not less than 50 mm high; spacing ≤ 3 m.",
+      "page_number": null,
+      "document_id": "DOC-ElecWiring-2020",
+      "chapter_id": "CH-17A-4-2020",
+      "module_id": "MOD-Electrical"
+    },
+    "component": {
+      "id": "C-IfcSign-003",
+      "name": "HV warning label / signage",
+      "ifc_class": "IfcAnnotation"
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-EL-17A-4-2020",
+        "Rule_id": "R-EL-17A-4-2020",
+        "Logic": "AND",
+        "description": "HV warning label must meet letter height and spacing requirements.",
+        "constraints": [
+          "C-EL-17A-4-2020-HGT",
+          "C-EL-17A-4-2020-SPC"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-EL-17A-4-2020-HGT",
+        "Type": "dimension",
+        "Operator": ">=",
+        "Value": 50,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Minimum letter height for HV warning labels: not less than 50 mm."
+      },
+      {
+        "Id": "C-EL-17A-4-2020-SPC",
+        "Type": "distance",
+        "Operator": "<=",
+        "Value": 3,
+        "Unit": "m",
+        "Tolerance": null,
+        "note": "Spacing between HV labels along cable routes must not exceed 3 m."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": [],
+    "material": []
+  },
+  "relations": [
+    {
+      "from": "DOC-ElecWiring-2020",
+      "to": "CH-17A-4-2020",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-17A-4-2020",
+      "to": "R-EL-17A-4-2020",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-EL-17A-4-2020",
+      "to": "MOD-Electrical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-EL-17A-4-2020",
+      "to": "C-IfcSign-003",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-EL-17A-4-2020",
+      "to": "CG-EL-17A-4-2020",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-EL-17A-4-2020",
+      "to": "C-EL-17A-4-2020-HGT",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-EL-17A-4-2020",
+      "to": "C-EL-17A-4-2020-SPC",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}

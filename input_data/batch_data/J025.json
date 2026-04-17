@@ -1,0 +1,116 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-SEALS",
+      "title": "Wall Penetration Sealing Requirements"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-SEALS-PROJECTION-2025",
+      "text": "Seals shall project a minimum of 25 mm past either face of the walls.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2025",
+      "chapter_id": "CH-SEALS",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcBuildingElementProxy-Seal",
+      "name": "Wall penetration seal",
+      "ifc_class": "IfcBuildingElementProxy"
+    },
+    "material": {
+      "id": "M-SEALANT-GENERIC",
+      "name": "Sealant",
+      "standard": null,
+      "attributes": {
+        "description": "Generic sealing material for mechanical penetrations through walls."
+      }
+    },
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-SEALS-PROJECTION-REQ",
+        "Rule_id": "R-MECH-SEALS-PROJECTION-2025",
+        "Logic": "AND",
+        "description": "Minimum projection requirement for wall sealings.",
+        "constraints": [
+          "C-MECH-SEAL-PROJECTION-MIN"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-SEAL-PROJECTION-MIN",
+        "Type": "projection_length",
+        "Operator": ">=",
+        "Value": 25,
+        "Unit": "mm",
+        "Tolerance": null,
+        "note": "Sealing material must extend at least 25 mm beyond each face of wall."
+      }
+    ],
+    "space": [],
+    "workstep": [
+      {
+        "id": "WS-SEALING-INSTALLATION",
+        "name": "Seal installation",
+        "Method": "Apply sealing compound ensuring projection ≥25 mm on both sides of the wall.",
+        "Safety note": null
+      }
+    ],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+  "relations": [
+    {
+      "from": "DOC-BSI-2025",
+      "to": "CH-SEALS",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-SEALS",
+      "to": "R-MECH-SEALS-PROJECTION-2025",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-SEALS-PROJECTION-2025",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-SEALS-PROJECTION-2025",
+      "to": "C-IfcBuildingElementProxy-Seal",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-SEALS-PROJECTION-2025",
+      "to": "CG-MECH-SEALS-PROJECTION-REQ",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-SEALS-PROJECTION-REQ",
+      "to": "C-MECH-SEAL-PROJECTION-MIN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "R-MECH-SEALS-PROJECTION-2025",
+      "to": "M-SEALANT-GENERIC",
+      "type": "USES_MATERIAL"
+    },
+    {
+      "from": "R-MECH-SEALS-PROJECTION-2025",
+      "to": "WS-SEALING-INSTALLATION",
+      "type": "INVOLVES_WORKSTEP"
+    }
+  ]
+}

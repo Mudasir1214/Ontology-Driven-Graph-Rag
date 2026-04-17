@@ -1,0 +1,123 @@
+{
+  "nodes": {
+    "document": {
+      "id": "DOC-BSI-2022",
+      "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+      "publisher": null,
+      "version": "2022 Edition",
+      "year": 2022
+    },
+    "chapter": {
+      "id": "CH-06-1-5",
+      "title": "6.1.5 – Central Control and Monitoring System (CCMS)"
+    },
+    "module": {
+      "id": "MOD-Mechanical",
+      "name": "Mechanical"
+    },
+    "rule": {
+      "id": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+      "text": "The time resolution for cycling within each period shall be selectable in 1-minute increments between 1 and 120 minutes.",
+      "page_number": null,
+      "document_id": "DOC-BSI-2022",
+      "chapter_id": "CH-06-1-5",
+      "module_id": "MOD-Mechanical"
+    },
+    "component": {
+      "id": "C-IfcControlSystem-CCMS",
+      "name": "Central Control and Monitoring System (CCMS)",
+      "ifc_class": "IfcControl"
+    },
+    "material": [],
+    "constraintGroups": [
+      {
+        "Id": "CG-MECH-CCMS-TIMERES-2022",
+        "Rule_id": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+        "Logic": "AND",
+        "description": "Time resolution constraints for CCMS cycling period configuration.",
+        "constraints": [
+          "C-MECH-CCMS-TIMERES-STEP",
+          "C-MECH-CCMS-TIMERES-MIN",
+          "C-MECH-CCMS-TIMERES-MAX"
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "Id": "C-MECH-CCMS-TIMERES-STEP",
+        "Type": "time_resolution_step",
+        "Operator": "=",
+        "Value": 1,
+        "Unit": "minute",
+        "Tolerance": null,
+        "note": "The CCMS must allow time resolution selectable in 1-minute increments."
+      },
+      {
+        "Id": "C-MECH-CCMS-TIMERES-MIN",
+        "Type": "time_resolution_min",
+        "Operator": ">=",
+        "Value": 1,
+        "Unit": "minute",
+        "Tolerance": null,
+        "note": "Minimum selectable cycling time resolution is 1 minute."
+      },
+      {
+        "Id": "C-MECH-CCMS-TIMERES-MAX",
+        "Type": "time_resolution_max",
+        "Operator": "<=",
+        "Value": 120,
+        "Unit": "minutes",
+        "Tolerance": null,
+        "note": "Maximum selectable cycling time resolution is 120 minutes."
+      }
+    ],
+    "space": [],
+    "workstep": [],
+    "interface": [],
+    "product": [],
+    "supplier": []
+  },
+
+  "relations": [
+    {
+      "from": "DOC-BSI-2022",
+      "to": "CH-06-1-5",
+      "type": "HAS_CHAPTER"
+    },
+    {
+      "from": "CH-06-1-5",
+      "to": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+      "type": "HAS_RULE"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+      "to": "MOD-Mechanical",
+      "type": "BELONGS_TO_MODULE"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+      "to": "C-IfcControlSystem-CCMS",
+      "type": "APPLIES_TO_COMPONENT"
+    },
+    {
+      "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+      "to": "CG-MECH-CCMS-TIMERES-2022",
+      "type": "HAS_CONSTRAINT_GROUP"
+    },
+    {
+      "from": "CG-MECH-CCMS-TIMERES-2022",
+      "to": "C-MECH-CCMS-TIMERES-STEP",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CCMS-TIMERES-2022",
+      "to": "C-MECH-CCMS-TIMERES-MIN",
+      "type": "HAS_CONSTRAINT"
+    },
+    {
+      "from": "CG-MECH-CCMS-TIMERES-2022",
+      "to": "C-MECH-CCMS-TIMERES-MAX",
+      "type": "HAS_CONSTRAINT"
+    }
+  ]
+}
