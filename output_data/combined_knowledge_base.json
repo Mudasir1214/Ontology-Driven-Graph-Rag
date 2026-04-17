@@ -1,0 +1,4831 @@
+{
+  "entries": [
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-Drainage-2017",
+          "title": "General Specification for Drainage Installation in Government Buildings",
+          "publisher": null,
+          "version": "2017 Edition",
+          "year": 2017
+        },
+        "chapter": {
+          "id": "CH-B3",
+          "title": "Part B3 – Pump Foundation & Vibration Control Numerical Requirements"
+        },
+        "module": {
+          "id": "MOD-Drainage",
+          "name": "Drainage Services"
+        },
+        "rule": {
+          "id": "R-DR-B3-001",
+          "text": "No sump-pump-specific numerical requirements in B3; mainly general installation provisions.",
+          "page_number": null,
+          "document_id": "DOC-Drainage-2017",
+          "chapter_id": "CH-B3",
+          "module_id": "MOD-Drainage"
+        },
+        "component": {
+          "id": "C-PUMP-FOUND-001",
+          "name": "Sump pump foundation",
+          "ifc_class": "IfcPump"
+        },
+        "material": null,
+        "constraintGroups": [
+          {
+            "Id": "CG-DR-B3-001",
+            "Rule_id": "R-DR-B3-001",
+            "Logic": "SINGLE",
+            "description": "No specific numerical constraints defined for sump pump foundation or vibration control in Section B3.",
+            "constraints": [
+              "C-DR-B3-001-NO_NUM"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-DR-B3-001-NO_NUM",
+            "Type": "performance_absence",
+            "Operator": "na",
+            "Value": null,
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Section B3 provides general installation provisions for pump foundation and vibration control; it does not state any sump-pump-specific numerical requirements."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-Drainage-2017",
+          "to": "CH-B3",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-B3",
+          "to": "R-DR-B3-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-DR-B3-001",
+          "to": "MOD-Drainage",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-DR-B3-001",
+          "to": "C-PUMP-FOUND-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-DR-B3-001",
+          "to": "CG-DR-B3-001",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-DR-B3-001",
+          "to": "C-DR-B3-001-NO_NUM",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-CABLE-ENTRY",
+          "title": "Cable Entry and Movement Protection"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-CABLE-LOOP-2027",
+          "text": "A loop shall be introduced in a cable immediately before its entry into an equipment which is subject to vibration or occasional movement. A clear space of at least 10 mm shall be maintained at the point in the loop where the cable passes over itself.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2027",
+          "chapter_id": "CH-07-CABLE-ENTRY",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcCableSegment",
+          "name": "Cable",
+          "ifc_class": "IfcCableSegment"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcEquipment-Vibrating",
+            "name": "Equipment subject to vibration",
+            "ifc_class": "IfcFlowTerminal"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-CABLE-COPPER",
+            "name": "Copper Cable",
+            "standard": null,
+            "attributes": {
+              "conductor": "copper",
+              "applicable_to": "loop before vibrating equipment"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-CABLE-LOOP",
+            "Rule_id": "R-EL-CABLE-LOOP-2027",
+            "Logic": "AND",
+            "description": "Requirements for cable loop before entering vibrating or moving equipment.",
+            "constraints": [
+              "C-EL-LOOP-PROVIDE",
+              "C-EL-LOOP-CLEARANCE"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-LOOP-PROVIDE",
+            "Type": "installation_method",
+            "Operator": "=",
+            "Value": "provide_loop_before_entry",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "A loop must be provided immediately before cable enters vibrating equipment."
+          },
+          {
+            "Id": "C-EL-LOOP-CLEARANCE",
+            "Type": "minimum_clearance_at_loop_overlap",
+            "Operator": ">=",
+            "Value": 10,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Clear space where cable passes over itself shall be at least 10 mm."
+          }
+        ],
+        "workstep": [
+          {
+            "id": "WS-EL-CABLE-LOOP-INSTALL",
+            "name": "Install cable loop for vibrating equipment",
+            "Method": "Introduce a loop before cable entry to equipment; verify minimum 10 mm clearance at overlap point.",
+            "Safety note": "Ensure equipment vibration zone is safely accessed before modifying cable entry."
+          }
+        ],
+        "interface": [
+          {
+            "id": "INT-CABLE-TO-VIB-EQUIP",
+            "name": "Cable–Vibration Equipment Entry Interface"
+          }
+        ],
+        "product": [],
+        "supplier": [],
+        "space": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2027",
+          "to": "CH-07-CABLE-ENTRY",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-CABLE-ENTRY",
+          "to": "R-EL-CABLE-LOOP-2027",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "C-IfcCableSegment",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "C-IfcEquipment-Vibrating",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "M-CABLE-COPPER",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "CG-EL-CABLE-LOOP",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-CABLE-LOOP",
+          "to": "C-EL-LOOP-PROVIDE",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-CABLE-LOOP",
+          "to": "C-EL-LOOP-CLEARANCE",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "WS-EL-CABLE-LOOP-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "R-EL-CABLE-LOOP-2027",
+          "to": "INT-CABLE-TO-VIB-EQUIP",
+          "type": "HAS_INTERFACE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-6-1-8-3",
+          "title": "6.1.8.3 Vibration Isolators – Type 'B' Restrained Spring Mounts"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical Services"
+        },
+        "rule": {
+          "id": "R-MECH-SPRINGMOUNT-B-2022",
+          "text": "A minimum of 10 mm clearance shall be maintained around restraining bolts and between the housing and the spring so as not to interfere with the spring action. Limit stops shall be out of contact during normal operations.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-6-1-8-3",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcSpringMount-B",
+          "name": "Restrained Spring Mount (Type B)",
+          "ifc_class": "IfcMechanicalFastener"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcBolt",
+            "name": "Restraining Bolt",
+            "ifc_class": "IfcFastener"
+          },
+          {
+            "id": "C-IfcSpring",
+            "name": "Vibration Isolation Spring",
+            "ifc_class": "IfcDiscreteAccessory"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-STEEL-SPRING",
+            "name": "Steel Spring",
+            "standard": null,
+            "attributes": {
+              "application": "Mechanical vibration isolation system"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-SPRINGMOUNT-CLEARANCE",
+            "Rule_id": "R-MECH-SPRINGMOUNT-B-2022",
+            "Logic": "AND",
+            "description": "Minimum clearance requirements for restraining bolts and spring housing.",
+            "constraints": [
+              "C-MECH-CLEAR-BOLT",
+              "C-MECH-CLEAR-HOUSING"
+            ]
+          },
+          {
+            "Id": "CG-MECH-SPRINGMOUNT-LIMITSTOP",
+            "Rule_id": "R-MECH-SPRINGMOUNT-B-2022",
+            "Logic": "AND",
+            "description": "Limit stops must not contact during normal operation.",
+            "constraints": [
+              "C-MECH-LIMITSTOP-NOCONTACT"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-CLEAR-BOLT",
+            "Type": "minimum_clearance",
+            "Operator": ">=",
+            "Value": 10,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum clearance around restraining bolts."
+          },
+          {
+            "Id": "C-MECH-CLEAR-HOUSING",
+            "Type": "minimum_clearance",
+            "Operator": ">=",
+            "Value": 10,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum clearance between spring housing and spring."
+          },
+          {
+            "Id": "C-MECH-LIMITSTOP-NOCONTACT",
+            "Type": "limit_stop_clearance",
+            "Operator": "=",
+            "Value": "no_contact",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Limit stops shall not touch during normal operations."
+          }
+        ],
+        "workstep": [
+          {
+            "id": "WS-MECH-SPRINGMOUNT-INSTALL",
+            "name": "Install restrained spring mount (Type B)",
+            "Method": "Ensure minimum 10 mm clearance around restraining bolts and spring housing. Confirm limit stops do not contact during normal operations.",
+            "Safety note": "Verify mount alignment to prevent unintended bolt contact or spring binding."
+          }
+        ],
+        "interface": [
+          {
+            "id": "INT-SPRINGMOUNT-MECH",
+            "name": "Spring Mount–Housing–Bolt Interface"
+          }
+        ],
+        "product": [],
+        "supplier": [],
+        "space": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-6-1-8-3",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-6-1-8-3",
+          "to": "R-MECH-SPRINGMOUNT-B-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "C-IfcSpringMount-B",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "C-IfcBolt",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "C-IfcSpring",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "M-STEEL-SPRING",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "CG-MECH-SPRINGMOUNT-CLEARANCE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "CG-MECH-SPRINGMOUNT-LIMITSTOP",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-SPRINGMOUNT-CLEARANCE",
+          "to": "C-MECH-CLEAR-BOLT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-SPRINGMOUNT-CLEARANCE",
+          "to": "C-MECH-CLEAR-HOUSING",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-SPRINGMOUNT-LIMITSTOP",
+          "to": "C-MECH-LIMITSTOP-NOCONTACT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "WS-MECH-SPRINGMOUNT-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "R-MECH-SPRINGMOUNT-B-2022",
+          "to": "INT-SPRINGMOUNT-MECH",
+          "type": "HAS_INTERFACE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-ElecWiring-2015",
+          "title": "Code of Practice for the Electricity (Wiring) Regulations",
+          "publisher": null,
+          "version": "2015 Edition",
+          "year": 2015
+        },
+        "chapter": {
+          "id": "CH-17A-4",
+          "title": "Code 17A(4) – HV warning notice size"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-17A-4-002",
+          "text": "HV label: letters not less than 30 mm high.",
+          "page_number": null,
+          "document_id": "DOC-ElecWiring-2015",
+          "chapter_id": "CH-17A-4",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcSign-002",
+          "name": "HV warning label / signage",
+          "ifc_class": "IfcAnnotation"
+        },
+        "material": null,
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-17A-4-002",
+            "Rule_id": "R-EL-17A-4-002",
+            "Logic": "SINGLE",
+            "description": "HV warning label must meet minimum letter height requirement.",
+            "constraints": [
+              "C-EL-17A-4-002-HGT"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-17A-4-002-HGT",
+            "Type": "dimension",
+            "Operator": ">=",
+            "Value": 30,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum letter height for HV warning labels: not less than 30 mm."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-ElecWiring-2015",
+          "to": "CH-17A-4",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-17A-4",
+          "to": "R-EL-17A-4-002",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-17A-4-002",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-17A-4-002",
+          "to": "C-IfcSign-002",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-17A-4-002",
+          "to": "CG-EL-17A-4-002",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-17A-4-002",
+          "to": "C-EL-17A-4-002-HGT",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-FireCodes-2022",
+          "title": "Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment",
+          "publisher": null,
+          "version": "2022 edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "APP-08",
+          "title": "Appendix 8"
+        },
+        "module": {
+          "id": "MOD-FireProtection",
+          "name": "Fire Protection Services"
+        },
+        "rule": {
+          "id": "R-FP-APP8-002",
+          "text": "Appendix 8, Item 2: \"Automatic actuating device - Cable shall comply with\" several options including \"BS 6387 Cat. CWZ\", \"BS EN 60702\", and \"BS 8491 (a duration of survival time of 120 minutes)\", plus BS 7629-1 and BS 7846 references split by overall diameter not exceeding / exceeding 20 mm.",
+          "page_number": null,
+          "document_id": "DOC-FireCodes-2022",
+          "chapter_id": "APP-08",
+          "module_id": "MOD-FireProtection"
+        },
+        "component": {
+          "id": "C-IfcCableSegment-001",
+          "name": "Actuating-device cable",
+          "ifc_class": "IfcCableSegment"
+        },
+        "material": {
+          "id": "M-CABLE-ACTUATOR-2022",
+          "name": "Automatic actuating device cable",
+          "standard": null,
+          "attributes": {
+            "application": "Cable for automatic actuating devices",
+            "raw_text": "BS 8491 (a duration of survival time of 120 minutes); BS 7629-1 / BS 7846 split by overall diameter <=/> 20 mm."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-R-FP-APP8-002-STD",
+            "Rule_id": "R-FP-APP8-002",
+            "Logic": "OR",
+            "description": "Cable shall comply with at least one of the listed standards/options.",
+            "constraints": [
+              "C-R-FP-APP8-002-STD-6387",
+              "C-R-FP-APP8-002-STD-60702",
+              "C-R-FP-APP8-002-STD-8491"
+            ]
+          },
+          {
+            "Id": "CG-R-FP-APP8-002-DIAM",
+            "Rule_id": "R-FP-APP8-002",
+            "Logic": "CONDITIONAL",
+            "description": "Applicability of BS 7629-1 and BS 7846 is split by overall cable diameter (<= 20 mm / > 20 mm).",
+            "condition": "overall_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "<= 20",
+                "applies_constraints": [
+                  "C-R-FP-APP8-002-STD-7629-LE20",
+                  "C-R-FP-APP8-002-STD-7846-LE20"
+                ]
+              },
+              {
+                "condition_expression": "> 20",
+                "applies_constraints": [
+                  "C-R-FP-APP8-002-STD-7629-GT20",
+                  "C-R-FP-APP8-002-STD-7846-GT20"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-R-FP-APP8-002-STD-6387",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 6387 Cat. CWZ"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option: BS 6387 Category CWZ (fire/water/corrosion classification)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-60702",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS EN 60702"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option: BS EN 60702 series (tests for insulated cables under fire conditions)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-8491",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 8491"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option: BS 8491 (survival-time requirement specified separately)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-8491-TIME",
+            "Type": "performance_requirement",
+            "Operator": ">=",
+            "Value": 120,
+            "Unit": "minutes",
+            "Tolerance": null,
+            "note": "Survival time associated with BS 8491: 120 minutes as stated in text."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-7629-LE20",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 7629-1"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "BS 7629-1 applicability for cables with overall diameter <= 20 mm (per appendix split)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-7846-LE20",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 7846"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "BS 7846 applicability for cables with overall diameter <= 20 mm (per appendix split)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-7629-GT20",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 7629-1"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "BS 7629-1 applicability for cables with overall diameter > 20 mm (per appendix split)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-STD-7846-GT20",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 7846"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "BS 7846 applicability for cables with overall diameter > 20 mm (per appendix split)."
+          },
+          {
+            "Id": "C-R-FP-APP8-002-DIAM-THRESH",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 20,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Diameter threshold used to branch applicability (<=20 mm vs >20 mm)."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-FireCodes-2022",
+          "to": "APP-08",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "APP-08",
+          "to": "R-FP-APP8-002",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "MOD-FireProtection",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "C-IfcCableSegment-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "M-CABLE-ACTUATOR-2022",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "CG-R-FP-APP8-002-STD",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "CG-R-FP-APP8-002-DIAM",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-STD",
+          "to": "C-R-FP-APP8-002-STD-6387",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-STD",
+          "to": "C-R-FP-APP8-002-STD-60702",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-STD",
+          "to": "C-R-FP-APP8-002-STD-8491",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "C-R-FP-APP8-002-STD-8491",
+          "to": "C-R-FP-APP8-002-8491-TIME",
+          "type": "ASSOCIATED_PERFORMANCE"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-DIAM",
+          "to": "C-R-FP-APP8-002-STD-7629-LE20",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-DIAM",
+          "to": "C-R-FP-APP8-002-STD-7846-LE20",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-DIAM",
+          "to": "C-R-FP-APP8-002-STD-7629-GT20",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-002-DIAM",
+          "to": "C-R-FP-APP8-002-STD-7846-GT20",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-FP-APP8-002",
+          "to": "C-R-FP-APP8-002-DIAM-THRESH",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-1-5",
+          "title": "6.1.5 – Central Control and Monitoring System (CCMS)"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+          "text": "The percentage \"off\" time within each time resolution shall be selectable, as a minimum, on 5% increments between 5% and 95%.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2023",
+          "chapter_id": "CH-06-1-5",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcControlSystem-CCMS",
+          "name": "Central Control and Monitoring System (CCMS)",
+          "ifc_class": "IfcControl"
+        },
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-CCMS-OFFPCT-2023",
+            "Rule_id": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+            "Logic": "AND",
+            "description": "Off-time percentage selection must meet step, minimum and maximum requirements.",
+            "constraints": [
+              "C-MECH-CCMS-OFFPCT-STEP",
+              "C-MECH-CCMS-OFFPCT-MIN",
+              "C-MECH-CCMS-OFFPCT-MAX"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-CCMS-OFFPCT-STEP",
+            "Type": "time_duty_step",
+            "Operator": "=",
+            "Value": 5,
+            "Unit": "percent",
+            "Tolerance": null,
+            "note": "Selectable off-time percentage increments must be 5% (i.e., multiples of 5%)."
+          },
+          {
+            "Id": "C-MECH-CCMS-OFFPCT-MIN",
+            "Type": "time_duty_min",
+            "Operator": ">=",
+            "Value": 5,
+            "Unit": "percent",
+            "Tolerance": null,
+            "note": "Minimum selectable off-time percentage is 5%."
+          },
+          {
+            "Id": "C-MECH-CCMS-OFFPCT-MAX",
+            "Type": "time_duty_max",
+            "Operator": "<=",
+            "Value": 95,
+            "Unit": "percent",
+            "Tolerance": null,
+            "note": "Maximum selectable off-time percentage is 95%."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2023",
+          "to": "CH-06-1-5",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-1-5",
+          "to": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+          "to": "C-IfcControlSystem-CCMS",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-OFFPCT-2023",
+          "to": "CG-MECH-CCMS-OFFPCT-2023",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-CCMS-OFFPCT-2023",
+          "to": "C-MECH-CCMS-OFFPCT-STEP",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CCMS-OFFPCT-2023",
+          "to": "C-MECH-CCMS-OFFPCT-MIN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CCMS-OFFPCT-2023",
+          "to": "C-MECH-CCMS-OFFPCT-MAX",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-SEALS",
+          "title": "Wall Penetration Sealing Requirements"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-SEALS-PROJECTION-2025",
+          "text": "Seals shall project a minimum of 25 mm past either face of the walls.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2025",
+          "chapter_id": "CH-SEALS",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcBuildingElementProxy-Seal",
+          "name": "Wall penetration seal",
+          "ifc_class": "IfcBuildingElementProxy"
+        },
+        "material": {
+          "id": "M-SEALANT-GENERIC",
+          "name": "Sealant",
+          "standard": null,
+          "attributes": {
+            "description": "Generic sealing material for mechanical penetrations through walls."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-SEALS-PROJECTION-REQ",
+            "Rule_id": "R-MECH-SEALS-PROJECTION-2025",
+            "Logic": "AND",
+            "description": "Minimum projection requirement for wall sealings.",
+            "constraints": [
+              "C-MECH-SEAL-PROJECTION-MIN"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-SEAL-PROJECTION-MIN",
+            "Type": "projection_length",
+            "Operator": ">=",
+            "Value": 25,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Sealing material must extend at least 25 mm beyond each face of wall."
+          }
+        ],
+        "space": [],
+        "workstep": [
+          {
+            "id": "WS-SEALING-INSTALLATION",
+            "name": "Seal installation",
+            "Method": "Apply sealing compound ensuring projection ≥25 mm on both sides of the wall.",
+            "Safety note": null
+          }
+        ],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2025",
+          "to": "CH-SEALS",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-SEALS",
+          "to": "R-MECH-SEALS-PROJECTION-2025",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-SEALS-PROJECTION-2025",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-SEALS-PROJECTION-2025",
+          "to": "C-IfcBuildingElementProxy-Seal",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-SEALS-PROJECTION-2025",
+          "to": "CG-MECH-SEALS-PROJECTION-REQ",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-SEALS-PROJECTION-REQ",
+          "to": "C-MECH-SEAL-PROJECTION-MIN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-MECH-SEALS-PROJECTION-2025",
+          "to": "M-SEALANT-GENERIC",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-SEALS-PROJECTION-2025",
+          "to": "WS-SEALING-INSTALLATION",
+          "type": "INVOLVES_WORKSTEP"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-WIREMESH-TRAY",
+          "title": "Wire Mesh Cable Tray Installation Requirements"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-WIREMESH-TRAY-2022",
+          "text": "The wire mesh cable tray except those of short run less than 300 mm long where at least 1 set of hanger or bracket is required, shall be supported by at least 2 sets of hangers or brackets. Supports shall be properly spaced at distance not exceeding 1,500 mm for straight run to satisfactorily support the weight of the tray and cables.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-07-WIREMESH-TRAY",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcWireMeshCableTray",
+          "name": "Wire Mesh Cable Tray",
+          "ifc_class": "IfcCableCarrierSegment"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcBracket",
+            "name": "Hanger / Bracket",
+            "ifc_class": "IfcBuildingElement"
+          }
+        ],
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT",
+            "Rule_id": "R-EL-WIREMESH-TRAY-2022",
+            "Logic": "CONDITIONAL",
+            "description": "Required number of supports depending on tray run length.",
+            "condition": "tray_length",
+            "branches": [
+              {
+                "condition_expression": "tray_length < 300",
+                "applies_constraints": [
+                  "C-EL-WIREMESH-SUPPORT-1"
+                ]
+              },
+              {
+                "condition_expression": "tray_length >= 300",
+                "applies_constraints": [
+                  "C-EL-WIREMESH-SUPPORT-2"
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "CG-EL-WIREMESH-TRAY-FIXING-DIST",
+            "Rule_id": "R-EL-WIREMESH-TRAY-2022",
+            "Logic": "AND",
+            "description": "Fixing distance for straight runs.",
+            "constraints": [
+              "C-EL-WIREMESH-STRAIGHT-INTERVAL"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-WIREMESH-SUPPORT-1",
+            "Type": "minimum_supports",
+            "Operator": "=",
+            "Value": 1,
+            "Unit": "set",
+            "Tolerance": null,
+            "note": "For wire mesh cable tray runs <300 mm, at least 1 hanger/bracket is required."
+          },
+          {
+            "Id": "C-EL-WIREMESH-SUPPORT-2",
+            "Type": "minimum_supports",
+            "Operator": ">=",
+            "Value": 2,
+            "Unit": "sets",
+            "Tolerance": null,
+            "note": "For wire mesh cable tray runs ≥300 mm, at least 2 hangers/brackets are required."
+          },
+          {
+            "Id": "C-EL-WIREMESH-STRAIGHT-INTERVAL",
+            "Type": "fixing_interval_straight",
+            "Operator": "<=",
+            "Value": 1.5,
+            "Unit": "m",
+            "Tolerance": null,
+            "note": "Supports must be spaced at intervals not exceeding 1.5 m along straight runs."
+          }
+        ],
+        "workstep": [
+          {
+            "id": "WS-EL-WIREMESH-TRAY-INSTALL",
+            "name": "Install wire mesh cable tray supports",
+            "Method": "Install supports according to tray length; ensure spacing for straight runs is ≤1.5 m.",
+            "Safety note": "Verify structural capacity before anchoring hangers or brackets."
+          }
+        ],
+        "interface": [
+          {
+            "id": "INT-WIREMESH-TRAY-TO-STRUCTURE",
+            "name": "Wire Mesh Tray–Structure Support Interface"
+          }
+        ],
+        "product": [],
+        "supplier": [],
+        "space": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-07-WIREMESH-TRAY",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-WIREMESH-TRAY",
+          "to": "R-EL-WIREMESH-TRAY-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "C-IfcWireMeshCableTray",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "C-IfcBracket",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "CG-EL-WIREMESH-TRAY-FIXING-DIST",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT",
+          "to": "C-EL-WIREMESH-SUPPORT-1",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-WIREMESH-TRAY-SUPPORT-COUNT",
+          "to": "C-EL-WIREMESH-SUPPORT-2",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-WIREMESH-TRAY-FIXING-DIST",
+          "to": "C-EL-WIREMESH-STRAIGHT-INTERVAL",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "WS-EL-WIREMESH-TRAY-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "R-EL-WIREMESH-TRAY-2022",
+          "to": "INT-WIREMESH-TRAY-TO-STRUCTURE",
+          "type": "HAS_INTERFACE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-CABLE-TRAY",
+          "title": "Cable Tray Installation Requirements"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-CABLE-TRAY-2028",
+          "text": "Cable trays, except those with short runs shorter than 300 mm which require at least one hanger or bracket, shall be supported by at least two sets of hangers or brackets of adequate mechanical strength, securely fixed to the building structure. Unless otherwise specified, hangers or brackets shall be hot-dip galvanised, painted with anti-rust epoxy coating, or made of anti-rusting material. Fixings shall be disposed at intervals not exceeding 1.2 m for straight runs and within 225 mm on both sides of bends or intersections. A minimum clear space of 20 mm shall be maintained behind all cable trays.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2028",
+          "chapter_id": "CH-07-CABLE-TRAY",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcCableTraySegment",
+          "name": "Cable Tray",
+          "ifc_class": "IfcCableCarrierSegment"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcBracket",
+            "name": "Hanger / Bracket",
+            "ifc_class": "IfcBuildingElement"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-HDG-STEEL",
+            "name": "Hot-dip galvanized steel",
+            "standard": null,
+            "attributes": {
+              "coating": "HDG",
+              "application": "cable tray hangers and brackets"
+            }
+          },
+          {
+            "id": "M-EPOXY-COATED-STEEL",
+            "name": "Anti-rust epoxy painted steel",
+            "standard": null,
+            "attributes": {
+              "coating": "anti-rust epoxy",
+              "application": "cable tray hangers and brackets"
+            }
+          },
+          {
+            "id": "M-ANTI-RUST-METAL",
+            "name": "Anti-rusting metal",
+            "standard": null,
+            "attributes": {
+              "application": "corrosion protection for hangers/brackets"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-TRAY-SUPPORT-COUNT",
+            "Rule_id": "R-EL-CABLE-TRAY-2028",
+            "Logic": "CONDITIONAL",
+            "description": "Minimum hanger/bracket count requirement depending on cable tray run length.",
+            "condition": "tray_length",
+            "branches": [
+              {
+                "condition_expression": "tray_length < 300",
+                "applies_constraints": [
+                  "C-EL-TRAY-1-SUPPORT"
+                ]
+              },
+              {
+                "condition_expression": "tray_length >= 300",
+                "applies_constraints": [
+                  "C-EL-TRAY-2-SUPPORT"
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "CG-EL-TRAY-MATERIAL",
+            "Rule_id": "R-EL-CABLE-TRAY-2028",
+            "Logic": "OR",
+            "description": "Allowed corrosion protection material for hangers/brackets.",
+            "constraints": [
+              "C-EL-TRAY-MAT-HDG",
+              "C-EL-TRAY-MAT-EPOXY",
+              "C-EL-TRAY-MAT-ANTI"
+            ]
+          },
+          {
+            "Id": "CG-EL-TRAY-FIXING-DISTANCES",
+            "Rule_id": "R-EL-CABLE-TRAY-2028",
+            "Logic": "AND",
+            "description": "Fixing distances for straight runs and bends/intersections.",
+            "constraints": [
+              "C-EL-TRAY-STRAIGHT-INTERVAL",
+              "C-EL-TRAY-BEND-DIST"
+            ]
+          },
+          {
+            "Id": "CG-EL-TRAY-CLEARANCE",
+            "Rule_id": "R-EL-CABLE-TRAY-2028",
+            "Logic": "AND",
+            "description": "Clearance required behind cable trays.",
+            "constraints": [
+              "C-EL-TRAY-CLEAR-SPACE"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-TRAY-1-SUPPORT",
+            "Type": "minimum_supports",
+            "Operator": "=",
+            "Value": 1,
+            "Unit": "set",
+            "Tolerance": null,
+            "note": "Short runs (<300 mm) require at least one hanger/bracket."
+          },
+          {
+            "Id": "C-EL-TRAY-2-SUPPORT",
+            "Type": "minimum_supports",
+            "Operator": ">=",
+            "Value": 2,
+            "Unit": "sets",
+            "Tolerance": null,
+            "note": "Longer runs (≥300 mm) require at least two hangers/brackets."
+          },
+          {
+            "Id": "C-EL-TRAY-MAT-HDG",
+            "Type": "hanger_material",
+            "Operator": "=",
+            "Value": "hot_dip_galvanised",
+            "Unit": null,
+            "Tolerance": null
+          },
+          {
+            "Id": "C-EL-TRAY-MAT-EPOXY",
+            "Type": "hanger_material",
+            "Operator": "=",
+            "Value": "anti_rust_epoxy_painted",
+            "Unit": null,
+            "Tolerance": null
+          },
+          {
+            "Id": "C-EL-TRAY-MAT-ANTI",
+            "Type": "hanger_material",
+            "Operator": "=",
+            "Value": "anti_rusting_metal",
+            "Unit": null,
+            "Tolerance": null
+          },
+          {
+            "Id": "C-EL-TRAY-STRAIGHT-INTERVAL",
+            "Type": "fixing_interval_straight",
+            "Operator": "<=",
+            "Value": 1.2,
+            "Unit": "m",
+            "Tolerance": null
+          },
+          {
+            "Id": "C-EL-TRAY-BEND-DIST",
+            "Type": "fixing_distance_bend",
+            "Operator": "<=",
+            "Value": 225,
+            "Unit": "mm",
+            "Tolerance": null
+          },
+          {
+            "Id": "C-EL-TRAY-CLEAR-SPACE",
+            "Type": "minimum_clear_space_behind",
+            "Operator": ">=",
+            "Value": 20,
+            "Unit": "mm",
+            "Tolerance": null
+          }
+        ],
+        "workstep": [
+          {
+            "id": "WS-EL-CABLE-TRAY-INSTALL",
+            "name": "Install cable tray and structural supports",
+            "Method": "Install cable tray supports according to tray length; verify corrosion protection of hangers; ensure spacing intervals for straight runs and bends; maintain minimum 20 mm clearance behind tray.",
+            "Safety note": "Confirm structure integrity before fixing hangers or brackets."
+          }
+        ],
+        "interface": [
+          {
+            "id": "INT-TRAY-TO-STRUCTURE",
+            "name": "Cable Tray–Building Structure Interface"
+          }
+        ],
+        "product": [],
+        "supplier": [],
+        "space": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2028",
+          "to": "CH-07-CABLE-TRAY",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-CABLE-TRAY",
+          "to": "R-EL-CABLE-TRAY-2028",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "C-IfcCableTraySegment",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "C-IfcBracket",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "M-HDG-STEEL",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "M-EPOXY-COATED-STEEL",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "M-ANTI-RUST-METAL",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "CG-EL-TRAY-SUPPORT-COUNT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "CG-EL-TRAY-MATERIAL",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "CG-EL-TRAY-FIXING-DISTANCES",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "CG-EL-TRAY-CLEARANCE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-TRAY-SUPPORT-COUNT",
+          "to": "C-EL-TRAY-1-SUPPORT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-SUPPORT-COUNT",
+          "to": "C-EL-TRAY-2-SUPPORT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-MATERIAL",
+          "to": "C-EL-TRAY-MAT-HDG",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-MATERIAL",
+          "to": "C-EL-TRAY-MAT-EPOXY",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-MATERIAL",
+          "to": "C-EL-TRAY-MAT-ANTI",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-FIXING-DISTANCES",
+          "to": "C-EL-TRAY-STRAIGHT-INTERVAL",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-FIXING-DISTANCES",
+          "to": "C-EL-TRAY-BEND-DIST",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRAY-CLEARANCE",
+          "to": "C-EL-TRAY-CLEAR-SPACE",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "WS-EL-CABLE-TRAY-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "R-EL-CABLE-TRAY-2028",
+          "to": "INT-TRAY-TO-STRUCTURE",
+          "type": "HAS_INTERFACE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-Mechanical",
+          "title": "Section 6 – Mechanical Installation"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "text": "Stainless steel shall be used for water with temperature >28°C.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-Mechanical",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcPump-SalineWater",
+          "name": "Saline Water Pump",
+          "ifc_class": "IfcPump"
+        },
+        "material": {
+          "id": "MAT-StainlessSteel",
+          "name": "Stainless Steel",
+          "standard": null,
+          "attributes": {}
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-SALINEPUMP-TEMP-2022",
+            "Rule_id": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+            "Logic": "AND",
+            "description": "Temperature-based material requirement for saline water pumps.",
+            "constraints": [
+              "C-MECH-SALINEPUMP-TEMP-MIN"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-SALINEPUMP-TEMP-MIN",
+            "Type": "water_temperature",
+            "Operator": ">",
+            "Value": 28,
+            "Unit": "°C",
+            "Tolerance": null,
+            "note": "Stainless steel is required when saline water temperature exceeds 28°C."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-Mechanical",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-Mechanical",
+          "to": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "to": "C-IfcPump-SalineWater",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "to": "MAT-StainlessSteel",
+          "type": "REQUIRES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-SALINEPUMP-2022-MATERIALTEMP",
+          "to": "CG-MECH-SALINEPUMP-TEMP-2022",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-SALINEPUMP-TEMP-2022",
+          "to": "C-MECH-SALINEPUMP-TEMP-MIN",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-CEILING-FAN",
+          "title": "Ceiling Fans – Mounting Height Requirements"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-CEILFAN-HEIGHT-2022",
+          "text": "Unless otherwise stated, ceiling fans shall be mounted no lower than 2400 mm and no higher than 2600 mm from finished floor levels. Down rod lengths shall be sized to meet these requirements.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-CEILING-FAN",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcCeilingFan-001",
+          "name": "Ceiling Fan",
+          "ifc_class": "IfcFan"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcDownRod-001",
+            "name": "Ceiling Fan Down Rod",
+            "ifc_class": "IfcMechanicalFastener"
+          }
+        ],
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-CEILFAN-HEIGHT",
+            "Rule_id": "R-MECH-CEILFAN-HEIGHT-2022",
+            "Logic": "AND",
+            "description": "Mounting height constraints for ceiling fan installation.",
+            "constraints": [
+              "C-MECH-CEILFAN-HEIGHT-MIN",
+              "C-MECH-CEILFAN-HEIGHT-MAX"
+            ]
+          },
+          {
+            "Id": "CG-MECH-CEILFAN-DOWNROD",
+            "Rule_id": "R-MECH-CEILFAN-HEIGHT-2022",
+            "Logic": "DERIVED",
+            "description": "Down rod must be sized to achieve fan mounting height within 2400–2600 mm.",
+            "constraints": [
+              "C-MECH-CEILFAN-DOWNROD-SIZED"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-CEILFAN-HEIGHT-MIN",
+            "Type": "installation_height",
+            "Operator": ">=",
+            "Value": 2400,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Ceiling fan must be installed at least 2400 mm above finished floor level."
+          },
+          {
+            "Id": "C-MECH-CEILFAN-HEIGHT-MAX",
+            "Type": "installation_height",
+            "Operator": "<=",
+            "Value": 2600,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Ceiling fan must be installed no higher than 2600 mm above finished floor level."
+          },
+          {
+            "Id": "C-MECH-CEILFAN-DOWNROD-SIZED",
+            "Type": "component_sizing_requirement",
+            "Operator": "=",
+            "Value": "down_rod_length_selected_to_meet_height_range",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Down rod length must be selected to ensure the fan mounting height stays between 2400–2600 mm."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-CEILING-FAN",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-CEILING-FAN",
+          "to": "R-MECH-CEILFAN-HEIGHT-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-CEILFAN-HEIGHT-2022",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-CEILFAN-HEIGHT-2022",
+          "to": "C-IfcCeilingFan-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-CEILFAN-HEIGHT-2022",
+          "to": "C-IfcDownRod-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-CEILFAN-HEIGHT-2022",
+          "to": "CG-MECH-CEILFAN-HEIGHT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-MECH-CEILFAN-HEIGHT-2022",
+          "to": "CG-MECH-CEILFAN-DOWNROD",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-CEILFAN-HEIGHT",
+          "to": "C-MECH-CEILFAN-HEIGHT-MIN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CEILFAN-HEIGHT",
+          "to": "C-MECH-CEILFAN-HEIGHT-MAX",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CEILFAN-DOWNROD",
+          "to": "C-MECH-CEILFAN-DOWNROD-SIZED",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-FireCodes-2012",
+          "title": "Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment",
+          "publisher": null,
+          "version": "2012 edition",
+          "year": 2012
+        },
+        "chapter": {
+          "id": "APP-08",
+          "title": "Appendix 8"
+        },
+        "module": {
+          "id": "MOD-FireProtection",
+          "name": "Fire Protection Services"
+        },
+        "rule": {
+          "id": "R-FP-APP8-010",
+          "text": "Appendix 8, Item 10: \"Emergency generators - Power supply cables (from emergency generator to main switchboard)\" shall conform with (a) BS 6387 Cat. CWZ; or (b) BS 6207 or BS EN 60702; or (c) other international standards acceptable. No PH rating or survival-time requirement is stated in this item.",
+          "page_number": null,
+          "document_id": "DOC-FireCodes-2012",
+          "chapter_id": "APP-08",
+          "module_id": "MOD-FireProtection"
+        },
+        "component": {
+          "id": "C-IfcCableSegment-002",
+          "name": "Power supply cable (generator to main switchboard)",
+          "ifc_class": "IfcCableSegment"
+        },
+        "material": {
+          "id": "M-CABLE-GEN-2012",
+          "name": "Emergency generator power supply cable",
+          "standard": null,
+          "attributes": {
+            "application": "Power supply cable from emergency generator to main switchboard",
+            "notes": "Item 10 (2012): standards listed; no PH rating or explicit survival-time requirement stated."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-R-FP-APP8-010-01",
+            "Rule_id": "R-FP-APP8-010",
+            "Logic": "OR",
+            "description": "Cable must conform to one of the listed standards/options (a), (b) or (c).",
+            "constraints": [
+              "C-R-FP-APP8-010-STD-01",
+              "C-R-FP-APP8-010-STD-02",
+              "C-R-FP-APP8-010-STD-03"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-R-FP-APP8-010-STD-01",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 6387 Cat. CWZ"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option (a): BS 6387 Category CWZ (classification for flame, water and corrosion exposure)."
+          },
+          {
+            "Id": "C-R-FP-APP8-010-STD-02",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "BS 6207",
+              "BS EN 60702"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option (b): BS 6207 or BS EN 60702 series as alternatives."
+          },
+          {
+            "Id": "C-R-FP-APP8-010-STD-03",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "other_international_standards_acceptable"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option (c): other internationally accepted standards (authority discretion)."
+          },
+          {
+            "Id": "C-R-FP-APP8-010-NOPERF",
+            "Type": "performance_absence",
+            "Operator": "na",
+            "Value": null,
+            "Unit": null,
+            "Tolerance": null,
+            "note": "No PH rating or survival-time (minutes) requirement is specified in this item (2012)."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-FireCodes-2012",
+          "to": "APP-08",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "APP-08",
+          "to": "R-FP-APP8-010",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-FP-APP8-010",
+          "to": "MOD-FireProtection",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-FP-APP8-010",
+          "to": "C-IfcCableSegment-002",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-FP-APP8-010",
+          "to": "M-CABLE-GEN-2012",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-FP-APP8-010",
+          "to": "CG-R-FP-APP8-010-01",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-R-FP-APP8-010-01",
+          "to": "C-R-FP-APP8-010-STD-01",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-010-01",
+          "to": "C-R-FP-APP8-010-STD-02",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-R-FP-APP8-010-01",
+          "to": "C-R-FP-APP8-010-STD-03",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-FP-APP8-010",
+          "to": "C-R-FP-APP8-010-NOPERF",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-ElecWiring-2015",
+          "title": "Code of Practice for the Electricity (Wiring) Regulations",
+          "publisher": null,
+          "version": "2015 Edition",
+          "year": 2015
+        },
+        "chapter": {
+          "id": "CH-7B-3-b-ii",
+          "title": "Code 7B(3)(b)(ii) – Lighting load per lampholder"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-7B-3bii-002",
+          "text": "Connected load 100W per lampholder.",
+          "page_number": null,
+          "document_id": "DOC-ElecWiring-2015",
+          "chapter_id": "CH-7B-3-b-ii",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcLampHolder-002",
+          "name": "Lampholder",
+          "ifc_class": "IfcLamp"
+        },
+        "material": null,
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-7B-3bii-002",
+            "Rule_id": "R-EL-7B-3bii-002",
+            "Logic": "SINGLE",
+            "description": "Connected load per lampholder shall be 100 W (design connected load).",
+            "constraints": [
+              "C-EL-7B-3bii-002-100W"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-7B-3bii-002-100W",
+            "Type": "power_load",
+            "Operator": "=",
+            "Value": 100,
+            "Unit": "W",
+            "Tolerance": null,
+            "note": "Design connected load assigned per lampholder (100 W)."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-ElecWiring-2015",
+          "to": "CH-7B-3-b-ii",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-7B-3-b-ii",
+          "to": "R-EL-7B-3bii-002",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-7B-3bii-002",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-7B-3bii-002",
+          "to": "C-IfcLampHolder-002",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-7B-3bii-002",
+          "to": "CG-EL-7B-3bii-002",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-7B-3bii-002",
+          "to": "C-EL-7B-3bii-002-100W",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-COPPER-JOINTS",
+          "title": "Copper Pipe Jointing Requirements"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-COPPER-JOINTS-2024",
+          "text": "Joints in copper pipe shall be flanged, flared (up to 20 mm OD only), or brazed with or without capillary fittings.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2024",
+          "chapter_id": "CH-COPPER-JOINTS",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-Copper",
+          "name": "Copper Pipe",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcPipeFitting-Flange",
+            "name": "Flanged joint / flange",
+            "ifc_class": "IfcPipeFitting"
+          },
+          {
+            "id": "C-IfcPipeFitting-Flare",
+            "name": "Flared joint / flare fitting",
+            "ifc_class": "IfcPipeFitting"
+          },
+          {
+            "id": "C-IfcPipeFitting-Brazed",
+            "name": "Brazed joint / brazing with or without capillary fittings",
+            "ifc_class": "IfcPipeFitting"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-COPPER-PIPE",
+            "name": "Copper pipe",
+            "standard": null,
+            "attributes": {
+              "notes": "Applies to copper pipe jointing requirements."
+            }
+          },
+          {
+            "id": "M-CAPILLARY-FITTING",
+            "name": "Capillary fitting",
+            "standard": null,
+            "attributes": {}
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-COPPER-JOINTS-MAIN",
+            "Rule_id": "R-MECH-COPPER-JOINTS-2024",
+            "Logic": "OR",
+            "description": "Permitted jointing methods for copper pipe: flanged OR flared (conditional) OR brazed (with/without capillary fittings).",
+            "constraints": [
+              "C-MECH-COPPER-JOINT-FLANGED",
+              "C-MECH-COPPER-JOINT-FLARED-COND",
+              "C-MECH-COPPER-JOINT-BRAZED"
+            ]
+          },
+          {
+            "Id": "CG-MECH-COPPER-FLARE-APPL",
+            "Rule_id": "R-MECH-COPPER-JOINTS-2024",
+            "Logic": "CONDITIONAL",
+            "description": "Flare applicability branch: allowed only when pipe outside diameter ≤ 20 mm.",
+            "condition": "pipe_outside_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "<= 20",
+                "applies_constraints": [
+                  "C-MECH-COPPER-JOINT-FLARED"
+                ]
+              },
+              {
+                "condition_expression": "> 20",
+                "applies_constraints": [
+                  "C-MECH-COPPER-JOINT-FLARED-DISALLOWED"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-COPPER-JOINT-FLANGED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "flanged",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Flanged joints are an acceptable jointing method for copper pipe (no diameter restriction stated)."
+          },
+          {
+            "Id": "C-MECH-COPPER-JOINT-FLARED-COND",
+            "Type": "conditional_application",
+            "Operator": "conditional",
+            "Value": "flared_allowed_if_diameter_<=_20",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Flared joints are permitted only for pipe outside diameter up to 20 mm."
+          },
+          {
+            "Id": "C-MECH-COPPER-JOINT-FLARED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "flared",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Flared joint (valid when OD ≤ 20 mm)."
+          },
+          {
+            "Id": "C-MECH-COPPER-JOINT-FLARED-DISALLOWED",
+            "Type": "joint_type_restriction",
+            "Operator": "=",
+            "Value": "flared_disallowed",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Flared joints are not allowed when pipe OD > 20 mm."
+          },
+          {
+            "Id": "C-MECH-COPPER-JOINT-BRAZED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "brazed",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Brazing is permitted; may be performed with or without capillary fittings."
+          },
+          {
+            "Id": "C-MECH-COPPER-BRAZE-CAPILLARY-OPTION",
+            "Type": "assembly_option",
+            "Operator": "in",
+            "Value": [
+              "with_capillary_fittings",
+              "without_capillary_fittings"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Brazed joints may use capillary fittings or be brazed without capillary fittings."
+          },
+          {
+            "Id": "C-MECH-COPPER-FLARE-THRESH",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 20,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Outside diameter threshold for allowing flared joints."
+          }
+        ],
+        "space": [],
+        "workstep": [
+          {
+            "id": "WS-MECH-BRAZING",
+            "name": "Brazing operation",
+            "Method": "Brazing of copper pipe joints; with option of using capillary fittings",
+            "Safety note": null
+          }
+        ],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2024",
+          "to": "CH-COPPER-JOINTS",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-COPPER-JOINTS",
+          "to": "R-MECH-COPPER-JOINTS-2024",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "C-IfcPipeSegment-Copper",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "CG-MECH-COPPER-JOINTS-MAIN",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-COPPER-JOINTS-MAIN",
+          "to": "C-MECH-COPPER-JOINT-FLANGED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-COPPER-JOINTS-MAIN",
+          "to": "CG-MECH-COPPER-FLARE-APPL",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-COPPER-JOINTS-MAIN",
+          "to": "C-MECH-COPPER-JOINT-BRAZED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-COPPER-FLARE-APPL",
+          "to": "C-MECH-COPPER-JOINT-FLARED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-COPPER-FLARE-APPL",
+          "to": "C-MECH-COPPER-JOINT-FLARED-DISALLOWED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-COPPER-FLARE-APPL",
+          "to": "C-MECH-COPPER-FLARE-THRESH",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "M-COPPER-PIPE",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "M-CAPILLARY-FITTING",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-COPPER-JOINTS-2024",
+          "to": "WS-MECH-BRAZING",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "C-MECH-COPPER-JOINT-BRAZED",
+          "to": "C-MECH-COPPER-BRAZE-CAPILLARY-OPTION",
+          "type": "ASSOCIATED_OPTION"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-1-3",
+          "title": "6.1.3 – Air Handling Equipment"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "text": "The location of the local control box shall be within 600 mm from the terminal box of the fan coil unit and the duct heater.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-1-3",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcControlBox-Local-001",
+          "name": "Local control box",
+          "ifc_class": "IfcElectricalCircuit"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcFanCoilUnit-001",
+            "name": "Fan coil unit (terminal box)",
+            "ifc_class": "IfcAirTerminal"
+          },
+          {
+            "id": "C-IfcDuctHeater-001",
+            "name": "Duct heater (terminal box)",
+            "ifc_class": "IfcHeatingElement"
+          }
+        ],
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-6.1.3-CBOX-DIST",
+            "Rule_id": "R-MECH-6.1.3-CBOX-LOC-2022",
+            "Logic": "AND",
+            "description": "Local control box must be located within 600 mm of both the fan coil unit terminal box and the duct heater terminal box.",
+            "constraints": [
+              "C-MECH-6.1.3-CBOX-FCU-DIST",
+              "C-MECH-6.1.3-CBOX-DH-DIST"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-6.1.3-CBOX-FCU-DIST",
+            "Type": "spatial_distance",
+            "Operator": "<=",
+            "Value": 600,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Distance from local control box to terminal box of fan coil unit must be ≤ 600 mm."
+          },
+          {
+            "Id": "C-MECH-6.1.3-CBOX-DH-DIST",
+            "Type": "spatial_distance",
+            "Operator": "<=",
+            "Value": 600,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Distance from local control box to terminal box of duct heater must be ≤ 600 mm."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-1-3",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-1-3",
+          "to": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "to": "C-IfcControlBox-Local-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "to": "C-IfcFanCoilUnit-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "to": "C-IfcDuctHeater-001",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.1.3-CBOX-LOC-2022",
+          "to": "CG-MECH-6.1.3-CBOX-DIST",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-6.1.3-CBOX-DIST",
+          "to": "C-MECH-6.1.3-CBOX-FCU-DIST",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-6.1.3-CBOX-DIST",
+          "to": "C-MECH-6.1.3-CBOX-DH-DIST",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-Mechanical",
+          "title": "Section 6 – Mechanical Installation"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+          "text": "Spring hanger submittals shall include a scale drawing showing its 30°–35° swing capability.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-Mechanical",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcVibrationIsolator-SpringHanger",
+          "name": "Spring Hanger (Type E)",
+          "ifc_class": "IfcDiscreteAccessory"
+        },
+        "material": {},
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-SH-SWINGANGLE-2022",
+            "Rule_id": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+            "Logic": "AND",
+            "description": "Spring hanger swing angle requirement for approval submittals.",
+            "constraints": [
+              "C-MECH-SH-SWINGANGLE-MIN",
+              "C-MECH-SH-SWINGANGLE-MAX"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-SH-SWINGANGLE-MIN",
+            "Type": "swing_angle",
+            "Operator": ">=",
+            "Value": 30,
+            "Unit": "degree",
+            "Tolerance": null,
+            "note": "Minimum swing angle capability required is 30°."
+          },
+          {
+            "Id": "C-MECH-SH-SWINGANGLE-MAX",
+            "Type": "swing_angle",
+            "Operator": "<=",
+            "Value": 35,
+            "Unit": "degree",
+            "Tolerance": null,
+            "note": "Maximum swing angle capability specified as 35°."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-Mechanical",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-Mechanical",
+          "to": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+          "to": "C-IfcVibrationIsolator-SpringHanger",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-VIBISO-SH-2022-SWINGANGLE",
+          "to": "CG-MECH-SH-SWINGANGLE-2022",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-SH-SWINGANGLE-2022",
+          "to": "C-MECH-SH-SWINGANGLE-MIN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-SH-SWINGANGLE-2022",
+          "to": "C-MECH-SH-SWINGANGLE-MAX",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-WIRING-TRUNKING",
+          "title": "Wiring Systems — Trunking Installation"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-TRUNKING-2026",
+          "text": "Wiring system in trunking installation shall consist of non-sheathed copper cables or sheathed copper cables. Cables for 3-phase circuit shall be 450/750 V grade or above.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2026",
+          "chapter_id": "CH-07-WIRING-TRUNKING",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcTrunking",
+          "name": "Cable trunking (raceway)",
+          "ifc_class": "IfcProtectiveDevice"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcCableSegment-NonSheathed",
+            "name": "Non-sheathed copper cable",
+            "ifc_class": "IfcCableSegment"
+          },
+          {
+            "id": "C-IfcCableSegment-Sheathed",
+            "name": "Sheathed copper cable",
+            "ifc_class": "IfcCableSegment"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-COPPER-NON-SHEATHED",
+            "name": "Copper conductor (non-sheathed)",
+            "standard": null,
+            "attributes": {
+              "type": "non-sheathed copper cable",
+              "application": "wiring in trunking"
+            }
+          },
+          {
+            "id": "M-COPPER-SHEATHED",
+            "name": "Copper conductor (sheathed)",
+            "standard": null,
+            "attributes": {
+              "type": "sheathed copper cable",
+              "application": "wiring in trunking"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-TRUNKING-CABLETYPE",
+            "Rule_id": "R-EL-TRUNKING-2026",
+            "Logic": "OR",
+            "description": "Allowed cable composition inside trunking: non-sheathed copper cable OR sheathed copper cable.",
+            "constraints": [
+              "C-EL-TRUNKING-NON-SHEATHED",
+              "C-EL-TRUNKING-SHEATHED"
+            ]
+          },
+          {
+            "Id": "CG-EL-TRUNKING-3PH-VOLTAGE",
+            "Rule_id": "R-EL-TRUNKING-2026",
+            "Logic": "CONDITIONAL",
+            "description": "Voltage rating requirement for cables serving 3-phase circuits.",
+            "condition": "circuit_type",
+            "branches": [
+              {
+                "condition_expression": "circuit_type == '3-phase'",
+                "applies_constraints": [
+                  "C-EL-TRUNKING-3PH-VRATING"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-TRUNKING-NON-SHEATHED",
+            "Type": "cable_type",
+            "Operator": "=",
+            "Value": "non-sheathed_copper",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Non-sheathed copper cables are an acceptable wiring option inside trunking."
+          },
+          {
+            "Id": "C-EL-TRUNKING-SHEATHED",
+            "Type": "cable_type",
+            "Operator": "=",
+            "Value": "sheathed_copper",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Sheathed copper cables are an acceptable wiring option inside trunking."
+          },
+          {
+            "Id": "C-EL-TRUNKING-3PH-VRATING",
+            "Type": "rated_voltage",
+            "Operator": ">=",
+            "Value": 450,
+            "Unit": "V (450/750 V grade or above)",
+            "Tolerance": null,
+            "note": "Cables serving 3-phase circuits shall be 450/750 V grade or above (minimum grade indicated as 450/750 V)."
+          }
+        ],
+        "space": [],
+        "workstep": [
+          {
+            "id": "WS-EL-TRUNKING-INSTALL",
+            "name": "Trunking wiring installation",
+            "Method": "Install permitted copper cables inside trunking per manufacturer's and code requirements; verify cable voltage rating for 3-phase circuits.",
+            "Safety note": null
+          }
+        ],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2026",
+          "to": "CH-07-WIRING-TRUNKING",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-WIRING-TRUNKING",
+          "to": "R-EL-TRUNKING-2026",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "C-IfcTrunking",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "C-IfcCableSegment-NonSheathed",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "C-IfcCableSegment-Sheathed",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "M-COPPER-NON-SHEATHED",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "M-COPPER-SHEATHED",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "CG-EL-TRUNKING-CABLETYPE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "CG-EL-TRUNKING-3PH-VOLTAGE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-TRUNKING-CABLETYPE",
+          "to": "C-EL-TRUNKING-NON-SHEATHED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRUNKING-CABLETYPE",
+          "to": "C-EL-TRUNKING-SHEATHED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-TRUNKING-3PH-VOLTAGE",
+          "to": "C-EL-TRUNKING-3PH-VRATING",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-EL-TRUNKING-2026",
+          "to": "WS-EL-TRUNKING-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-FireGS-2012",
+          "title": "General Specification for Fire Service Installation in Government Buildings",
+          "publisher": null,
+          "version": "2012 Edition",
+          "year": 2012
+        },
+        "chapter": {
+          "id": "CH-Fire-GS-Pipe",
+          "title": "Galvanised Steel Pipe Requirements"
+        },
+        "module": {
+          "id": "MOD-FireProtection",
+          "name": "Fire Protection Services"
+        },
+        "rule": {
+          "id": "R-FP-GS-PIPE-DIAM-001",
+          "text": "Diameter controls for galvanised steel pipe: ≤50 mm: screwed joints; 50–150 mm: mechanical couplings; >150 mm: flanged. Underground: ≥80 mm must use ductile iron; steel permitted only when diameter <80 mm.",
+          "page_number": null,
+          "document_id": "DOC-FireGS-2012",
+          "chapter_id": "CH-Fire-GS-Pipe",
+          "module_id": "MOD-FireProtection"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-GS-Fire",
+          "name": "Galvanised Steel Pipe (Fire Service)",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "material": {
+          "id": "M-GS-FirePipe-2012",
+          "name": "Fire Service Galvanised Steel Pipe",
+          "standard": null,
+          "attributes": {
+            "notes": "Underground ≥80 mm requires ductile iron (DI). GS pipe only allowed below 80 mm in underground zones."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-FP-GS-PIPE-DIAM-JOINT",
+            "Rule_id": "R-FP-GS-PIPE-DIAM-001",
+            "Logic": "CONDITIONAL",
+            "description": "Pipe jointing method depends on pipe diameter.",
+            "condition": "pipe_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "<= 50",
+                "applies_constraints": [
+                  "C-FP-GS-JOINT-SCREWED"
+                ]
+              },
+              {
+                "condition_expression": "> 50 AND <= 150",
+                "applies_constraints": [
+                  "C-FP-GS-JOINT-COUPLING"
+                ]
+              },
+              {
+                "condition_expression": "> 150",
+                "applies_constraints": [
+                  "C-FP-GS-JOINT-FLANGED"
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+            "Rule_id": "R-FP-GS-PIPE-DIAM-001",
+            "Logic": "CONDITIONAL",
+            "description": "Underground pipe diameter determines required material.",
+            "condition": "pipe_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "< 80",
+                "applies_constraints": [
+                  "C-FP-UG-MATERIAL-STEEL-OK"
+                ]
+              },
+              {
+                "condition_expression": ">= 80",
+                "applies_constraints": [
+                  "C-FP-UG-MATERIAL-DI-REQUIRED"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-FP-GS-JOINT-SCREWED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "screwed",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For pipe diameter ≤50 mm."
+          },
+          {
+            "Id": "C-FP-GS-JOINT-COUPLING",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "mechanical_coupling",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For pipe diameter 50–150 mm."
+          },
+          {
+            "Id": "C-FP-GS-JOINT-FLANGED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "flanged",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For pipe diameter >150 mm."
+          },
+          {
+            "Id": "C-FP-UG-MATERIAL-STEEL-OK",
+            "Type": "material_requirement",
+            "Operator": "=",
+            "Value": "steel_permitted",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Underground pipe <80 mm: steel allowed."
+          },
+          {
+            "Id": "C-FP-UG-MATERIAL-DI-REQUIRED",
+            "Type": "material_requirement",
+            "Operator": "=",
+            "Value": "ductile_iron_required",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Underground pipe diameter ≥80 mm: must use ductile iron."
+          },
+          {
+            "Id": "C-FP-GS-THRESH-50",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 50,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Jointing threshold 1."
+          },
+          {
+            "Id": "C-FP-GS-THRESH-150",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 150,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Jointing threshold 2."
+          },
+          {
+            "Id": "C-FP-GS-THRESH-80",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 80,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Material change threshold for underground pipes."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-FireGS-2012",
+          "to": "CH-Fire-GS-Pipe",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-Fire-GS-Pipe",
+          "to": "R-FP-GS-PIPE-DIAM-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-FP-GS-PIPE-DIAM-001",
+          "to": "MOD-FireProtection",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-FP-GS-PIPE-DIAM-001",
+          "to": "C-IfcPipeSegment-GS-Fire",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-FP-GS-PIPE-DIAM-001",
+          "to": "M-GS-FirePipe-2012",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-FP-GS-PIPE-DIAM-001",
+          "to": "CG-FP-GS-PIPE-DIAM-JOINT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-FP-GS-PIPE-DIAM-001",
+          "to": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+          "to": "C-FP-GS-JOINT-SCREWED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+          "to": "C-FP-GS-JOINT-COUPLING",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-FP-GS-PIPE-DIAM-JOINT",
+          "to": "C-FP-GS-JOINT-FLANGED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+          "to": "C-FP-UG-MATERIAL-STEEL-OK",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-FP-GS-PIPE-UNDERGROUND-MATERIAL",
+          "to": "C-FP-UG-MATERIAL-DI-REQUIRED",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-1-2",
+          "title": "7.1.2 – Wiring Systems"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+          "text": "The minimum outside diameter of any conduit shall be 20 mm.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-07-1-2",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcConduit",
+          "name": "Electrical Conduit",
+          "ifc_class": "IfcConduitSegment"
+        },
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-7.1.2-MIN-DIA",
+            "Rule_id": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+            "Logic": "SINGLE",
+            "description": "Minimum conduit outside diameter requirement.",
+            "constraints": [
+              "C-EL-7.1.2-DIA-MIN20"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-7.1.2-DIA-MIN20",
+            "Type": "dimension",
+            "Operator": ">=",
+            "Value": 20,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum outside diameter of conduit shall be 20 mm."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-07-1-2",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-1-2",
+          "to": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+          "to": "C-IfcConduit",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-7.1.2-CONDUIT-DIAMETER-2022",
+          "to": "CG-EL-7.1.2-MIN-DIA",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-7.1.2-MIN-DIA",
+          "to": "C-EL-7.1.2-DIA-MIN20",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-2-8",
+          "title": "6.2.8 – Noise And Vibration Control: Acoustic Ductlag"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "text": "Acoustic duct lag: 50 mm thick glass fibre/lead sheet OR barium-loaded vinyl sheet/glass fibre, with a factory-applied aluminium vapour-barrier jacket used also for thermal insulation. Fibreglass density 24 kg/m³ and thermal conductivity ≤ 0.032 W/m·°C. Lead sheet surface weight 5 kg/m².",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-2-8",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcDuctLag-Acoustic",
+          "name": "Acoustic duct lag / insulation",
+          "ifc_class": "IfcMaterialLayer"
+        },
+        "material": [
+          {
+            "id": "M-GLASSFIBRE-24-032",
+            "name": "Glass fibre (acoustic)",
+            "standard": null,
+            "attributes": {
+              "density_kg_m3": 24,
+              "thermal_conductivity_w_m_k_max": 0.032,
+              "thickness_mm": 50,
+              "application": "acoustic duct lag"
+            }
+          },
+          {
+            "id": "M-LEADSHEET-5",
+            "name": "Lead sheet (surface-weighted)",
+            "standard": null,
+            "attributes": {
+              "surface_weight_kg_m2": 5,
+              "application": "acoustic duct lag (paired with glass fibre)"
+            }
+          },
+          {
+            "id": "M-BARIUMVINYL-GLASSFIBRE",
+            "name": "Barium-loaded vinyl sheet + glass fibre",
+            "standard": null,
+            "attributes": {
+              "thickness_mm": 50,
+              "application": "acoustic duct lag (barium-loaded vinyl sheet combined with glass fibre)"
+            }
+          },
+          {
+            "id": "M-AL-VAPOUR-JACKET",
+            "name": "Factory-applied aluminium vapour-barrier jacket",
+            "standard": null,
+            "attributes": {
+              "function": [
+                "vapour barrier",
+                "thermal insulation jacket"
+              ],
+              "application": "used over duct lag"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-6.2.8-MAIN",
+            "Rule_id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+            "Logic": "AND",
+            "description": "Overall requirements: composition option (one of the listed), thickness and aluminium vapour-barrier jacket requirement.",
+            "constraints": [
+              "C-MECH-6.2.8-COMP-OR",
+              "C-MECH-6.2.8-THICK",
+              "C-MECH-6.2.8-JACKET"
+            ]
+          },
+          {
+            "Id": "CG-MECH-6.2.8-COMP-OR",
+            "Rule_id": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+            "Logic": "OR",
+            "description": "Composition options for acoustic duct lag (choose one).",
+            "constraints": [
+              "C-MECH-6.2.8-OPT-GLF_LEAD",
+              "C-MECH-6.2.8-OPT-BAVINYL_GLF"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-6.2.8-THICK",
+            "Type": "dimension",
+            "Operator": "=",
+            "Value": 50,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Required nominal thickness of acoustic duct lag: 50 mm."
+          },
+          {
+            "Id": "C-MECH-6.2.8-JACKET",
+            "Type": "material_requirement",
+            "Operator": "=",
+            "Value": "factory_applied_aluminium_vapour_barrier_jacket",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "A factory-applied aluminium vapour-barrier jacket shall be provided and also used for thermal insulation of ductwork."
+          },
+          {
+            "Id": "C-MECH-6.2.8-OPT-GLF_LEAD",
+            "Type": "composition_option",
+            "Operator": "contains",
+            "Value": [
+              "M-GLASSFIBRE-24-032",
+              "M-LEADSHEET-5"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option A: glass fibre (24 kg/m³, ≤0.032 W/m·°C) combined with lead sheet (5 kg/m² surface weight)."
+          },
+          {
+            "Id": "C-MECH-6.2.8-OPT-BAVINYL_GLF",
+            "Type": "composition_option",
+            "Operator": "contains",
+            "Value": [
+              "M-BARIUMVINYL-GLASSFIBRE"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Option B: barium-loaded vinyl sheet combined with glass fibre (50 mm total thickness)."
+          },
+          {
+            "Id": "C-MECH-6.2.8-GLF-DENS",
+            "Type": "material_property",
+            "Operator": "=",
+            "Value": 24,
+            "Unit": "kg/m³",
+            "Tolerance": null,
+            "note": "Fibreglass density requirement: 24 kg/m³."
+          },
+          {
+            "Id": "C-MECH-6.2.8-GLF-THERM",
+            "Type": "thermal_conductivity",
+            "Operator": "<=",
+            "Value": 0.032,
+            "Unit": "W/m·°C",
+            "Tolerance": null,
+            "note": "Fibreglass thermal conductivity must be 0.032 W/m·°C or lower."
+          },
+          {
+            "Id": "C-MECH-6.2.8-LEAD-SW",
+            "Type": "surface_weight",
+            "Operator": "=",
+            "Value": 5,
+            "Unit": "kg/m²",
+            "Tolerance": null,
+            "note": "Lead sheet surface weight: 5 kg/m²."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-2-8",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-2-8",
+          "to": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "C-IfcDuctLag-Acoustic",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "CG-MECH-6.2.8-MAIN",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-6.2.8-MAIN",
+          "to": "C-MECH-6.2.8-THICK",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-6.2.8-MAIN",
+          "to": "C-MECH-6.2.8-JACKET",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-6.2.8-MAIN",
+          "to": "CG-MECH-6.2.8-COMP-OR",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-6.2.8-COMP-OR",
+          "to": "C-MECH-6.2.8-OPT-GLF_LEAD",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-6.2.8-COMP-OR",
+          "to": "C-MECH-6.2.8-OPT-BAVINYL_GLF",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+          "to": "C-MECH-6.2.8-GLF-DENS",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+          "to": "C-MECH-6.2.8-GLF-THERM",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "C-MECH-6.2.8-OPT-GLF_LEAD",
+          "to": "C-MECH-6.2.8-LEAD-SW",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "M-AL-VAPOUR-JACKET",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "M-GLASSFIBRE-24-032",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "M-LEADSHEET-5",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-MECH-6.2.8-ACOUSTIC-DUCTLAG-001",
+          "to": "M-BARIUMVINYL-GLASSFIBRE",
+          "type": "USES_MATERIAL"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-ElecWiring-2020",
+          "title": "Code of Practice for the Electricity (Wiring) Regulations",
+          "publisher": null,
+          "version": "2022020 Edition",
+          "year": 2020
+        },
+        "chapter": {
+          "id": "CH-17A-4-2020",
+          "title": "Code 17A(4) – HV warning notice size"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-17A-4-2020",
+          "text": "HV label at cable routes: letters not less than 50 mm high; spacing ≤ 3 m.",
+          "page_number": null,
+          "document_id": "DOC-ElecWiring-2020",
+          "chapter_id": "CH-17A-4-2020",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcSign-003",
+          "name": "HV warning label / signage",
+          "ifc_class": "IfcAnnotation"
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-17A-4-2020",
+            "Rule_id": "R-EL-17A-4-2020",
+            "Logic": "AND",
+            "description": "HV warning label must meet letter height and spacing requirements.",
+            "constraints": [
+              "C-EL-17A-4-2020-HGT",
+              "C-EL-17A-4-2020-SPC"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-17A-4-2020-HGT",
+            "Type": "dimension",
+            "Operator": ">=",
+            "Value": 50,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum letter height for HV warning labels: not less than 50 mm."
+          },
+          {
+            "Id": "C-EL-17A-4-2020-SPC",
+            "Type": "distance",
+            "Operator": "<=",
+            "Value": 3,
+            "Unit": "m",
+            "Tolerance": null,
+            "note": "Spacing between HV labels along cable routes must not exceed 3 m."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": [],
+        "material": []
+      },
+      "relations": [
+        {
+          "from": "DOC-ElecWiring-2020",
+          "to": "CH-17A-4-2020",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-17A-4-2020",
+          "to": "R-EL-17A-4-2020",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-17A-4-2020",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-17A-4-2020",
+          "to": "C-IfcSign-003",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-17A-4-2020",
+          "to": "CG-EL-17A-4-2020",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-17A-4-2020",
+          "to": "C-EL-17A-4-2020-HGT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-17A-4-2020",
+          "to": "C-EL-17A-4-2020-SPC",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-SCREW-SADDLE",
+          "title": "Fixings, Saddles and Support Hardware"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-SCREW-SADDLE-2029",
+          "text": "The shanks of the screws shall not protrude beyond the nuts by more than three threads. Where saddles exceed 150 mm in length, intermediate fixings shall be provided such that the maximum spacing between screws shall not exceed 150 mm.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2029",
+          "chapter_id": "CH-07-SCREW-SADDLE",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcFastener-Screw",
+          "name": "Screw / Fastener",
+          "ifc_class": "IfcFastener"
+        },
+        "component_related": [
+          {
+            "id": "C-IfcSaddleSupport",
+            "name": "Saddle Support",
+            "ifc_class": "IfcBuildingElement"
+          }
+        ],
+        "material": [
+          {
+            "id": "M-STEEL-SCREW",
+            "name": "Steel screw",
+            "standard": null,
+            "attributes": {
+              "type": "steel",
+              "usage": "electrical fixings"
+            }
+          }
+        ],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-SCREW-PROTRUSION",
+            "Rule_id": "R-EL-SCREW-SADDLE-2029",
+            "Logic": "AND",
+            "description": "Control screw protrusion beyond nut.",
+            "constraints": [
+              "C-EL-SCREW-PROTRUSION"
+            ]
+          },
+          {
+            "Id": "CG-EL-SADDLE-LENGTH",
+            "Rule_id": "R-EL-SCREW-SADDLE-2029",
+            "Logic": "CONDITIONAL",
+            "description": "Fixing requirements depending on saddle length.",
+            "condition": "saddle_length",
+            "branches": [
+              {
+                "condition_expression": "saddle_length > 150",
+                "applies_constraints": [
+                  "C-EL-SADDLE-FIXING-SPACING"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-SCREW-PROTRUSION",
+            "Type": "max_screw_protrusion",
+            "Operator": "<=",
+            "Value": 3,
+            "Unit": "threads",
+            "Tolerance": null,
+            "note": "Screw shank shall not protrude more than three threads beyond the nut."
+          },
+          {
+            "Id": "C-EL-SADDLE-FIXING-SPACING",
+            "Type": "max_screw_spacing",
+            "Operator": "<=",
+            "Value": 150,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "For saddles longer than 150 mm, intermediate fixing spacing shall not exceed 150 mm."
+          }
+        ],
+        "workstep": [
+          {
+            "id": "WS-EL-SCREW-SADDLE-INSTALL",
+            "name": "Install screws and saddle supports",
+            "Method": "Ensure screw protrusion is within 3 threads; for saddles longer than 150 mm, add intermediate fixings with spacing not exceeding 150 mm.",
+            "Safety note": "Check fasteners are tightened without overtension to avoid thread deformation."
+          }
+        ],
+        "interface": [
+          {
+            "id": "INT-SCREW-TO-SADDLE",
+            "name": "Screw–Saddle Fastening Interface"
+          }
+        ],
+        "product": [],
+        "supplier": [],
+        "space": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2029",
+          "to": "CH-07-SCREW-SADDLE",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-SCREW-SADDLE",
+          "to": "R-EL-SCREW-SADDLE-2029",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "C-IfcFastener-Screw",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "C-IfcSaddleSupport",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "M-STEEL-SCREW",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "CG-EL-SCREW-PROTRUSION",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "CG-EL-SADDLE-LENGTH",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-SCREW-PROTRUSION",
+          "to": "C-EL-SCREW-PROTRUSION",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-SADDLE-LENGTH",
+          "to": "C-EL-SADDLE-FIXING-SPACING",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "WS-EL-SCREW-SADDLE-INSTALL",
+          "type": "INVOLVES_WORKSTEP"
+        },
+        {
+          "from": "R-EL-SCREW-SADDLE-2029",
+          "to": "INT-SCREW-TO-SADDLE",
+          "type": "HAS_INTERFACE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-07-2-13",
+          "title": "7.2.13 – High Voltage Switchgear and Equipment"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-7.2.13-AUTO-TR-2022",
+          "text": "Auto-transformers for auto-transformer motor starters shall be indoor, floor-mounted type for no-breaking starting of squirrel-cage 3-phase induction motors; comply with IEC 62271-106; system voltage 3.3 kV, 6.6 kV or 11 kV as specified; frequency 50 Hz; connections: auto-star for auto-transformer starting; insulation level: 45 kV peak impulse voltage (1/50 µs); cooling: natural air cooled; tappings: off-load tap changers with 60%, 75% and 85% of line voltage to limit starting current to 2.5× full load current.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-07-2-13",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcTransformer-Auto",
+          "name": "Auto-transformer (motor starter)",
+          "ifc_class": "IfcTransformer"
+        },
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-AUTOTR-GENERAL",
+            "Rule_id": "R-EL-7.2.13-AUTO-TR-2022",
+            "Logic": "AND",
+            "description": "General requirements that must all be satisfied for auto-transformers.",
+            "constraints": [
+              "C-EL-AUTOTR-TYPE",
+              "C-EL-AUTOTR-STANDARD",
+              "C-EL-AUTOTR-FREQ",
+              "C-EL-AUTOTR-CONN",
+              "C-EL-AUTOTR-INSLVL",
+              "C-EL-AUTOTR-COOLING",
+              "C-EL-AUTOTR-TAPPINGS"
+            ]
+          },
+          {
+            "Id": "CG-EL-AUTOTR-VOLTAGE",
+            "Rule_id": "R-EL-7.2.13-AUTO-TR-2022",
+            "Logic": "IN",
+            "description": "Permitted system voltages (one of the specified values).",
+            "constraints": [
+              "C-EL-AUTOTR-VOLT-3.3",
+              "C-EL-AUTOTR-VOLT-6.6",
+              "C-EL-AUTOTR-VOLT-11"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-AUTOTR-TYPE",
+            "Type": "equipment_type",
+            "Operator": "=",
+            "Value": "indoor_floor_mounted_no_breaking_start",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Type: indoor and floor-mounted type for no-breaking starting of squirrel-cage 3-phase induction motors."
+          },
+          {
+            "Id": "C-EL-AUTOTR-STANDARD",
+            "Type": "standard_compliance",
+            "Operator": "in",
+            "Value": [
+              "IEC 62271-106"
+            ],
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Standard: IEC 62271-106."
+          },
+          {
+            "Id": "C-EL-AUTOTR-VOLT-3.3",
+            "Type": "system_voltage",
+            "Operator": "=",
+            "Value": 3.3,
+            "Unit": "kV",
+            "Tolerance": null,
+            "note": "System voltage option: 3.3 kV."
+          },
+          {
+            "Id": "C-EL-AUTOTR-VOLT-6.6",
+            "Type": "system_voltage",
+            "Operator": "=",
+            "Value": 6.6,
+            "Unit": "kV",
+            "Tolerance": null,
+            "note": "System voltage option: 6.6 kV."
+          },
+          {
+            "Id": "C-EL-AUTOTR-VOLT-11",
+            "Type": "system_voltage",
+            "Operator": "=",
+            "Value": 11,
+            "Unit": "kV",
+            "Tolerance": null,
+            "note": "System voltage option: 11 kV."
+          },
+          {
+            "Id": "C-EL-AUTOTR-FREQ",
+            "Type": "frequency",
+            "Operator": "=",
+            "Value": 50,
+            "Unit": "Hz",
+            "Tolerance": null,
+            "note": "Frequency: 50 Hz."
+          },
+          {
+            "Id": "C-EL-AUTOTR-CONN",
+            "Type": "connection",
+            "Operator": "=",
+            "Value": "auto-star",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Connections: auto-star for auto-transformer starting."
+          },
+          {
+            "Id": "C-EL-AUTOTR-INSLVL",
+            "Type": "insulation_level",
+            "Operator": "=",
+            "Value": 45,
+            "Unit": "kV_peak_impulse_1/50µs",
+            "Tolerance": null,
+            "note": "Insulation level: 45 kV peak impulse voltage for 1/50 microsecond."
+          },
+          {
+            "Id": "C-EL-AUTOTR-COOLING",
+            "Type": "cooling_method",
+            "Operator": "=",
+            "Value": "natural_air_cooled",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Cooling: natural air cooled."
+          },
+          {
+            "Id": "C-EL-AUTOTR-TAPPINGS",
+            "Type": "tapping_spec",
+            "Operator": "contains",
+            "Value": [
+              60,
+              75,
+              85
+            ],
+            "Unit": "percent_of_line_voltage",
+            "Tolerance": null,
+            "note": "Tappings: off-load tap changers with 60%, 75% and 85% of the line voltage."
+          },
+          {
+            "Id": "C-EL-AUTOTR-STARTCURR-LIMIT",
+            "Type": "starting_current_limit",
+            "Operator": "<=",
+            "Value": 2.5,
+            "Unit": "× full_load_current",
+            "Tolerance": null,
+            "note": "Starting current limited to 2.5 times full load current when using specified tappings."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-07-2-13",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-07-2-13",
+          "to": "R-EL-7.2.13-AUTO-TR-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-7.2.13-AUTO-TR-2022",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-7.2.13-AUTO-TR-2022",
+          "to": "C-IfcTransformer-Auto",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-7.2.13-AUTO-TR-2022",
+          "to": "CG-EL-AUTOTR-GENERAL",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-EL-7.2.13-AUTO-TR-2022",
+          "to": "CG-EL-AUTOTR-VOLTAGE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-TYPE",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-STANDARD",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-FREQ",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-CONN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-INSLVL",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-COOLING",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-GENERAL",
+          "to": "C-EL-AUTOTR-TAPPINGS",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-VOLTAGE",
+          "to": "C-EL-AUTOTR-VOLT-3.3",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-VOLTAGE",
+          "to": "C-EL-AUTOTR-VOLT-6.6",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-AUTOTR-VOLTAGE",
+          "to": "C-EL-AUTOTR-VOLT-11",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "C-EL-AUTOTR-TAPPINGS",
+          "to": "C-EL-AUTOTR-STARTCURR-LIMIT",
+          "type": "ASSOCIATED_PERFORMANCE"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-PlumbingGS-2017",
+          "title": "General Specification for Plumbing Installation in Government Buildings",
+          "publisher": null,
+          "version": "2017 Edition",
+          "year": 2017
+        },
+        "chapter": {
+          "id": "CH-GS-Pipes",
+          "title": "Galvanised Steel Pipe Requirements"
+        },
+        "module": {
+          "id": "MOD-Plumbing",
+          "name": "Plumbing Services"
+        },
+        "rule": {
+          "id": "R-PL-GS-PIPE-DIAM-001",
+          "text": "Diameter controls for galvanised steel pipe: ≤100 mm: screwed; ≥150 mm: flanged; Sleeves ≤150 mm / >150 mm.",
+          "page_number": null,
+          "document_id": "DOC-PlumbingGS-2017",
+          "chapter_id": "CH-GS-Pipes",
+          "module_id": "MOD-Plumbing"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-GS",
+          "name": "Galvanised Steel Pipe",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "material": {
+          "id": "M-GS-Pipe-2017",
+          "name": "Galvanised Steel Pipe",
+          "standard": null,
+          "attributes": {
+            "type": "GS pipe",
+            "notes": "Diameter-based jointing and sleeve requirements apply."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-PL-GS-PIPE-DIAM-JOINT",
+            "Rule_id": "R-PL-GS-PIPE-DIAM-001",
+            "Logic": "CONDITIONAL",
+            "description": "Jointing method determined by pipe diameter threshold (≤100 mm / ≥150 mm).",
+            "condition": "pipe_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "<= 100",
+                "applies_constraints": [
+                  "C-PL-GS-PIPE-SCREWED"
+                ]
+              },
+              {
+                "condition_expression": ">= 150",
+                "applies_constraints": [
+                  "C-PL-GS-PIPE-FLANGED"
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+            "Rule_id": "R-PL-GS-PIPE-DIAM-001",
+            "Logic": "CONDITIONAL",
+            "description": "Sleeve requirements determined by sleeve diameter threshold (≤150 mm / >150 mm).",
+            "condition": "sleeve_diameter_mm",
+            "branches": [
+              {
+                "condition_expression": "<= 150",
+                "applies_constraints": [
+                  "C-PL-GS-SLEEVE-LE150"
+                ]
+              },
+              {
+                "condition_expression": "> 150",
+                "applies_constraints": [
+                  "C-PL-GS-SLEEVE-GT150"
+                ]
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-PL-GS-PIPE-SCREWED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "screwed",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For pipe diameters ≤100 mm."
+          },
+          {
+            "Id": "C-PL-GS-PIPE-FLANGED",
+            "Type": "joint_type",
+            "Operator": "=",
+            "Value": "flanged",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For pipe diameters ≥150 mm."
+          },
+          {
+            "Id": "C-PL-GS-SLEEVE-LE150",
+            "Type": "sleeve_requirement",
+            "Operator": "=",
+            "Value": "standard_sleeve",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For sleeve diameter ≤150 mm."
+          },
+          {
+            "Id": "C-PL-GS-SLEEVE-GT150",
+            "Type": "sleeve_requirement",
+            "Operator": "=",
+            "Value": "oversized_sleeve",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "For sleeve diameter >150 mm."
+          },
+          {
+            "Id": "C-PL-GS-PIPE-DIAM-THRESH-100",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 100,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Pipe jointing threshold."
+          },
+          {
+            "Id": "C-PL-GS-PIPE-DIAM-THRESH-150",
+            "Type": "dimension_threshold",
+            "Operator": "=",
+            "Value": 150,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Sleeve requirement threshold."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-PlumbingGS-2017",
+          "to": "CH-GS-Pipes",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-GS-Pipes",
+          "to": "R-PL-GS-PIPE-DIAM-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-PL-GS-PIPE-DIAM-001",
+          "to": "MOD-Plumbing",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-PL-GS-PIPE-DIAM-001",
+          "to": "C-IfcPipeSegment-GS",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-PL-GS-PIPE-DIAM-001",
+          "to": "M-GS-Pipe-2017",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-PL-GS-PIPE-DIAM-001",
+          "to": "CG-PL-GS-PIPE-DIAM-JOINT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-PL-GS-PIPE-DIAM-001",
+          "to": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-PL-GS-PIPE-DIAM-JOINT",
+          "to": "C-PL-GS-PIPE-SCREWED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-GS-PIPE-DIAM-JOINT",
+          "to": "C-PL-GS-PIPE-FLANGED",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+          "to": "C-PL-GS-SLEEVE-LE150",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-GS-PIPE-DIAM-SLEEVE",
+          "to": "C-PL-GS-SLEEVE-GT150",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-DrainageDI-2017",
+          "title": "General Specification for Drainage Installation in Government Buildings",
+          "publisher": null,
+          "version": "2017 Edition",
+          "year": 2017
+        },
+        "chapter": {
+          "id": "CH-Drainage-DI-Pipe",
+          "title": "Ductile Iron Pipe Requirements"
+        },
+        "module": {
+          "id": "MOD-Drainage",
+          "name": "Drainage Services"
+        },
+        "rule": {
+          "id": "R-DR-DI-COAT-001",
+          "text": "Ductile iron pipe coating requirements: internal HAC mortar; external zinc + resin.",
+          "page_number": null,
+          "document_id": "DOC-DrainageDI-2017",
+          "chapter_id": "CH-Drainage-DI-Pipe",
+          "module_id": "MOD-Drainage"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-DI-Drainage",
+          "name": "Ductile Iron Pipe (Drainage)",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "material": {
+          "id": "M-DI-Pipe-2017",
+          "name": "Ductile Iron Pipe",
+          "standard": null,
+          "attributes": {
+            "type": "ductile iron",
+            "use": "drainage system pipes",
+            "coating": {
+              "internal": "HAC mortar",
+              "external": "zinc + resin"
+            }
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-DR-DI-COAT-INT",
+            "Rule_id": "R-DR-DI-COAT-001",
+            "Logic": "SINGLE",
+            "description": "Internal coating requirement.",
+            "constraints": [
+              "C-DR-DI-INT-HAC"
+            ]
+          },
+          {
+            "Id": "CG-DR-DI-COAT-EXT",
+            "Rule_id": "R-DR-DI-COAT-001",
+            "Logic": "SINGLE",
+            "description": "External coating requirement.",
+            "constraints": [
+              "C-DR-DI-EXT-ZINCRESIN"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-DR-DI-INT-HAC",
+            "Type": "coating_internal",
+            "Operator": "=",
+            "Value": "HAC_mortar",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Internal surface must be coated with HAC mortar."
+          },
+          {
+            "Id": "C-DR-DI-EXT-ZINCRESIN",
+            "Type": "coating_external",
+            "Operator": "=",
+            "Value": "zinc_plus_resin",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "External surface must be coated with zinc + resin."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-DrainageDI-2017",
+          "to": "CH-Drainage-DI-Pipe",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-Drainage-DI-Pipe",
+          "to": "R-DR-DI-COAT-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-DR-DI-COAT-001",
+          "to": "MOD-Drainage",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-DR-DI-COAT-001",
+          "to": "C-IfcPipeSegment-DI-Drainage",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-DR-DI-COAT-001",
+          "to": "M-DI-Pipe-2017",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-DR-DI-COAT-001",
+          "to": "CG-DR-DI-COAT-INT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-DR-DI-COAT-001",
+          "to": "CG-DR-DI-COAT-EXT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-DR-DI-COAT-INT",
+          "to": "C-DR-DI-INT-HAC",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-DR-DI-COAT-EXT",
+          "to": "C-DR-DI-EXT-ZINCRESIN",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-BSI-2022",
+          "title": "General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region",
+          "publisher": null,
+          "version": "2022 Edition",
+          "year": 2022
+        },
+        "chapter": {
+          "id": "CH-06-1-5",
+          "title": "6.1.5 – Central Control and Monitoring System (CCMS)"
+        },
+        "module": {
+          "id": "MOD-Mechanical",
+          "name": "Mechanical"
+        },
+        "rule": {
+          "id": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+          "text": "The time resolution for cycling within each period shall be selectable in 1-minute increments between 1 and 120 minutes.",
+          "page_number": null,
+          "document_id": "DOC-BSI-2022",
+          "chapter_id": "CH-06-1-5",
+          "module_id": "MOD-Mechanical"
+        },
+        "component": {
+          "id": "C-IfcControlSystem-CCMS",
+          "name": "Central Control and Monitoring System (CCMS)",
+          "ifc_class": "IfcControl"
+        },
+        "material": [],
+        "constraintGroups": [
+          {
+            "Id": "CG-MECH-CCMS-TIMERES-2022",
+            "Rule_id": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+            "Logic": "AND",
+            "description": "Time resolution constraints for CCMS cycling period configuration.",
+            "constraints": [
+              "C-MECH-CCMS-TIMERES-STEP",
+              "C-MECH-CCMS-TIMERES-MIN",
+              "C-MECH-CCMS-TIMERES-MAX"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-MECH-CCMS-TIMERES-STEP",
+            "Type": "time_resolution_step",
+            "Operator": "=",
+            "Value": 1,
+            "Unit": "minute",
+            "Tolerance": null,
+            "note": "The CCMS must allow time resolution selectable in 1-minute increments."
+          },
+          {
+            "Id": "C-MECH-CCMS-TIMERES-MIN",
+            "Type": "time_resolution_min",
+            "Operator": ">=",
+            "Value": 1,
+            "Unit": "minute",
+            "Tolerance": null,
+            "note": "Minimum selectable cycling time resolution is 1 minute."
+          },
+          {
+            "Id": "C-MECH-CCMS-TIMERES-MAX",
+            "Type": "time_resolution_max",
+            "Operator": "<=",
+            "Value": 120,
+            "Unit": "minutes",
+            "Tolerance": null,
+            "note": "Maximum selectable cycling time resolution is 120 minutes."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-BSI-2022",
+          "to": "CH-06-1-5",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-06-1-5",
+          "to": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+          "to": "MOD-Mechanical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+          "to": "C-IfcControlSystem-CCMS",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-MECH-6.1.5-CCMS-TIMERES-2022",
+          "to": "CG-MECH-CCMS-TIMERES-2022",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-MECH-CCMS-TIMERES-2022",
+          "to": "C-MECH-CCMS-TIMERES-STEP",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CCMS-TIMERES-2022",
+          "to": "C-MECH-CCMS-TIMERES-MIN",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-MECH-CCMS-TIMERES-2022",
+          "to": "C-MECH-CCMS-TIMERES-MAX",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-PlumbingDI-2017",
+          "title": "General Specification for Plumbing Installation in Government Buildings",
+          "publisher": null,
+          "version": "2017 Edition",
+          "year": 2017
+        },
+        "chapter": {
+          "id": "CH-Plumbing-DI-Pipe",
+          "title": "Ductile Iron Pipe Requirements"
+        },
+        "module": {
+          "id": "MOD-Plumbing",
+          "name": "Plumbing Services"
+        },
+        "rule": {
+          "id": "R-PL-DI-COAT-001",
+          "text": "Ductile iron pipe coating requirements: internal cement lining; external bitumen.",
+          "page_number": null,
+          "document_id": "DOC-PlumbingDI-2017",
+          "chapter_id": "CH-Plumbing-DI-Pipe",
+          "module_id": "MOD-Plumbing"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-DI-Plumbing",
+          "name": "Ductile Iron Pipe (Plumbing)",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "material": {
+          "id": "M-DI-Pipe-PL-2017",
+          "name": "Ductile Iron Pipe",
+          "standard": null,
+          "attributes": {
+            "type": "ductile iron",
+            "use": "plumbing system pipes",
+            "coating": {
+              "internal": "cement lining",
+              "external": "bitumen"
+            }
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-PL-DI-COAT-INT",
+            "Rule_id": "R-PL-DI-COAT-001",
+            "Logic": "SINGLE",
+            "description": "Internal coating requirement.",
+            "constraints": [
+              "C-PL-DI-INT-CEMENT"
+            ]
+          },
+          {
+            "Id": "CG-PL-DI-COAT-EXT",
+            "Rule_id": "R-PL-DI-COAT-001",
+            "Logic": "SINGLE",
+            "description": "External coating requirement.",
+            "constraints": [
+              "C-PL-DI-EXT-BITUMEN"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-PL-DI-INT-CEMENT",
+            "Type": "coating_internal",
+            "Operator": "=",
+            "Value": "cement_lining",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "Internal surface must be coated with cement lining."
+          },
+          {
+            "Id": "C-PL-DI-EXT-BITUMEN",
+            "Type": "coating_external",
+            "Operator": "=",
+            "Value": "bitumen",
+            "Unit": null,
+            "Tolerance": null,
+            "note": "External surface must be coated with bitumen."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-PlumbingDI-2017",
+          "to": "CH-Plumbing-DI-Pipe",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-Plumbing-DI-Pipe",
+          "to": "R-PL-DI-COAT-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-PL-DI-COAT-001",
+          "to": "MOD-Plumbing",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-PL-DI-COAT-001",
+          "to": "C-IfcPipeSegment-DI-Plumbing",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-PL-DI-COAT-001",
+          "to": "M-DI-Pipe-PL-2017",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-PL-DI-COAT-001",
+          "to": "CG-PL-DI-COAT-INT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "R-PL-DI-COAT-001",
+          "to": "CG-PL-DI-COAT-EXT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-PL-DI-COAT-INT",
+          "to": "C-PL-DI-INT-CEMENT",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-DI-COAT-EXT",
+          "to": "C-PL-DI-EXT-BITUMEN",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-Plumbing-2017",
+          "title": "General Specification for Plumbing Installation in Government Buildings",
+          "publisher": null,
+          "version": "2017 Edition",
+          "year": 2017
+        },
+        "chapter": {
+          "id": "CH-B2-5",
+          "title": "Part B2.5 – Pump Foundation & Vibration Control Requirements"
+        },
+        "module": {
+          "id": "MOD-Plumbing",
+          "name": "Plumbing and Drainage Services"
+        },
+        "rule": {
+          "id": "R-PL-B2-5-001",
+          "text": "Part B2.5 requires for sump pump foundations: inertia block ≥ 2.5× pump set mass; thickness ≥ 100 mm; projection ≥ 150 mm; spring deflection reserve ≥ ½ rated deflection; base clearance 50 mm.",
+          "page_number": null,
+          "document_id": "DOC-Plumbing-2017",
+          "chapter_id": "CH-B2-5",
+          "module_id": "MOD-Plumbing"
+        },
+        "component": {
+          "id": "C-PUMP-FOUND-002",
+          "name": "Sump pump foundation",
+          "ifc_class": "IfcPump"
+        },
+        "material": null,
+        "constraintGroups": [
+          {
+            "Id": "CG-PL-B2-5-001",
+            "Rule_id": "R-PL-B2-5-001",
+            "Logic": "AND",
+            "description": "All numerical requirements for pump foundation and vibration control must be satisfied.",
+            "constraints": [
+              "C-PL-B2-5-001-INERTIA",
+              "C-PL-B2-5-001-THK",
+              "C-PL-B2-5-001-PROJ",
+              "C-PL-B2-5-001-SPRDEF",
+              "C-PL-B2-5-001-CLR"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-PL-B2-5-001-INERTIA",
+            "Type": "mass_ratio",
+            "Operator": ">=",
+            "Value": 2.5,
+            "Unit": "× pump_set_mass",
+            "Tolerance": null,
+            "note": "Inertia block mass must be at least 2.5 times that of the pump set."
+          },
+          {
+            "Id": "C-PL-B2-5-001-THK",
+            "Type": "dimension",
+            "Operator": ">=",
+            "Value": 100,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Minimum inertia block thickness is 100 mm."
+          },
+          {
+            "Id": "C-PL-B2-5-001-PROJ",
+            "Type": "projection",
+            "Operator": ">=",
+            "Value": 150,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Inertia block shall project at least 150 mm beyond the pump base."
+          },
+          {
+            "Id": "C-PL-B2-5-001-SPRDEF",
+            "Type": "spring_deflection_reserve",
+            "Operator": ">=",
+            "Value": 0.5,
+            "Unit": "× rated_deflection",
+            "Tolerance": null,
+            "note": "Spring deflection reserve must be at least half of the rated deflection."
+          },
+          {
+            "Id": "C-PL-B2-5-001-CLR",
+            "Type": "clearance",
+            "Operator": "=",
+            "Value": 50,
+            "Unit": "mm",
+            "Tolerance": null,
+            "note": "Required base clearance is 50 mm."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-Plumbing-2017",
+          "to": "CH-B2-5",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-B2-5",
+          "to": "R-PL-B2-5-001",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-PL-B2-5-001",
+          "to": "MOD-Plumbing",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-PL-B2-5-001",
+          "to": "C-PUMP-FOUND-002",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-PL-B2-5-001",
+          "to": "CG-PL-B2-5-001",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-PL-B2-5-001",
+          "to": "C-PL-B2-5-001-INERTIA",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-B2-5-001",
+          "to": "C-PL-B2-5-001-THK",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-B2-5-001",
+          "to": "C-PL-B2-5-001-PROJ",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-B2-5-001",
+          "to": "C-PL-B2-5-001-SPRDEF",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-PL-B2-5-001",
+          "to": "C-PL-B2-5-001-CLR",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-ElecWiring-2020",
+          "title": "Code of Practice for the Electricity (Wiring) Regulations",
+          "publisher": null,
+          "version": "2020 Edition",
+          "year": 2020
+        },
+        "chapter": {
+          "id": "CH-7B-3-b-ii-2020",
+          "title": "Code 7B(3)(b)(ii) – Lighting load per lampholder"
+        },
+        "module": {
+          "id": "MOD-Electrical",
+          "name": "Electrical Services"
+        },
+        "rule": {
+          "id": "R-EL-7B-3bii-2020",
+          "text": "60W per lampholder for incandescent lamps or actual wattage, whichever is greater.",
+          "page_number": null,
+          "document_id": "DOC-ElecWiring-2020",
+          "chapter_id": "CH-7B-3-b-ii-2020",
+          "module_id": "MOD-Electrical"
+        },
+        "component": {
+          "id": "C-IfcLampHolder-2020",
+          "name": "Lampholder",
+          "ifc_class": "IfcLamp"
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-EL-7B-3bii-2020",
+            "Rule_id": "R-EL-7B-3bii-2020",
+            "Logic": "OR",
+            "description": "Lighting load is the greater of: (1) 60W for incandescent lamps; or (2) Actual connected wattage.",
+            "constraints": [
+              "C-EL-7B-3bii-2020-60W",
+              "C-EL-7B-3bii-2020-Actual"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-EL-7B-3bii-2020-60W",
+            "Type": "power_load",
+            "Operator": ">=",
+            "Value": 60,
+            "Unit": "W",
+            "Tolerance": null,
+            "note": "Minimum design load per lampholder for incandescent lamp."
+          },
+          {
+            "Id": "C-EL-7B-3bii-2020-Actual",
+            "Type": "power_load",
+            "Operator": "=",
+            "Value": "actual_wattage",
+            "Unit": "W",
+            "Tolerance": null,
+            "note": "Use actual wattage if higher than 60W."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": [],
+        "material": null
+      },
+      "relations": [
+        {
+          "from": "DOC-ElecWiring-2020",
+          "to": "CH-7B-3-b-ii-2020",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-7B-3-b-ii-2020",
+          "to": "R-EL-7B-3bii-2020",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-EL-7B-3bii-2020",
+          "to": "MOD-Electrical",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-EL-7B-3bii-2020",
+          "to": "C-IfcLampHolder-2020",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-EL-7B-3bii-2020",
+          "to": "CG-EL-7B-3bii-2020",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-EL-7B-3bii-2020",
+          "to": "C-EL-7B-3bii-2020-60W",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-EL-7B-3bii-2020",
+          "to": "C-EL-7B-3bii-2020-Actual",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    },
+    {
+      "nodes": {
+        "document": {
+          "id": "DOC-FireDI-2012",
+          "title": "General Specification for Fire Service Installation in Government Buildings",
+          "publisher": null,
+          "version": "2012 Edition",
+          "year": 2012
+        },
+        "chapter": {
+          "id": "CH-Fire-DI-Coating",
+          "title": "Ductile Iron Pipe Coating Requirements"
+        },
+        "module": {
+          "id": "MOD-FireProtection",
+          "name": "Fire Protection Services"
+        },
+        "rule": {
+          "id": "R-FP-DI-COAT-2012-EXTZINC",
+          "text": "External zinc coating: 130 g/m² minimum mass; zinc purity ≥ 99.9%.",
+          "page_number": null,
+          "document_id": "DOC-FireDI-2012",
+          "chapter_id": "CH-Fire-DI-Coating",
+          "module_id": "MOD-FireProtection"
+        },
+        "component": {
+          "id": "C-IfcPipeSegment-DI-Fire-2012",
+          "name": "Ductile Iron Pipe (Fire Service)",
+          "ifc_class": "IfcPipeSegment"
+        },
+        "material": {
+          "id": "M-DI-Pipe-Fire-2012",
+          "name": "Ductile Iron Pipe",
+          "standard": null,
+          "attributes": {
+            "coating_external": "zinc",
+            "zinc_nominal_mass_g_per_m2": 130,
+            "zinc_purity_percent_min": 99.9,
+            "notes": "External zinc coating specified as 130 g/m² minimum and zinc purity at least 99.9%."
+          }
+        },
+        "constraintGroups": [
+          {
+            "Id": "CG-FP-DI-COAT-2012-EXT",
+            "Rule_id": "R-FP-DI-COAT-2012-EXTZINC",
+            "Logic": "AND",
+            "description": "External zinc coating mass and purity requirements must both be satisfied.",
+            "constraints": [
+              "C-FP-DI-EXT-ZINC-MASS",
+              "C-FP-DI-EXT-ZINC-PURITY"
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "Id": "C-FP-DI-EXT-ZINC-MASS",
+            "Type": "coating_mass",
+            "Operator": ">=",
+            "Value": 130,
+            "Unit": "g/m²",
+            "Tolerance": null,
+            "note": "Minimum external zinc coating mass: 130 g/m²."
+          },
+          {
+            "Id": "C-FP-DI-EXT-ZINC-PURITY",
+            "Type": "material_purity",
+            "Operator": ">=",
+            "Value": 99.9,
+            "Unit": "percent",
+            "Tolerance": null,
+            "note": "Zinc purity must be at least 99.9%."
+          }
+        ],
+        "space": [],
+        "workstep": [],
+        "interface": [],
+        "product": [],
+        "supplier": []
+      },
+      "relations": [
+        {
+          "from": "DOC-FireDI-2012",
+          "to": "CH-Fire-DI-Coating",
+          "type": "HAS_CHAPTER"
+        },
+        {
+          "from": "CH-Fire-DI-Coating",
+          "to": "R-FP-DI-COAT-2012-EXTZINC",
+          "type": "HAS_RULE"
+        },
+        {
+          "from": "R-FP-DI-COAT-2012-EXTZINC",
+          "to": "MOD-FireProtection",
+          "type": "BELONGS_TO_MODULE"
+        },
+        {
+          "from": "R-FP-DI-COAT-2012-EXTZINC",
+          "to": "C-IfcPipeSegment-DI-Fire-2012",
+          "type": "APPLIES_TO_COMPONENT"
+        },
+        {
+          "from": "R-FP-DI-COAT-2012-EXTZINC",
+          "to": "M-DI-Pipe-Fire-2012",
+          "type": "USES_MATERIAL"
+        },
+        {
+          "from": "R-FP-DI-COAT-2012-EXTZINC",
+          "to": "CG-FP-DI-COAT-2012-EXT",
+          "type": "HAS_CONSTRAINT_GROUP"
+        },
+        {
+          "from": "CG-FP-DI-COAT-2012-EXT",
+          "to": "C-FP-DI-EXT-ZINC-MASS",
+          "type": "HAS_CONSTRAINT"
+        },
+        {
+          "from": "CG-FP-DI-COAT-2012-EXT",
+          "to": "C-FP-DI-EXT-ZINC-PURITY",
+          "type": "HAS_CONSTRAINT"
+        }
+      ]
+    }
+  ]
+}
