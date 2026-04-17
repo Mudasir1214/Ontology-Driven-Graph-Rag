@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "id": "DOC-DI_GS-2017",
+      "labels": ["Document"],
+      "properties": {
+        "id": "DOC-DI_GS-2017",
+        "title": "DI_GS 2017",
+        "publisher": null,
+        "version": "2017",
+        "year": 2017
+      }
+    },
+    {
+      "id": "DOC-PI_GS-2017",
+      "labels": ["Document"],
+      "properties": {
+        "id": "DOC-PI_GS-2017",
+        "title": "PI_GS 2017",
+        "publisher": null,
+        "version": "2017",
+        "year": 2017
+      }
+    },
+    {
+      "id": "DOC-FS_GS-2012",
+      "labels": ["Document"],
+      "properties": {
+        "id": "DOC-FS_GS-2012",
+        "title": "FS_GS 2012",
+        "publisher": null,
+        "version": "2012",
+        "year": 2012
+      }
+    },
+
+    {
+      "id": "CH-DI-DIP-001",
+      "labels": ["Chapter"],
+      "properties": {
+        "id": "CH-DI-DIP-001",
+        "title": "C2.1.4 \"Ductile Iron Pipes and Fittings\""
+      }
+    },
+    {
+      "id": "CH-PI-DIP-001",
+      "labels": ["Chapter"],
+      "properties": {
+        "id": "CH-PI-DIP-001",
+        "title": "C1.2.4 \"Ductile Iron Pipes, Joints and Fittings\""
+      }
+    },
+    {
+      "id": "CH-FS-UNDERGROUND-PIPE-001",
+      "labels": ["Chapter"],
+      "properties": {
+        "id": "CH-FS-UNDERGROUND-PIPE-001",
+        "title": "B1.3 \"Underground Pipework\""
+      }
+    },
+
+    {
+      "id": "R-DI-DIP-COAT-001",
+      "labels": ["Rule"],
+      "properties": {
+        "id": "R-DI-DIP-COAT-001",
+        "text": "For ductile iron pipes and fittings to BS EN 598:2007 (sewer drainage), internal coating shall be HAC mortar and external coating shall be zinc plus resin.",
+        "page_number": null
+      }
+    },
+    {
+      "id": "R-PI-DIP-COAT-001",
+      "labels": ["Rule"],
+      "properties": {
+        "id": "R-PI-DIP-COAT-001",
+        "text": "For ductile iron pipes, joints and fittings to BS EN 545:2010 Class 100, internal cement lining and external bitumen coating are required.",
+        "page_number": null
+      }
+    },
+    {
+      "id": "R-FS-DIP-COAT-001",
+      "labels": ["Rule"],
+      "properties": {
+        "id": "R-FS-DIP-COAT-001",
+        "text": "For underground pipework to BS EN 545:2002 Class K12, external zinc coating of 130 g/m² with purity not less than 99.9% is required for ductile iron pipes.",
+        "page_number": null
+      }
+    },
+
+    {
+      "id": "C-DIP-001",
+      "labels": ["Component"],
+      "properties": {
+        "id": "C-DIP-001",
+        "name": "Ductile iron pipe",
+        "ifc_class": "IfcPipeSegment"
+      }
+    },
+
+    {
+      "id": "M-PLUMBING",
+      "labels": ["Module"],
+      "properties": {
+        "id": "M-PLUMBING",
+        "name": "Plumbing and Drainage Services"
+      }
+    },
+    {
+      "id": "M-FIRE",
+      "labels": ["Module"],
+      "properties": {
+        "id": "M-FIRE",
+        "name": "Fire Protection Services"
+      }
+    },
+
+    {
+      "id": "CG-DI-DIP-COAT-001",
+      "labels": ["ConstraintGroup"],
+      "properties": {
+        "id": "CG-DI-DIP-COAT-001",
+        "rule_id": "R-DI-DIP-COAT-001",
+        "logic": "AND"
+      }
+    },
+    {
+      "id": "CG-PI-DIP-COAT-001",
+      "labels": ["ConstraintGroup"],
+      "properties": {
+        "id": "CG-PI-DIP-COAT-001",
+        "rule_id": "R-PI-DIP-COAT-001",
+        "logic": "AND"
+      }
+    },
+    {
+      "id": "CG-FS-DIP-COAT-001",
+      "labels": ["ConstraintGroup"],
+      "properties": {
+        "id": "CG-FS-DIP-COAT-001",
+        "rule_id": "R-FS-DIP-COAT-001",
+        "logic": "AND"
+      }
+    },
+
+    {
+      "id": "CON-DI-INT-COAT-001",
+      "labels": ["Constraint"],
+      "properties": {
+        "id": "CON-DI-INT-COAT-001",
+        "type": "internal_coating_material",
+        "operator": "=",
+        "value": "HAC mortar",
+        "unit": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "CON-DI-EXT-COAT-001",
+      "labels": ["Constraint"],
+      "properties": {
+        "id": "CON-DI-EXT-COAT-001",
+        "type": "external_coating_system",
+        "operator": "=",
+        "value": "zinc + resin",
+        "unit": null,
+        "tolerance": null
+      }
+    },
+
+    {
+      "id": "CON-PI-INT-COAT-001",
+      "labels": ["Constraint"],
+      "properties": {
+        "id": "CON-PI-INT-COAT-001",
+        "type": "internal_coating_material",
+        "operator": "=",
+        "value": "cement lining",
+        "unit": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "CON-PI-EXT-COAT-001",
+      "labels": ["Constraint"],
+      "properties": {
+        "id": "CON-PI-EXT-COAT-001",
+        "type": "external_coating_material",
+        "operator": "=",
+        "value": "bitumen",
+        "unit": null,
+        "tolerance": null
+      }
+    },
+
+    {
+      "id": "CON-FS-EXT-COAT-001",
+      "labels": ["Constraint"],
+      "properties": {
+        "id": "CON-FS-EXT-COAT-001",
+        "type": "external_coating_specification",
+        "operator": "=",
+        "value": "zinc 130 g/m², purity ≥99.9%",
+        "unit": null,
+        "tolerance": null
+      }
+    },
+
+    {
+      "id": "MAT-COAT-HAC-MORTAR",
+      "labels": ["Material"],
+      "properties": {
+        "id": "MAT-COAT-HAC-MORTAR",
+        "name": "HAC mortar lining",
+        "standard": null,
+        "attributes": {
+          "application": "internal lining",
+          "pipe_type": "ductile iron"
+        }
+      }
+    },
+    {
+      "id": "MAT-COAT-ZINC-RESIN",
+      "labels": ["Material"],
+      "properties": {
+        "id": "MAT-COAT-ZINC-RESIN",
+        "name": "Zinc plus resin external coating",
+        "standard": null,
+        "attributes": {
+          "application": "external coating",
+          "pipe_type": "ductile iron"
+        }
+      }
+    },
+    {
+      "id": "MAT-COAT-CEMENT-LINING",
+      "labels": ["Material"],
+      "properties": {
+        "id": "MAT-COAT-CEMENT-LINING",
+        "name": "Cement lining",
+        "standard": null,
+        "attributes": {
+          "application": "internal lining",
+          "pipe_type": "ductile iron"
+        }
+      }
+    },
+    {
+      "id": "MAT-COAT-BITUMEN",
+      "labels": ["Material"],
+      "properties": {
+        "id": "MAT-COAT-BITUMEN",
+        "name": "Bitumen external coating",
+        "standard": null,
+        "attributes": {
+          "application": "external coating",
+          "pipe_type": "ductile iron"
+        }
+      }
+    },
+    {
+      "id": "MAT-COAT-ZINC-130G",
+      "labels": ["Material"],
+      "properties": {
+        "id": "MAT-COAT-ZINC-130G",
+        "name": "Zinc coating 130 g/m²",
+        "standard": null,
+        "attributes": {
+          "application": "external coating",
+          "pipe_type": "ductile iron",
+          "mass_per_area": "130 g/m²",
+          "purity": ">=99.9%"
+        }
+      }
+    }
+  ],
+
+  "relationships": [
+    { "start": "DOC-DI_GS-2017", "end": "CH-DI-DIP-001", "type": "HAS_CHAPTER", "properties": {} },
+    { "start": "DOC-PI_GS-2017", "end": "CH-PI-DIP-001", "type": "HAS_CHAPTER", "properties": {} },
+    { "start": "DOC-FS_GS-2012", "end": "CH-FS-UNDERGROUND-PIPE-001", "type": "HAS_CHAPTER", "properties": {} },
+
+    { "start": "CH-DI-DIP-001", "end": "R-DI-DIP-COAT-001", "type": "HAS_RULE", "properties": {} },
+    { "start": "CH-PI-DIP-001", "end": "R-PI-DIP-COAT-001", "type": "HAS_RULE", "properties": {} },
+    { "start": "CH-FS-UNDERGROUND-PIPE-001", "end": "R-FS-DIP-COAT-001", "type": "HAS_RULE", "properties": {} },
+
+    { "start": "R-DI-DIP-COAT-001", "end": "C-DIP-001", "type": "APPLIES_TO_COMPONENT", "properties": {} },
+    { "start": "R-PI-DIP-COAT-001", "end": "C-DIP-001", "type": "APPLIES_TO_COMPONENT", "properties": {} },
+    { "start": "R-FS-DIP-COAT-001", "end": "C-DIP-001", "type": "APPLIES_TO_COMPONENT", "properties": {} },
+
+    { "start": "R-DI-DIP-COAT-001", "end": "M-PLUMBING", "type": "BELONGS_TO_MODULE", "properties": {} },
+    { "start": "R-PI-DIP-COAT-001", "end": "M-PLUMBING", "type": "BELONGS_TO_MODULE", "properties": {} },
+    { "start": "R-FS-DIP-COAT-001", "end": "M-FIRE", "type": "BELONGS_TO_MODULE", "properties": {} },
+
+    { "start": "R-DI-DIP-COAT-001", "end": "CG-DI-DIP-COAT-001", "type": "HAS_CONSTRAINT_GROUP", "properties": {} },
+    { "start": "R-PI-DIP-COAT-001", "end": "CG-PI-DIP-COAT-001", "type": "HAS_CONSTRAINT_GROUP", "properties": {} },
+    { "start": "R-FS-DIP-COAT-001", "end": "CG-FS-DIP-COAT-001", "type": "HAS_CONSTRAINT_GROUP", "properties": {} },
+
+    { "start": "CG-DI-DIP-COAT-001", "end": "CON-DI-INT-COAT-001", "type": "HAS_CONSTRAINT", "properties": {} },
+    { "start": "CG-DI-DIP-COAT-001", "end": "CON-DI-EXT-COAT-001", "type": "HAS_CONSTRAINT", "properties": {} },
+
+    { "start": "CG-PI-DIP-COAT-001", "end": "CON-PI-INT-COAT-001", "type": "HAS_CONSTRAINT", "properties": {} },
+    { "start": "CG-PI-DIP-COAT-001", "end": "CON-PI-EXT-COAT-001", "type": "HAS_CONSTRAINT", "properties": {} },
+
+    { "start": "CG-FS-DIP-COAT-001", "end": "CON-FS-EXT-COAT-001", "type": "HAS_CONSTRAINT", "properties": {} },
+
+    { "start": "R-DI-DIP-COAT-001", "end": "MAT-COAT-HAC-MORTAR", "type": "USES_MATERIAL", "properties": {} },
+    { "start": "R-DI-DIP-COAT-001", "end": "MAT-COAT-ZINC-RESIN", "type": "USES_MATERIAL", "properties": {} },
+
+    { "start": "R-PI-DIP-COAT-001", "end": "MAT-COAT-CEMENT-LINING", "type": "USES_MATERIAL", "properties": {} },
+    { "start": "R-PI-DIP-COAT-001", "end": "MAT-COAT-BITUMEN", "type": "USES_MATERIAL", "properties": {} },
+
+    { "start": "R-FS-DIP-COAT-001", "end": "MAT-COAT-ZINC-130G", "type": "USES_MATERIAL", "properties": {} },
+
+    { "start": "C-DIP-001", "end": "MAT-COAT-HAC-MORTAR", "type": "CAN_BE_COATED_WITH", "properties": {} },
+    { "start": "C-DIP-001", "end": "MAT-COAT-ZINC-RESIN", "type": "CAN_BE_COATED_WITH", "properties": {} },
+    { "start": "C-DIP-001", "end": "MAT-COAT-CEMENT-LINING", "type": "CAN_BE_COATED_WITH", "properties": {} },
+    { "start": "C-DIP-001", "end": "MAT-COAT-BITUMEN", "type": "CAN_BE_COATED_WITH", "properties": {} },
+    { "start": "C-DIP-001", "end": "MAT-COAT-ZINC-130G", "type": "CAN_BE_COATED_WITH", "properties": {} }
+  ]
+}

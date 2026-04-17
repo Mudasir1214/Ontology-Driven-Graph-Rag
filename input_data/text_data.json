@@ -1,0 +1,154 @@
+{
+  "entries": [
+    {
+      "text": "Document：Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment 2022 edition\n\nText: 2022 – Appendix 8, Item 2 introduces a distinct entry “Automatic actuating device – Cable shall comply with” several options including “BS 6387 Cat. CWZ”, “BS EN 60702”, and “BS 8491 (a duration of survival time of 120 minutes)”, plus BS 7629-1 and BS 7846 references again split by overall diameter not exceeding / exceeding 20 mm. \n",
+      "module": "Fire Protection",
+      "chapter": "J001"
+    },
+    {
+      "text": "Document：Codes of Practice for Minimum Fire Service Installations and Equipment and Inspection, Testing and Maintenance of Installations and Equipment 2012 edition\n\nText: 2012 – Appendix 8, Item 10 describes “Emergency generators – Power supply cables (from emergency generator to main switchboard)” and requires them to “conform with (a) BS 6387 Cat. CWZ; or (b) BS 6207 or BS EN 60702; or (c) other international standards acceptable…” – again, no PH rating or survival-time requirement is stated.  ",
+      "module": "Fire Protection",
+      "chapter": "J002"
+    },
+    {
+      "text": "Document: Code of Practice for the Electricity (Wiring) Regulations 2020 Edition, Code 7B(3)(b)(ii) – Lighting load per lampholder\n\nText: 60W per lampholder for incandescent lamps or actual wattage, whichever is greater",
+      "module": "Electrical",
+      "chapter": "J003"
+    },
+    {
+      "text": "Document: Code of Practice for the Electricity (Wiring) Regulations 2015 Edition, Code 7B(3)(b)(ii) – Lighting load per lampholder\n\nText: connected load 100W per lampholder",
+      "module": "Electrical",
+      "chapter": "J004"
+    },
+    {
+      "text": "Document: Code of Practice for the Electricity (Wiring) Regulations 2020 Edition, Code 17A(4) – HV warning notice size\n\nText: HV label at cable routes: letters “not less than 50 mm high**; spacing ≤ 3 m",
+      "module": "Electrical",
+      "chapter": "J005"
+    },
+    {
+      "text": "Document: Code of Practice for the Electricity (Wiring) Regulations 2015 Edition,Code 17A(4) – HV warning notice size\n\nText: HV label: letters “not less than 30 mm high”",
+      "module": "Electrical",
+      "chapter": "J006"
+    },
+    {
+      "text": "Document: General Specification for Drainage Installation in Government Buildings 2017 Edition. Pump Foundation & Vibration Control Numerical Requirements\n\nText: No sump-pump-specific numerical requirements in B3; mainly general installation provisions",
+      "module": "Drainage",
+      "chapter": "J007"
+    },
+    {
+      "text": "Document: General Specification for Plumbing Installation in Government Buildings 2017 Edition. Pump Foundation & Vibration Control Numerical Requirements\n\nText: Part B2.5 Pump Foundation applies to sump pumps, requiring: inertia block ≥ 2.5× pump set mass; thickness ≥ 100 mm; projection ≥ 150 mm; spring deflection reserve ≥ ? rated deflection; base clearance 50 mm",
+      "module": "Plumbing",
+      "chapter": "J008"
+    },
+    {
+      "text": "Document: General Specification for Plumbing Installation in Government Buildings 2017 Edition. Galvanised Steel Pipe. Diameter Controls.\n\nText: ≤100 mm: screwed; ≥150 mm: flanged; Sleeves ≤150 mm / >150 mm",
+      "module": "Plumbing",
+      "chapter": "J009"
+    },
+    {
+      "text": "Document: General Specification for Fire Service Installation in Government Buildings 2012 Edition. Galvanised Steel Pipe. Diameter Controls. \n\nText: ≤50 mm: screwed joints; 50–150 mm: mechanical couplings; >150 mm: flanged; Underground: ≥80 mm must use ductile iron (steel optional only below 80 mm)",
+      "module": "Fire Protection",
+      "chapter": "J010"
+    },
+    {
+      "text": "Document: General Specification for Drainage Installation in Government Buildings 2017 Edition. Ductile Iron Pipe. Coating Requirements. \n\nText: Internal HAC mortar; external zinc + resin",
+      "module": "Drainage",
+      "chapter": "J011"
+    },
+    {
+      "text": "Document: General Specification for Plumbing Installation in Government Buildings 2017 Edition. Ductile Iron Pipe. Coating Requirements. \n\nText: Internal cement lining; external bitumen",
+      "module": "Plumbing",
+      "chapter": "J012"
+    },
+    {
+      "text": "Document: General Specification for Fire Service Installation in Government Buildings 2012 Edition. Ductile Iron Pipe. Coating Requirements.  \n\nText: External zinc 130 g/m2, ≥99.9% purity",
+      "module": "Fire Protection",
+      "chapter": "J013"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.1.8.3 Vibration Isolators. Type 'E' - Spring Hangers\n\nText: Submittals for approval shall include scale drawing of the hanger showing  its 30° to 35° swing capability.\n",
+      "module": "Mechenical",
+      "chapter": "J014"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.1.8.3 Vibration Isolators. Type 'B' - Restrained Spring Mounts\n\nText: A minimum of 10 mm clearance shall be maintained around restraining bolts and between the housing and the spring so as not to interfere with the spring action. Limit stops shall be out of contact during normal operations.",
+      "module": "Mechenical",
+      "chapter": "J015"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.2.13 Water Handling Equipment. Saline Water Pumps\n\nText: Stainless steel shall be used for water with temperature >28°C.",
+      "module": "Mechenical",
+      "chapter": "J016"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.2.8  Noise And Vibration Control. Acoustic Ductlag\n\nText: Unless otherwise specified, the acoustic duct lag shall consist of 50 mm thick glass fibre/lead sheet or barium loaded vinyl sheet/glass fibre with a factory applied aluminium vapour-barrier jacket which shall also be used for thermal insulation of ductwork.   \nThe fibreglass shall have a density of 24 kg/m3 and thermal conductivity of 0.032 W/moC or lower. The lead sheet shall have a surface weight of 5 kg/m2 .",
+      "module": "Mechenical",
+      "chapter": "J017"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n7.2.13 High Voltage Switchgear and Equipment \n\nText: The auto-transformers for the auto-transformer motor starters shall comply with the following specific requirements: -   Type : Indoor and floor mounted type for no breaking starting of squirrel cage 3-phase induction motor;  Standard : IEC62271-106;  System Voltage : 3.3 kV, 6.6 kV or 11 kV as specified;  Frequency : 50 Hz;  Connections : Auto-star for auto-transformer starting;  Insulation Level : 45 kV peak impulse voltage for 1/50 microsecond;  Cooling : Natural air cooled; and  Tappings : Off load tap changers with 60%, 75% and 85% of the line voltage to limit the starting current to 2.5 times of full load current.\n\n",
+      "module": "Electrical",
+      "chapter": "J018"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n7.1.2 Wiring Systems\n\nText: The minimum outside diameter of any conduit shall be 20 mm.\n\n",
+      "module": "Electrical",
+      "chapter": "J019"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.1.3 Air Handling Equipment\n\nText: The location of the local control box shall be within 600 mm from the terminal box of the fan coil unit and the duct heater.\n",
+      "module": "Mechenical",
+      "chapter": "J020"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: Unless otherwise stated, ceiling fans shall be mounted no lower than 2400 mm and no higher than 2600 mm from finished floor levels. Down rod lengths shall be sized to meet these requirements. \n",
+      "module": "Mechenical",
+      "chapter": "J021"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.1.5 Central Control and Monitoring System (CCMS)\n\nText: The time resolution for cycling within each period. The resolution shall be, as a minimum, selectable on 1 minute increments between 1 and 120 minutes; \n",
+      "module": "Mechenical",
+      "chapter": "J022"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\n6.1.5 Central Control and Monitoring System (CCMS)\n\nText: The percentage \"off\" time within each time resolution. The percentage shall be selected, as a minimum, on 5% increments between 5 and 95%\n",
+      "module": "Mechenical",
+      "chapter": "J023"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: Joints in copper pipe shall be flanged, flared (up to 20 mm OD only), or brazed with or  without capillary fittings.\n",
+      "module": "Mechenical",
+      "chapter": "J024"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: Seals shall project a minimum of 25 mm past either face of the walls.\n",
+      "module": "Mechenical",
+      "chapter": "J025"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: Wiring system in trunking installation shall consist of non-sheathed copper cables or sheathed copper cables. Cables for 3-phase circuit shall be 450/750 V grade or above.\n",
+      "module": "Electrical",
+      "chapter": "J026"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: A loop shall be introduced in a cable immediately before its entry into an equipment which is subject to vibration or occasional movement. A clear space of at least 10 mm shall be maintained at the point in the loop where the cable passes over itself.\n",
+      "module": "Electrical",
+      "chapter": "J027"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2028 Edition. \n\nText: The cable tray except those of short run less than 300 mm long where at least 1 set of hanger or bracket is required, shall be supported by at least 2 sets of hangers or brackets of adequate mechanical strength securely fixed to the walls, ceiling or other structure. Unless otherwise specified the hangers or brackets shall be hot-dip galvanised, painted with anti-rust epoxy coating or the use anti-rusting material to prevent corrosion. Fixings for cable trays shall be disposed at regular intervals not exceeding 1.2 m for straight run and at a distance not exceeding 225 mm on both sides from a bend or intersection.   A minimum clear space of 20 mm shall be left behind all cable trays.\n",
+      "module": "Electrical",
+      "chapter": "J028"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: The shanks of the screws shall not protrude beyond the nuts by more than three threads. Where saddles exceed 150 mm in length, intermediate fixings shall be provided such that the maximum spacing between screws shall not exceed 150 mm.\n",
+      "module": "Electrical",
+      "chapter": "J029"
+    },
+    {
+      "text": "Document: General Specification for Building Services Installation in Government Buildings of The Hong Kong Special Administrative Region\n2022 Edition. \n\nText: The wire mesh cable tray except those of short run less than 300 mm long where at least 1 set of hanger or bracket is required, shall be supported by at least 2 sets of hangers or brackets. Supports shall be properly spaced at distance not exceeding 1,500 mm for straight run to satisfactorily support the weight of the tray and cables.\n",
+      "module": "Electrical",
+      "chapter": "J030"
+    }
+  ]
+}
