@@ -49,8 +49,8 @@ conda activate muda_env
 ```
 #### 2️⃣ Clone Repository
 ```bash
-git clone https://github.com/MuhammadShifa/muda-xin-llm.git
-cd muda-xin-llm
+git clone https://github.com/Mudasir1214/MiMEP-Ontology-based-LLM.git
+cd MiMEP-Ontology-based-LLM
 ```
 #### 3️⃣ Install Dependencies
 ```bash
