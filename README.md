@@ -1,4 +1,4 @@
-# MiMEP-Ontalogy-based-LLM
+# MiMEP-Ontology-based-LLM
 ## Graph RAG Intelligent Q&A System
 
 A powerful **Graph-based Retrieval-Augmented Generation (Graph RAG)** system that combines **Large Language Models (DeepSeek / OpenAI)** with a **Neo4j Knowledge Graph** to deliver **accurate, explainable, and visual question answering**.
