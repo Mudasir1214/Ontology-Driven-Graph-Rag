@@ -49,12 +49,12 @@ conda activate muda_env
 ```
 #### 2️⃣ Clone Repository
 ```bash
-git clone https://github.com/Mudasir1214/MiMEP-Ontology-based-LLM.git
-cd MiMEP-Ontology-based-LLM
+git clone https://github.com/MuhammadShifa/muda-xin-llm.git
+cd muda-xin-llm
 ```
 #### 3️⃣ Install Dependencies
 ```bash
-pip install streamlit streamlit_agraph openai neo4j pandas openpyxl tqdm
+pip install streamlit streamlit_agraph openai neo4j pandas openpyxl tqdm faiss-cpu
 ```
 ---
 
@@ -121,32 +121,49 @@ batch_data/
 
  ▶️ Run Import Script:
 ```python
-python import_json.py
+python 4a. import_batch_json_to_neo4j.py
 ```
 
 ✔ This script will:
 
 - Clean existing Neo4j database  
-- Parse JSON files  
+- Parse Batch JSON files  
 - Build nodes and relationships  
 - Initialize knowledge graph
 
+```python
+python 4b. import_ductile_json_to_neo4j.py
+```
+
+✔ This script will:
+
+- append additional data to Neo4j database  
+- Parse Ductile JSON files for Proposed Ontalogy RAG
+
+```python
+python 4c. build_faiss_index_for_vector_rag.py
+```
+
+✔ This script will:
+
+- index the embedded data of text_data.json into FAISS  
 ---
 
 ## 🚀 Phase 5: Launch Application
 
 - **Start Streamlit App**:
   ```python
-  streamlit run streamlit_app.py
+  cd app
+  streamlit run app.py
   ```
 - **Access the Web App**:
     - Your default web browser should automatically open the app. If it doesn't, manually go to: http://localhost:8501
 
 - **How to Use It**:
-  -  Left Sidebar: You can toggle between 3 experimental modes (Baseline LLM, Text RAG, and Graph RAG).
-  -  Highly Recommended: Mode 3 (Graph RAG):
-     - Click the Live Topology tab to interact with a visual, zoomable spiderweb of your knowledge graph!
-     - Click the Intelligent Chat tab to ask engineering questions (e.g., "Is 50mm clearance for Pump Base?").
+  -  Left Sidebar: You can toggle between 5 experimental modes (Baseline (Pure LLM), Vector RAG, Graph RAG, Hybrid RAG, Proposed Ontalogy based RAG).
+  -  Highly Recommended: Mode 5 (Proposed ontology based RAG):
+     - Click the `Chat` tab to ask engineering question
+     - Click the `Retrieved Knowledge` tab to check the sources of retrieved knowledge for each relevant questions asked.
 
 ---
 
