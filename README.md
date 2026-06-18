@@ -1,7 +1,7 @@
-# Ontology-Driven-Graph-RAG
-## Graph RAG Intelligent Q&A System
+# Ontology-driven Graph RAG for Traceable Compliance Reasoning and Conflict Detection in Modular Hospital Building Services Design
+## OD-GRAG Intelligent Q&A System
 
-A powerful **Graph-based Retrieval-Augmented Generation (Graph RAG)** system that combines **Large Language Models (DeepSeek / OpenAI)** with a **Neo4j Knowledge Graph** to deliver **accurate, explainable, and visual question answering**.
+A powerful **Ontology-driven Graph Retrieval-Augmented Generation (OD-GRAG)** system that combines **Large Language Models (DeepSeek / OpenAI)** with a **Ontology-driven Knowledge Graph** in Neo4j to deliver **accurate, explainable, and visual question answering** without any hallucination.
 
 ---
 
@@ -12,9 +12,11 @@ A powerful **Graph-based Retrieval-Augmented Generation (Graph RAG)** system tha
 - 🎯 **Reduced Hallucination** — Answers strictly grounded in graph data  
 - 📊 **Interactive Visualization** — Explore knowledge via graph topology  
 - 💬 **Multi-Mode Q&A System**
-  - Baseline LLM  
-  - Text-based RAG  
-  - Graph RAG (Recommended ⭐)  
+  - STandalone LLMs (No RAG)  
+  - Vector-based text RAG
+  - Generic graph-based RAG
+  - Hybrid RAG  
+  - Ontology-driven graph RAG (Recommended ⭐)  
 - 📈 **Automated Benchmarking & Evaluation**
 
 ---
@@ -24,7 +26,7 @@ A powerful **Graph-based Retrieval-Augmented Generation (Graph RAG)** system tha
 ```text
 User Query
 ↓
-Graph Retrieval (Neo4j)
+OD-GRAG Retrieval (Neo4j)
 ↓
 Context Construction
 ↓
@@ -49,8 +51,7 @@ conda activate muda_env
 ```
 #### 2️⃣ Clone Repository
 ```bash
-git clone https://github.com/MuhammadShifa/muda-xin-llm.git
-cd muda-xin-llm
+[https://github.com/Mudasir1214/Ontology-Driven-Graph-Rag]
 ```
 #### 3️⃣ Install Dependencies
 ```bash
@@ -162,7 +163,7 @@ python 4c. build_faiss_index_for_vector_rag.py
 - **How to Use It**:
   -  Left Sidebar: You can toggle between 5 experimental modes (Baseline (Pure LLM), Vector RAG, Graph RAG, Hybrid RAG, Proposed Ontalogy based RAG).
   -  Highly Recommended: Mode 5 (Proposed ontology based RAG):
-     - Click the `Chat` tab to ask engineering question
+     - Click the `Chat` tab to ask any question regarding the modular hospital building services design
      - Click the `Retrieved Knowledge` tab to check the sources of retrieved knowledge for each relevant questions asked.
 
 ---
