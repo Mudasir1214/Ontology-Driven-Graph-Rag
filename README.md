@@ -116,8 +116,11 @@ Before running the system, you must load data into Neo4j.
 #### 📂 Dataset Location
 
 ```text
-batch_data/
- ├── *.json
+input_data/
+├── batch_data/
+  ├── *.json
+├── data_ductile.json
+├── text_data.json
  ```
 
  ▶️ Run Import Script:
