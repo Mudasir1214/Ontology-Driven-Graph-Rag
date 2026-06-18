@@ -182,7 +182,7 @@ Make sure all previous setup phases are completed successfully.
 #### ▶️ Step 1: Run Benchmark Script
 
 ```python
-python 5a. final_run.py
+python 5a. run_rag_full_benchmark.py
 ```
 ✔ This will:
 
