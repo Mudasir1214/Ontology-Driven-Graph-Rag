@@ -51,7 +51,7 @@ conda activate muda_env
 ```
 #### 2️⃣ Clone Repository
 ```bash
-[https://github.com/Mudasir1214/Ontology-Driven-Graph-Rag]
+https://github.com/Mudasir1214/Ontology-Driven-Graph-Rag
 ```
 #### 3️⃣ Install Dependencies
 ```bash
